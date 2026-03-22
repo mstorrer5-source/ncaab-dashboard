@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>March Madness Dashboard</title>
+  <style>
+    :root {
+      --navy:#112746;
+      --navy-2:#1b3a65;
+      --orange:#f36b21;
+      --orange-2:#ff9653;
+      --cream:#fff6ea;
+      --paper:#fffdf9;
+      --ink:#1e2430;
+      --muted:#6f7680;
+      --line:#dcccb8;
+      --green:#167142;
+      --gold:#ffcf72;
+      --shadow:0 20px 50px rgba(17,39,70,.12);
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(243,107,33,.2), transparent 28%),
+        radial-gradient(circle at top right, rgba(22,113,66,.14), transparent 24%),
+        linear-gradient(180deg, #fffaf4, #fff2e2);
+      font-family:"Aptos","Trebuchet MS","Segoe UI",sans-serif;
+    }
+    .page { max-width:1500px; margin:0 auto; padding:26px 20px 44px; }
+    .panel {
+      border:1px solid rgba(220,204,184,.92);
+      border-radius:24px;
+      background:rgba(255,253,249,.94);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(8px);
+    }
+    .hero {
+      padding:28px;
+      color:#fff7ef;
+      background:linear-gradient(135deg, rgba(17,39,70,.98), rgba(27,58,101,.96));
+      overflow:hidden;
+      position:relative;
+    }
+    .hero::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg, transparent 0 18%, rgba(255,255,255,.04) 18% 19%, transparent 19% 39%, rgba(255,255,255,.04) 39% 40%, transparent 40% 60%, rgba(255,255,255,.04) 60% 61%, transparent 61%);
+      pointer-events:none;
+    }
+    .hero-grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1.45fr) minmax(300px,.9fr); gap:20px; }
+    .kicker {
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      color:#ffd4b1;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    h1 {
+      margin:14px 0 10px;
+      font-family:"Franklin Gothic Medium","Aptos Display","Trebuchet MS",sans-serif;
+      font-size:clamp(2.3rem,5vw,3.9rem);
+      line-height:.95;
+      letter-spacing:-.05em;
+    }
+    .hero-copy { max-width:820px; font-size:15px; line-height:1.7; color:rgba(255,247,239,.84); }
+    .stats { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; margin-top:20px; }
+    .stat {
+      padding:16px;
+      border-radius:18px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.1);
+    }
+    .stat .label { color:rgba(255,247,239,.72); font-size:11px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+    .stat .value { margin-top:10px; font-size:33px; font-weight:900; line-height:1; }
+    .stat .note { margin-top:8px; color:rgba(255,247,239,.78); font-size:13px; line-height:1.45; }
+    .top-box {
+      padding:18px;
+      border-radius:22px;
+      background:rgba(255,255,255,.09);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .top-box h2 { margin:0; font-size:14px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; color:#ffd4b1; }
+    .top-list { display:grid; gap:10px; margin-top:14px; }
+    .top-play {
+      display:grid;
+      grid-template-columns:42px 1fr;
+      gap:12px;
+      padding:12px;
+      border-radius:16px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .top-play .rank {
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      background:linear-gradient(135deg, var(--orange), var(--orange-2));
+      color:white;
+      font-weight:900;
+    }
+    .top-play .matchup { font-weight:800; font-size:15px; }
+    .top-play .pick { margin-top:4px; font-weight:700; color:#fff4e8; }
+    .top-meta { margin-top:4px; font-size:12px; color:rgba(255,247,239,.72); }
+    .controls { margin-top:18px; padding:18px 20px; }
+    .controls-top { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; }
+    .controls-title { font-size:15px; font-weight:900; letter-spacing:.08em; text-transform:uppercase; color:var(--navy); }
+    .controls-note { color:var(--muted); font-size:14px; line-height:1.5; }
+    .controls-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)) auto; gap:12px; margin-top:16px; align-items:end; }
+    .control { display:grid; gap:6px; font-size:12px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+    select, input {
+      width:100%;
+      padding:13px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--ink);
+      font:inherit;
+    }
+    .reset-btn {
+      border:none;
+      border-radius:14px;
+      padding:13px 18px;
+      background:linear-gradient(135deg, var(--navy), var(--navy-2));
+      color:#fff;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .legend, .meta-row, .books-row { display:flex; gap:8px; flex-wrap:wrap; }
+    .legend { margin-top:14px; }
+    .legend-pill, .status-pill, .chip, .book-pill {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      min-height:30px;
+      padding:6px 11px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+    }
+    .legend-pill, .chip, .book-pill {
+      background:#fff;
+      border:1px solid rgba(17,39,70,.08);
+      color:var(--navy);
+    }
+    .status-pill.bet, .legend-pill.bet { background:rgba(22,113,66,.12); color:var(--green); border:1px solid rgba(22,113,66,.18); }
+    .status-pill.track, .legend-pill.track { background:rgba(243,107,33,.12); color:#b75018; border:1px solid rgba(243,107,33,.2); }
+    .status-pill.pass, .legend-pill.pass { background:rgba(111,118,128,.1); color:#616872; border:1px solid rgba(111,118,128,.14); }
+    .board-meta { margin-top:16px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .games { display:grid; gap:16px; margin-top:18px; }
+    .game-card {
+      position:relative;
+      overflow:hidden;
+      padding:22px;
+      border-radius:26px;
+      background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,249,241,.95));
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+    .game-card::before {
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:8px;
+      background:rgba(111,118,128,.25);
+    }
+    .game-card.bet::before { background:linear-gradient(180deg, var(--green), #2da35f); }
+    .game-card.track::before { background:linear-gradient(180deg, var(--orange), var(--gold)); }
+    .game-card.pass::before { background:linear-gradient(180deg, #a8adb5, #d2d7dc); }
+    .game-top { display:grid; grid-template-columns:minmax(0,1fr) 180px; gap:18px; align-items:start; }
+    .time-kicker { color:var(--orange); font-size:12px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+    .game-top h2 {
+      margin:8px 0 10px;
+      font-family:"Franklin Gothic Medium","Aptos Display","Trebuchet MS",sans-serif;
+      font-size:clamp(1.35rem,2vw,1.95rem);
+      line-height:1.03;
+      letter-spacing:-.03em;
+    }
+    .grade-box {
+      padding:16px;
+      border-radius:20px;
+      background:linear-gradient(180deg, rgba(17,39,70,.06), rgba(243,107,33,.05));
+      border:1px solid rgba(17,39,70,.08);
+    }
+    .grade-title, .label { color:var(--muted); font-size:11px; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+    .grade-score { margin-top:8px; font-size:44px; line-height:1; font-weight:900; letter-spacing:-.05em; color:var(--navy); }
+    .grade-score.elite { color:var(--green); }
+    .grade-score.action { color:#b55018; }
+    .grade-score.watch { color:#916a13; }
+    .grade-score.fade { color:#858b95; }
+    .grade-bar { margin-top:12px; height:10px; border-radius:999px; background:rgba(17,39,70,.08); overflow:hidden; }
+    .grade-bar span { display:block; height:100%; background:linear-gradient(90deg, var(--orange), var(--green)); }
+    .grade-note { margin-top:8px; color:var(--muted); font-size:12px; font-weight:700; }
+    .summary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:18px; }
+    .summary-card { padding:16px; border-radius:18px; border:1px solid rgba(17,39,70,.08); background:#fff; }
+    .summary-card.primary { background:linear-gradient(180deg, rgba(243,107,33,.08), #fff); }
+    .summary-card .value { margin-top:8px; font-size:18px; line-height:1.3; font-weight:800; }
+    .summary-card .sub { margin-top:6px; color:var(--muted); font-size:13px; line-height:1.5; }
+    .signal-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-top:16px; }
+    .signal {
+      display:grid;
+      gap:5px;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid rgba(17,39,70,.08);
+      background:#fff;
+    }
+    .signal span { color:var(--muted); font-size:11px; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+    .signal strong { font-size:15px; line-height:1.35; }
+    .signal em { font-style:normal; color:var(--muted); font-size:12px; font-weight:700; }
+    .signal-hot { background:rgba(22,113,66,.08); border-color:rgba(22,113,66,.18); }
+    .signal-warm { background:rgba(243,107,33,.08); border-color:rgba(243,107,33,.18); }
+    .signal-soft { background:rgba(255,207,114,.16); border-color:rgba(255,207,114,.35); }
+    .signal-muted { background:rgba(111,118,128,.06); color:#616872; }
+    .book-pill.muted { color:var(--muted); background:rgba(111,118,128,.06); border-color:rgba(111,118,128,.1); }
+    .detail-grid { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:12px; margin-top:16px; }
+    .detail-card {
+      padding:16px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,246,235,.94));
+      border:1px solid rgba(17,39,70,.08);
+    }
+    .detail-card p { margin:8px 0 0; color:var(--muted); font-size:13px; line-height:1.62; }
+    .no-results {
+      display:none;
+      margin-top:16px;
+      padding:18px;
+      border-radius:18px;
+      border:1px dashed var(--line);
+      background:rgba(255,255,255,.78);
+      color:var(--muted);
+      text-align:center;
+      font-weight:700;
+    }
+    @media (max-width:1180px) {
+      .hero-grid, .game-top, .summary-grid, .detail-grid { grid-template-columns:1fr; }
+      .stats, .controls-grid, .signal-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width:760px) {
+      .page { padding:16px 12px 32px; }
+      .hero, .controls, .game-card { padding:18px; }
+      .stats, .controls-grid, .summary-grid, .signal-grid, .detail-grid { grid-template-columns:1fr; }
+      h1 { font-size:2.15rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="panel hero">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">March Madness Market Board</div>
+          <h1>Every game on one sharper board.</h1>
+          <div class="hero-copy">Sort the slate by grade, signed edge differential, absolute edge size, win probability, or tip time. Grade is the live spread play score out of 100, while edge and win rate come straight from the latest model and live market snapshot.</div>
+          <div class="stats">
+            <article class="stat"><div class="label">Games</div><div class="value">15</div><div class="note">Full slate shown, even when the model says pass.</div></article>
+            <article class="stat"><div class="label">Bet</div><div class="value">2</div><div class="note">Current spread plays above the bet threshold.</div></article>
+            <article class="stat"><div class="label">Track</div><div class="value">3</div><div class="note">Near-miss games worth monitoring.</div></article>
+            <article class="stat"><div class="label">Avg Grade</div><div class="value">52.4</div><div class="note">Average spread play score on today’s card.</div></article>
+            <article class="stat"><div class="label">Best Edge</div><div class="value">6.44 pts</div><div class="note">Largest current spread edge size on the board.</div></article>
+          </div>
+        </div>
+        <aside class="top-box">
+          <h2>Top live values</h2>
+          <div class="top-list">
+            <article class="top-play">
+              <div class="rank">#1</div>
+              <div>
+                <div class="matchup">Wichita State at Oklahoma State</div>
+                <div class="pick">Wichita State +3.5</div>
+                <div class="top-meta">T2 | Grade 87 | Edge 6.44 pts | Sun Mar 22, 07:30 PM</div>
+              </div>
+            </article>
+            
+            <article class="top-play">
+              <div class="rank">#2</div>
+              <div>
+                <div class="matchup">George Washington at New Mexico</div>
+                <div class="pick">George Washington +7.5</div>
+                <div class="top-meta">T2 | Grade 77 | Edge 5.04 pts | Sun Mar 22, 07:00 PM</div>
+              </div>
+            </article>
+            </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="panel controls">
+      <div class="controls-top">
+        <div>
+          <div class="controls-title">Board controls</div>
+          <div class="controls-note">Use the controls to float the best edges to the top without hiding the rest of the slate.</div>
+        </div>
+        <div class="controls-note">Sharp books in snapshot: 6 | BetMGM, BetOnline.ag, BetRivers, DraftKings, FanDuel, LowVig.ag</div>
+      </div>
+      <div class="controls-grid">
+        <label class="control">Sort
+          <select id="sortSelect">
+            <option value="grade">Grade 100</option>
+            <option value="edge_signed">Edge differential</option>
+            <option value="edge">Absolute edge</option>
+            <option value="win">Win %</option>
+            <option value="tip">Tip time</option>
+          </select>
+        </label>
+        <label class="control">Status
+          <select id="statusSelect">
+            <option value="ALL">All games</option>
+            <option value="BET">Bet</option>
+            <option value="TRACK">Track</option>
+            <option value="PASS">Pass</option>
+          </select>
+        </label>
+        <label class="control">Grade floor
+          <select id="gradeSelect">
+            <option value="0">All grades</option>
+            <option value="70">70 and up</option>
+            <option value="55">55 and up</option>
+            <option value="40">40 and up</option>
+          </select>
+        </label>
+        <label class="control">Search
+          <input id="searchInput" type="text" placeholder="Team or pick" />
+        </label>
+        <button id="resetBtn" class="reset-btn" type="button">Reset</button>
+      </div>
+      <div class="legend">
+        <span class="legend-pill bet">BET</span>
+        <span class="legend-pill track">TRACK</span>
+        <span class="legend-pill pass">PASS</span>
+        <span class="legend-pill">Grade = spread score / 100</span>
+        <span class="legend-pill">Edge differential = signed spread edge</span>
+        <span class="legend-pill">Absolute edge = size of the spread disagreement</span>
+        <span class="legend-pill">Win % = model game win probability</span>
+      </div>
+      <div class="board-meta">
+        <div id="resultsCount">15 games shown</div>
+        <div>Source: C:\ncaab_model\picks\latest_picks.csv</div>
+      </div>
+    </section>
+
+    <section id="gameList" class="games">
+            <article class="game-card pass"
+              data-grade="51.90"
+              data-edge="0.9800"
+              data-edge-signed="0.9800"
+              data-win="84.5000"
+              data-tip="1774195800"
+              data-status="PASS"
+              data-search="miami (fla.) purdue purdue -7.5 over 147.5 nan pass pass">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 11:10 AM</div>
+                  <h2>Miami (Fla.) at Purdue</h2>
+                  <div class="meta-row">
+                    <span class="status-pill pass">PASS</span>
+                    <span class="chip">PASS</span>
+                    <span class="chip">11 books</span>
+                    <span class="chip">Range 0.00</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score fade">52</div>
+                  <div class="grade-bar"><span style="width:52%;"></span></div>
+                  <div class="grade-note">Pass for now</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">Purdue -7.5</div>
+                  <div class="sub">Edge diff +0.98 pts | Edge size 0.98 pts | Market -7.5 home | Model +8.48 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">Purdue 84.5%</div>
+                  <div class="sub">Purdue 84.5% / Miami (Fla.) 15.5%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">Purdue 79.5 - 71.0 Miami (Fla.)</div>
+                  <div class="sub">Model total 150.5 | Market total 147.5</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -345 / +278</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-muted"><span>Spread</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-7.5</span><span>O/U 147.5</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-7.5</span><span>O/U 147.5</span></span><span class="book-pill"><strong>BetRivers</strong><span>-7.5</span><span>O/U 147.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-7.5</span><span>O/U 147.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-7.5</span><span>O/U 147.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>Purdue: Purdue performs at a similar level against both good and bad teams. | Purdue: Purdue performs at a similar level regardless of the pace of the game. | Miami (Fla.): Miami (Fla.) plays a little worse against good teams than bad teams. They tend to play slightly better than expected against weaker opposition but are slightly worse against tougher opponents. | Miami (Fla.): Miami (Fla.) plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions. | Kill Shots: Kill Shots Per Game: home 0.89 vs away 0.74 | Kill Shots Conceded Per Game: home 0.42 vs away 0.24 | Kill Shots Margin Per Game: home 0.47 vs away 0.50 | Total Kill Shots: home 32.00 vs away 25.00 | Total Kill Shots Conceded: home 15.00 vs away 8.00</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Purdue flags</div>
+                  <p>Purdue performs at a similar level against both good and bad teams. Purdue performs at a similar level regardless of the pace of the game.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Miami (Fla.) flags</div>
+                  <p>Miami (Fla.) plays a little worse against good teams than bad teams. They tend to play slightly better than expected against weaker opposition but are slightly worse against tougher opponents. Miami (Fla.) plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card pass"
+              data-grade="51.00"
+              data-edge="2.2700"
+              data-edge-signed="2.2700"
+              data-win="81.0700"
+              data-tip="1774205100"
+              data-status="PASS"
+              data-search="kentucky iowa state iowa state -5.0 over 146.0 nan pass pass">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 01:45 PM</div>
+                  <h2>Kentucky at Iowa State</h2>
+                  <div class="meta-row">
+                    <span class="status-pill pass">PASS</span>
+                    <span class="chip">PASS</span>
+                    <span class="chip">11 books</span>
+                    <span class="chip">Range 1.00</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score fade">51</div>
+                  <div class="grade-bar"><span style="width:51%;"></span></div>
+                  <div class="grade-note">Pass for now</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">Iowa State -5.0</div>
+                  <div class="sub">Edge diff +2.27 pts | Edge size 2.27 pts | Market -5.0 home | Model +7.27 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">Iowa State 81.1%</div>
+                  <div class="sub">Iowa State 81.1% / Kentucky 18.9%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">Iowa State 77.9 - 70.6 Kentucky</div>
+                  <div class="sub">Model total 148.6 | Market total 146.0</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -237 / +197</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-muted"><span>Spread</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-4.5</span><span>O/U 146.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-4.5</span><span>O/U 146.0</span></span><span class="book-pill"><strong>BetRivers</strong><span>-5.5</span><span>O/U 145.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-4.5</span><span>O/U 145.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-5.5</span><span>O/U 146.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>Iowa State: Iowa State plays a little worse against good teams than bad teams. They tend to play slightly better than expected against weaker opposition but are slightly worse against tougher opponents. | Iowa State: Iowa State plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions. | Kentucky: Kentucky plays much worse against good teams than bad teams. They tend to have their best performances against weaker opponents but really struggle against stronger teams on their schedule. | Kentucky: Kentucky performs at a similar level regardless of the pace of the game. | Kill Shots: Kill Shots Per Game: home 1.26 vs away 0.60 | Kill Shots Conceded Per Game: home 0.46 vs away 0.37 | Kill Shots Margin Per Game: home 0.80 vs away 0.23 | Total Kill Shots: home 44.00 vs away 21.00 | Total Kill Shots Conceded: home 16.00 vs away 13.00</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Iowa State flags</div>
+                  <p>Iowa State plays a little worse against good teams than bad teams. They tend to play slightly better than expected against weaker opposition but are slightly worse against tougher opponents. Iowa State plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Kentucky flags</div>
+                  <p>Kentucky plays much worse against good teams than bad teams. They tend to have their best performances against weaker opponents but really struggle against stronger teams on their schedule. Kentucky performs at a similar level regardless of the pace of the game.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card pass"
+              data-grade="52.50"
+              data-edge="2.6600"
+              data-edge-signed="-2.6600"
+              data-win="71.4600"
+              data-tip="1774211400"
+              data-status="PASS"
+              data-search="illinois state wake forest illinois state +7.2 under 149.5 nan pass pass">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 03:30 PM</div>
+                  <h2>Illinois State at Wake Forest</h2>
+                  <div class="meta-row">
+                    <span class="status-pill pass">PASS</span>
+                    <span class="chip">PASS</span>
+                    <span class="chip">6 books</span>
+                    <span class="chip">Range 0.50</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score fade">52</div>
+                  <div class="grade-bar"><span style="width:52%;"></span></div>
+                  <div class="grade-note">Pass for now</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">Illinois State +7.2</div>
+                  <div class="sub">Edge diff -2.66 pts | Edge size 2.66 pts | Market -7.2 home | Model +4.59 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">Wake Forest 71.5%</div>
+                  <div class="sub">Wake Forest 71.5% / Illinois State 28.5%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">Wake Forest 76.5 - 71.9 Illinois State</div>
+                  <div class="sub">Model total 148.3 | Market total 149.5</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -310 / +252</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-muted"><span>Spread</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-7.0</span><span>O/U 149.5</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-7.0</span><span>O/U 149.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-7.5</span><span>O/U 149.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-7.5</span><span>O/U 149.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>-7.5</span><span>O/U 149.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>Wake Forest: Wake Forest performs at a similar level against both good and bad teams. | Wake Forest: Wake Forest performs at a similar level regardless of the pace of the game. | Illinois State: Illinois State performs at a similar level against both good and bad teams. | Illinois State: Illinois State performs at a similar level regardless of the pace of the game. | Kill Shots: Kill Shots Per Game: home 0.41 vs away 0.56 | Kill Shots Conceded Per Game: home 0.41 vs away 0.38 | Kill Shots Margin Per Game: home 0.00 vs away 0.19 | Total Kill Shots: home 14.00 vs away 18.00 | Total Kill Shots Conceded: home 14.00 vs away 12.00 | Recent form leans Wake Forest by 0.21 pts</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Wake Forest flags</div>
+                  <p>Wake Forest performs at a similar level against both good and bad teams. Wake Forest performs at a similar level regardless of the pace of the game.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Illinois State flags</div>
+                  <p>Illinois State performs at a similar level against both good and bad teams. Illinois State performs at a similar level regardless of the pace of the game.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card track"
+              data-grade="55.30"
+              data-edge="1.4600"
+              data-edge-signed="-1.4600"
+              data-win="72.9400"
+              data-tip="1774214100"
+              data-status="TRACK"
+              data-search="st. john&#x27;s kansas st. john&#x27;s -3.5 over 144.5 nan track watch">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 04:15 PM</div>
+                  <h2>St. John&#x27;s at Kansas</h2>
+                  <div class="meta-row">
+                    <span class="status-pill track">TRACK</span>
+                    <span class="chip">WATCH</span>
+                    <span class="chip">11 books</span>
+                    <span class="chip">Range 0.00</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score watch">55</div>
+                  <div class="grade-bar"><span style="width:55%;"></span></div>
+                  <div class="grade-note">Watchlist</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">St. John&#x27;s -3.5</div>
+                  <div class="sub">Edge diff -1.46 pts | Edge size 1.46 pts | Market +3.5 home | Model -4.96 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">St. John&#x27;s 72.9%</div>
+                  <div class="sub">Kansas 27.1% / St. John&#x27;s 72.9%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">Kansas 70.8 - 75.7 St. John&#x27;s</div>
+                  <div class="sub">Model total 146.5 | Market total 144.5</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML +149 / -170</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-muted"><span>Spread</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>+3.5</span><span>O/U 144.5</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>+3.5</span><span>O/U 144.5</span></span><span class="book-pill"><strong>BetRivers</strong><span>+3.5</span><span>O/U 144.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>+3.5</span><span>O/U 144.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>+3.5</span><span>O/U 144.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>Kansas: Kansas performs at a similar level against both good and bad teams. | Kansas: Kansas performs at a similar level regardless of the pace of the game. | St. John&#x27;s: St. John&#x27;s performs at a similar level against both good and bad teams. | St. John&#x27;s: St. John&#x27;s performs at a similar level regardless of the pace of the game. | Kill Shots: Kill Shots Per Game: home 0.50 vs away 0.77 | Kill Shots Conceded Per Game: home 0.47 vs away 0.20 | Kill Shots Margin Per Game: home 0.03 vs away 0.57 | Total Kill Shots: home 17.00 vs away 27.00 | Total Kill Shots Conceded: home 16.00 vs away 7.00 | Recent form leans St. John&#x27;s by 0.90 pts</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Kansas flags</div>
+                  <p>Kansas performs at a similar level against both good and bad teams. Kansas performs at a similar level regardless of the pace of the game.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">St. John&#x27;s flags</div>
+                  <p>St. John&#x27;s performs at a similar level against both good and bad teams. St. John&#x27;s performs at a similar level regardless of the pace of the game.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card pass"
+              data-grade="52.30"
+              data-edge="1.7400"
+              data-edge-signed="1.7400"
+              data-win="53.6900"
+              data-tip="1774217400"
+              data-status="PASS"
+              data-search="tennessee virginia virginia +1.0 over 137.5 nan pass pass">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 05:10 PM</div>
+                  <h2>Tennessee at Virginia</h2>
+                  <div class="meta-row">
+                    <span class="status-pill pass">PASS</span>
+                    <span class="chip">PASS</span>
+                    <span class="chip">11 books</span>
+                    <span class="chip">Range 0.50</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score fade">52</div>
+                  <div class="grade-bar"><span style="width:52%;"></span></div>
+                  <div class="grade-note">Pass for now</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">Virginia +1.0</div>
+                  <div class="sub">Edge diff +1.74 pts | Edge size 1.74 pts | Market +1.0 home | Model +0.74 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">Virginia 53.7%</div>
+                  <div class="sub">Virginia 53.7% / Tennessee 46.3%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">Virginia 70.9 - 70.2 Tennessee</div>
+                  <div class="sub">Model total 141.1 | Market total 137.5</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -107 / -113</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-muted"><span>Spread</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>+1.0</span><span>O/U 137.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>+1.0</span><span>O/U 137.0</span></span><span class="book-pill"><strong>BetRivers</strong><span>+1.5</span><span>O/U 137.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>+1.5</span><span>O/U 137.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>+1.5</span><span>O/U 137.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>Virginia: Virginia plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. | Virginia: Virginia performs at a similar level regardless of the pace of the game. | Tennessee: Tennessee plays much worse against good teams than bad teams. They tend to have their best performances against weaker opponents but really struggle against stronger teams on their schedule. | Tennessee: Tennessee plays a little better in slower paced games. They have slightly stronger performances in games with less possessions but are a little worse in games with more possessions. | Kill Shots: Kill Shots Per Game: home 0.94 vs away 0.62 | Kill Shots Conceded Per Game: home 0.20 vs away 0.18 | Kill Shots Margin Per Game: home 0.74 vs away 0.44 | Total Kill Shots: home 33.00 vs away 21.00 | Total Kill Shots Conceded: home 7.00 vs away 6.00 | Recent form leans Virginia by 0.17 pts</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Virginia flags</div>
+                  <p>Virginia plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. Virginia performs at a similar level regardless of the pace of the game.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Tennessee flags</div>
+                  <p>Tennessee plays much worse against good teams than bad teams. They tend to have their best performances against weaker opponents but really struggle against stronger teams on their schedule. Tennessee plays a little better in slower paced games. They have slightly stronger performances in games with less possessions but are a little worse in games with more possessions.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card track"
+              data-grade="58.60"
+              data-edge="3.8000"
+              data-edge-signed="-3.8000"
+              data-win="86.3000"
+              data-tip="1774218600"
+              data-status="TRACK"
+              data-search="seattle auburn seattle +13.0 under 146.5 nan track watch">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 05:30 PM</div>
+                  <h2>Seattle at Auburn</h2>
+                  <div class="meta-row">
+                    <span class="status-pill track">TRACK</span>
+                    <span class="chip">WATCH</span>
+                    <span class="chip">7 books</span>
+                    <span class="chip">Range 1.00</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score watch">59</div>
+                  <div class="grade-bar"><span style="width:59%;"></span></div>
+                  <div class="grade-note">Watchlist</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">Seattle +13.0</div>
+                  <div class="sub">Edge diff -3.80 pts | Edge size 3.80 pts | Market -13.0 home | Model +9.20 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">Auburn 86.3%</div>
+                  <div class="sub">Auburn 86.3% / Seattle 13.7%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">Auburn 77.4 - 68.2 Seattle</div>
+                  <div class="sub">Model total 145.7 | Market total 146.5</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -1000 / +661</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-muted"><span>Spread</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-13.0</span><span>O/U 146.5</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-13.0</span><span>O/U 146.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-13.5</span><span>O/U 146.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-12.5</span><span>O/U 146.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>-13.5</span><span>O/U 146.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>Auburn: Auburn performs at a similar level against both good and bad teams. | Auburn: Auburn performs at a similar level regardless of the pace of the game. | Seattle: Seattle plays much better against good teams than bad teams. They compete at a higher level against tough opposition but struggle against weaker opponents. | Seattle: Seattle performs at a similar level regardless of the pace of the game. | Kill Shots: Kill Shots Per Game: home 0.50 vs away 0.47 | Kill Shots Conceded Per Game: home 0.44 vs away 0.44 | Kill Shots Margin Per Game: home 0.06 vs away 0.03 | Total Kill Shots: home 17.00 vs away 15.00 | Total Kill Shots Conceded: home 15.00 vs away 14.00 | Recent form leans Seattle by 0.84 pts</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Auburn flags</div>
+                  <p>Auburn performs at a similar level against both good and bad teams. Auburn performs at a similar level regardless of the pace of the game.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Seattle flags</div>
+                  <p>Seattle plays much better against good teams than bad teams. They compete at a higher level against tough opposition but struggle against weaker opponents. Seattle performs at a similar level regardless of the pace of the game.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card pass"
+              data-grade="51.90"
+              data-edge="1.4200"
+              data-edge-signed="1.4200"
+              data-win="76.5800"
+              data-tip="1774220400"
+              data-status="PASS"
+              data-search="unlv tulsa tulsa -4.5 under 161.5 nan pass pass">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 06:00 PM</div>
+                  <h2>UNLV at Tulsa</h2>
+                  <div class="meta-row">
+                    <span class="status-pill pass">PASS</span>
+                    <span class="chip">PASS</span>
+                    <span class="chip">7 books</span>
+                    <span class="chip">Range 0.00</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score fade">52</div>
+                  <div class="grade-bar"><span style="width:52%;"></span></div>
+                  <div class="grade-note">Pass for now</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">Tulsa -4.5</div>
+                  <div class="sub">Edge diff +1.42 pts | Edge size 1.42 pts | Market -4.5 home | Model +5.92 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">Tulsa 76.6%</div>
+                  <div class="sub">Tulsa 76.6% / UNLV 23.4%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">Tulsa 81.7 - 75.8 UNLV</div>
+                  <div class="sub">Model total 157.4 | Market total 161.5</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -190 / +165</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-muted"><span>Spread</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-4.5</span><span>O/U 161.5</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-4.5</span><span>O/U 161.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-4.5</span><span>O/U 161.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-4.5</span><span>O/U 161.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>-4.5</span><span>O/U 161.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>Tulsa: Tulsa plays a little worse against good teams than bad teams. They tend to play slightly better than expected against weaker opposition but are slightly worse against tougher opponents. | Tulsa: Tulsa plays a little better in slower paced games. They have slightly stronger performances in games with less possessions but are a little worse in games with more possessions. | UNLV: UNLV performs at a similar level against both good and bad teams. | UNLV: UNLV plays better in slower paced games. They have stronger performances in games with less possessions but are worse in games with more possessions. | Kill Shots: Kill Shots Per Game: home 0.91 vs away 0.34 | Kill Shots Conceded Per Game: home 0.25 vs away 0.53 | Kill Shots Margin Per Game: home 0.66 vs away -0.19 | Total Kill Shots: home 29.00 vs away 11.00 | Total Kill Shots Conceded: home 8.00 vs away 17.00 | Recent form leans UNLV by 0.54 pts</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Tulsa flags</div>
+                  <p>Tulsa plays a little worse against good teams than bad teams. They tend to play slightly better than expected against weaker opposition but are slightly worse against tougher opponents. Tulsa plays a little better in slower paced games. They have slightly stronger performances in games with less possessions but are a little worse in games with more possessions.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">UNLV flags</div>
+                  <p>UNLV performs at a similar level against both good and bad teams. UNLV plays better in slower paced games. They have stronger performances in games with less possessions but are worse in games with more possessions.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card pass"
+              data-grade="35.30"
+              data-edge="0.9900"
+              data-edge-signed="0.9900"
+              data-win="90.8800"
+              data-tip="1774221000"
+              data-status="PASS"
+              data-search="iowa florida florida -10.5 over 145.0 nan pass pass">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 06:10 PM</div>
+                  <h2>Iowa at Florida</h2>
+                  <div class="meta-row">
+                    <span class="status-pill pass">PASS</span>
+                    <span class="chip">PASS</span>
+                    <span class="chip">11 books</span>
+                    <span class="chip">Range 0.50</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score fade">35</div>
+                  <div class="grade-bar"><span style="width:35%;"></span></div>
+                  <div class="grade-note">Pass for now</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">Florida -10.5</div>
+                  <div class="sub">Edge diff +0.99 pts | Edge size 0.99 pts | Market -10.5 home | Model +11.49 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">Florida 90.9%</div>
+                  <div class="sub">Florida 90.9% / Iowa 9.1%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">Florida 79.9 - 68.4 Iowa</div>
+                  <div class="sub">Model total 148.4 | Market total 145.0</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -650 / +476</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-muted"><span>Spread</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-10.0</span><span>O/U 145.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-10.0</span><span>O/U 145.0</span></span><span class="book-pill"><strong>BetRivers</strong><span>-10.5</span><span>O/U 145.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-10.5</span><span>O/U 145.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-10.5</span><span>O/U 144.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>Florida: Florida plays a little worse against good teams than bad teams. They tend to play slightly better than expected against weaker opposition but are slightly worse against tougher opponents. | Florida: Florida plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions. | Iowa: Iowa plays a little worse against good teams than bad teams. They tend to play slightly better than expected against weaker opposition but are slightly worse against tougher opponents. | Iowa: Iowa performs at a similar level regardless of the pace of the game. | Kill Shots: Kill Shots Per Game: home 1.06 vs away 0.71 | Kill Shots Conceded Per Game: home 0.15 vs away 0.50 | Kill Shots Margin Per Game: home 0.91 vs away 0.21 | Total Kill Shots: home 36.00 vs away 24.00 | Total Kill Shots Conceded: home 5.00 vs away 17.00 | Recent form leans Florida by 0.47 pts</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Florida flags</div>
+                  <p>Florida plays a little worse against good teams than bad teams. They tend to play slightly better than expected against weaker opposition but are slightly worse against tougher opponents. Florida plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Iowa flags</div>
+                  <p>Iowa plays a little worse against good teams than bad teams. They tend to play slightly better than expected against weaker opposition but are slightly worse against tougher opponents. Iowa performs at a similar level regardless of the pace of the game.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card pass"
+              data-grade="34.70"
+              data-edge="0.8900"
+              data-edge-signed="0.8900"
+              data-win="92.9400"
+              data-tip="1774223400"
+              data-status="PASS"
+              data-search="utah state arizona arizona -12.0 over 154.5 nan pass pass">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 06:50 PM</div>
+                  <h2>Utah State at Arizona</h2>
+                  <div class="meta-row">
+                    <span class="status-pill pass">PASS</span>
+                    <span class="chip">PASS</span>
+                    <span class="chip">11 books</span>
+                    <span class="chip">Range 0.50</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score fade">35</div>
+                  <div class="grade-bar"><span style="width:35%;"></span></div>
+                  <div class="grade-note">Pass for now</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">Arizona -12.0</div>
+                  <div class="sub">Edge diff +0.89 pts | Edge size 0.89 pts | Market -12.0 home | Model +12.89 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">Arizona 92.9%</div>
+                  <div class="sub">Arizona 92.9% / Utah State 7.1%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">Arizona 84.1 - 71.2 Utah State</div>
+                  <div class="sub">Model total 155.3 | Market total 154.5</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -800 / +561</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-muted"><span>Spread</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-12.0</span><span>O/U 154.5</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-12.0</span><span>O/U 154.5</span></span><span class="book-pill"><strong>BetRivers</strong><span>-11.5</span><span>O/U 154.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-11.5</span><span>O/U 154.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-11.5</span><span>O/U 154.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>Arizona: Arizona plays much better against good teams than bad teams. They compete at a higher level against tough opposition but struggle against weaker opponents. | Arizona: Arizona performs at a similar level regardless of the pace of the game. | Utah State: Utah State plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. | Utah State: Utah State performs at a similar level regardless of the pace of the game. | Kill Shots: Kill Shots Per Game: home 1.00 vs away 0.62 | Kill Shots Conceded Per Game: home 0.06 vs away 0.21 | Kill Shots Margin Per Game: home 0.94 vs away 0.41 | Total Kill Shots: home 35.00 vs away 21.00 | Total Kill Shots Conceded: home 2.00 vs away 7.00 | Recent form leans Arizona by 0.90 pts</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Arizona flags</div>
+                  <p>Arizona plays much better against good teams than bad teams. They compete at a higher level against tough opposition but struggle against weaker opponents. Arizona performs at a similar level regardless of the pace of the game.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Utah State flags</div>
+                  <p>Utah State plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. Utah State performs at a similar level regardless of the pace of the game.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card bet"
+              data-grade="77.40"
+              data-edge="5.0400"
+              data-edge-signed="-5.0400"
+              data-win="62.0500"
+              data-tip="1774224000"
+              data-status="BET"
+              data-search="george washington new mexico george washington +7.5 under 161.5 nan bet t2">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 07:00 PM</div>
+                  <h2>George Washington at New Mexico</h2>
+                  <div class="meta-row">
+                    <span class="status-pill bet">BET</span>
+                    <span class="chip">T2</span>
+                    <span class="chip">7 books</span>
+                    <span class="chip">Range 0.00</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score action">77</div>
+                  <div class="grade-bar"><span style="width:77%;"></span></div>
+                  <div class="grade-note">Actionable</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">George Washington +7.5</div>
+                  <div class="sub">Edge diff -5.04 pts | Edge size 5.04 pts | Market -7.5 home | Model +2.46 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">New Mexico 62.1%</div>
+                  <div class="sub">New Mexico 62.1% / George Washington 37.9%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">New Mexico 80.2 - 77.8 George Washington</div>
+                  <div class="sub">Model total 158.0 | Market total 161.5</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -325 / +263</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-warm"><span>Spread</span><strong>George Washington +7.5</strong><em>MED</em></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-7.5</span><span>O/U 161.5</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-7.5</span><span>O/U 161.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-7.5</span><span>O/U 161.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-7.5</span><span>O/U 161.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>-7.5</span><span>O/U 161.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>New Mexico: New Mexico performs at a similar level against both good and bad teams. | New Mexico: New Mexico performs at a similar level regardless of the pace of the game. | George Washington: George Washington plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. | George Washington: George Washington plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions. | Kill Shots: Kill Shots Per Game: home 0.67 vs away 0.73 | Kill Shots Conceded Per Game: home 0.18 vs away 0.33 | Kill Shots Margin Per Game: home 0.48 vs away 0.39 | Total Kill Shots: home 22.00 vs away 24.00 | Total Kill Shots Conceded: home 6.00 vs away 11.00 | Recent form leans George Washington by 0.33 pts</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">New Mexico flags</div>
+                  <p>New Mexico performs at a similar level against both good and bad teams. New Mexico performs at a similar level regardless of the pace of the game.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">George Washington flags</div>
+                  <p>George Washington plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. George Washington plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card bet"
+              data-grade="87.30"
+              data-edge="6.4400"
+              data-edge-signed="-6.4400"
+              data-win="64.3100"
+              data-tip="1774225800"
+              data-status="BET"
+              data-search="wichita state oklahoma state wichita state +3.5 under 164.5 nan bet t2">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 07:30 PM</div>
+                  <h2>Wichita State at Oklahoma State</h2>
+                  <div class="meta-row">
+                    <span class="status-pill bet">BET</span>
+                    <span class="chip">T2</span>
+                    <span class="chip">7 books</span>
+                    <span class="chip">Range 0.00</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score elite">87</div>
+                  <div class="grade-bar"><span style="width:87%;"></span></div>
+                  <div class="grade-note">Elite card</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">Wichita State +3.5</div>
+                  <div class="sub">Edge diff -6.44 pts | Edge size 6.44 pts | Market -3.5 home | Model -2.94 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">Wichita State 64.3%</div>
+                  <div class="sub">Oklahoma State 35.7% / Wichita State 64.3%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">Oklahoma State 77.7 - 80.7 Wichita State</div>
+                  <div class="sub">Model total 158.4 | Market total 164.5</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -155 / +135</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-warm"><span>Spread</span><strong>Wichita State +3.5</strong><em>MED</em></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-3.5</span><span>O/U 164.5</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-3.5</span><span>O/U 164.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-3.5</span><span>O/U 164.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-3.5</span><span>O/U 164.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>-3.5</span><span>O/U 164.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>Oklahoma State: Oklahoma State plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. | Oklahoma State: Oklahoma State plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions. | Wichita State: Wichita State performs at a similar level against both good and bad teams. | Wichita State: Wichita State plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions. | Kill Shots: Kill Shots Per Game: home 0.56 vs away 0.67 | Kill Shots Conceded Per Game: home 0.47 vs away 0.27 | Kill Shots Margin Per Game: home 0.09 vs away 0.39 | Total Kill Shots: home 19.00 vs away 22.00 | Total Kill Shots Conceded: home 16.00 vs away 9.00 | Recent form leans Wichita State by 0.74 pts</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Oklahoma State flags</div>
+                  <p>Oklahoma State plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. Oklahoma State plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Wichita State flags</div>
+                  <p>Wichita State performs at a similar level against both good and bad teams. Wichita State plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card pass"
+              data-grade="46.10"
+              data-edge="0.1500"
+              data-edge-signed="0.1500"
+              data-win="71.7200"
+              data-tip="1774226700"
+              data-status="PASS"
+              data-search="ucla connecticut connecticut -4.5 over 137.0 nan pass pass">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 07:45 PM</div>
+                  <h2>UCLA at Connecticut</h2>
+                  <div class="meta-row">
+                    <span class="status-pill pass">PASS</span>
+                    <span class="chip">PASS</span>
+                    <span class="chip">11 books</span>
+                    <span class="chip">Range 0.00</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score fade">46</div>
+                  <div class="grade-bar"><span style="width:46%;"></span></div>
+                  <div class="grade-note">Pass for now</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">Connecticut -4.5</div>
+                  <div class="sub">Edge diff +0.15 pts | Edge size 0.15 pts | Market -4.5 home | Model +4.65 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">Connecticut 71.7%</div>
+                  <div class="sub">Connecticut 71.7% / UCLA 28.3%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">Connecticut 72.3 - 67.7 UCLA</div>
+                  <div class="sub">Model total 140.0 | Market total 137.0</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -190 / +165</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-muted"><span>Spread</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-4.5</span><span>O/U 137.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-4.5</span><span>O/U 137.0</span></span><span class="book-pill"><strong>BetRivers</strong><span>-4.5</span><span>O/U 136.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-4.5</span><span>O/U 137.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-4.5</span><span>O/U 136.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>Connecticut: Connecticut plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. | Connecticut: Connecticut plays better in slower paced games. They have stronger performances in games with less possessions but are worse in games with more possessions. | UCLA: UCLA performs at a similar level against both good and bad teams. | UCLA: UCLA performs at a similar level regardless of the pace of the game. | Kill Shots: Kill Shots Per Game: home 0.51 vs away 0.57 | Kill Shots Conceded Per Game: home 0.23 vs away 0.49 | Kill Shots Margin Per Game: home 0.29 vs away 0.09 | Total Kill Shots: home 18.00 vs away 20.00 | Total Kill Shots Conceded: home 8.00 vs away 17.00 | Recent form leans UCLA by 0.78 pts</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Connecticut flags</div>
+                  <p>Connecticut plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. Connecticut plays better in slower paced games. They have stronger performances in games with less possessions but are worse in games with more possessions.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">UCLA flags</div>
+                  <p>UCLA performs at a similar level against both good and bad teams. UCLA performs at a similar level regardless of the pace of the game.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card track"
+              data-grade="57.50"
+              data-edge="2.2200"
+              data-edge-signed="-2.2200"
+              data-win="65.8500"
+              data-tip="1774227600"
+              data-status="TRACK"
+              data-search="saint joseph&#x27;s california saint joseph&#x27;s +5.5 under 149.0 nan track watch">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 08:00 PM</div>
+                  <h2>Saint Joseph&#x27;s at California</h2>
+                  <div class="meta-row">
+                    <span class="status-pill track">TRACK</span>
+                    <span class="chip">WATCH</span>
+                    <span class="chip">7 books</span>
+                    <span class="chip">Range 0.00</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score watch">58</div>
+                  <div class="grade-bar"><span style="width:58%;"></span></div>
+                  <div class="grade-note">Watchlist</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">Saint Joseph&#x27;s +5.5</div>
+                  <div class="sub">Edge diff -2.22 pts | Edge size 2.22 pts | Market -5.5 home | Model +3.28 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">California 65.8%</div>
+                  <div class="sub">California 65.8% / Saint Joseph&#x27;s 34.2%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">California 75.1 - 71.8 Saint Joseph&#x27;s</div>
+                  <div class="sub">Model total 146.9 | Market total 149.0</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -240 / +200</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-muted"><span>Spread</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-5.5</span><span>O/U 149.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-5.5</span><span>O/U 149.0</span></span><span class="book-pill"><strong>DraftKings</strong><span>-5.5</span><span>O/U 149.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-5.5</span><span>O/U 148.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>n/a</span><span>O/U 149.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>California: California plays a little worse against good teams than bad teams. They tend to play slightly better than expected against weaker opposition but are slightly worse against tougher opponents. | California: California plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions. | Saint Joseph&#x27;s: Saint Joseph&#x27;s plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. | Saint Joseph&#x27;s: Saint Joseph&#x27;s performs at a similar level regardless of the pace of the game. | Kill Shots: Kill Shots Per Game: home 0.69 vs away 0.44 | Kill Shots Conceded Per Game: home 0.59 vs away 0.44 | Kill Shots Margin Per Game: home 0.09 vs away 0.00 | Total Kill Shots: home 22.00 vs away 14.00 | Total Kill Shots Conceded: home 19.00 vs away 14.00 | Recent form leans Saint Joseph&#x27;s by 0.69 pts</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">California flags</div>
+                  <p>California plays a little worse against good teams than bad teams. They tend to play slightly better than expected against weaker opposition but are slightly worse against tougher opponents. California plays a little better in faster paced games. They have slightly stronger performances in games with more possessions but are a little worse in games with less possessions.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Saint Joseph&#x27;s flags</div>
+                  <p>Saint Joseph&#x27;s plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. Saint Joseph&#x27;s performs at a similar level regardless of the pace of the game.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card pass"
+              data-grade="26.60"
+              data-edge="0.2300"
+              data-edge-signed="-0.2300"
+              data-win="56.1200"
+              data-tip="1774230341"
+              data-status="PASS"
+              data-search="texas tech alabama texas tech -1.0 under 165.0 nan pass pass">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Sun Mar 22, 08:45 PM</div>
+                  <h2>Texas Tech at Alabama</h2>
+                  <div class="meta-row">
+                    <span class="status-pill pass">PASS</span>
+                    <span class="chip">PASS</span>
+                    <span class="chip">11 books</span>
+                    <span class="chip">Range 3.00</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score fade">27</div>
+                  <div class="grade-bar"><span style="width:27%;"></span></div>
+                  <div class="grade-note">Pass for now</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">Texas Tech -1.0</div>
+                  <div class="sub">Edge diff -0.23 pts | Edge size 0.23 pts | Market +1.0 home | Model -1.23 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">Texas Tech 56.1%</div>
+                  <div class="sub">Alabama 43.9% / Texas Tech 56.1%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">Alabama 80.4 - 81.6 Texas Tech</div>
+                  <div class="sub">Model total 162.1 | Market total 165.0</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -103 / -117</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-muted"><span>Spread</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>+1.0</span><span>O/U 165.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>+1.0</span><span>O/U 165.0</span></span><span class="book-pill"><strong>BetRivers</strong><span>+1.5</span><span>O/U 165.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>+1.5</span><span>O/U 164.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-1.5</span><span>O/U 165.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>Alabama: Alabama plays much worse against good teams than bad teams. They tend to have their best performances against weaker opponents but really struggle against stronger teams on their schedule. | Alabama: Alabama performs at a similar level regardless of the pace of the game. | Texas Tech: Texas Tech plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. | Texas Tech: Texas Tech performs at a similar level regardless of the pace of the game. | Kill Shots: Kill Shots Per Game: home 0.48 vs away 0.82 | Kill Shots Conceded Per Game: home 0.39 vs away 0.36 | Kill Shots Margin Per Game: home 0.09 vs away 0.45 | Total Kill Shots: home 16.00 vs away 27.00 | Total Kill Shots Conceded: home 13.00 vs away 12.00 | Recent form leans Texas Tech by 0.90 pts</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Alabama flags</div>
+                  <p>Alabama plays much worse against good teams than bad teams. They tend to have their best performances against weaker opponents but really struggle against stronger teams on their schedule. Alabama performs at a similar level regardless of the pace of the game.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Texas Tech flags</div>
+                  <p>Texas Tech plays a little better against good teams than bad teams. They are slightly better than expected against tough opposition but are slightly worse against weaker opponents. Texas Tech performs at a similar level regardless of the pace of the game.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card pass"
+              data-grade="47.50"
+              data-edge="0.3500"
+              data-edge-signed="-0.3500"
+              data-win="60.5700"
+              data-tip="1774540800"
+              data-status="PASS"
+              data-search="illinois houston illinois +2.5 over 139.5 nan pass pass">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Thu Mar 26, 11:00 AM</div>
+                  <h2>Illinois at Houston</h2>
+                  <div class="meta-row">
+                    <span class="status-pill pass">PASS</span>
+                    <span class="chip">PASS</span>
+                    <span class="chip">8 books</span>
+                    <span class="chip">Range 0.00</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Play grade</div>
+                  <div class="grade-score fade">48</div>
+                  <div class="grade-bar"><span style="width:48%;"></span></div>
+                  <div class="grade-note">Pass for now</div>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <section class="summary-card primary">
+                  <div class="label">Market value</div>
+                  <div class="value">Illinois +2.5</div>
+                  <div class="sub">Edge diff -0.35 pts | Edge size 0.35 pts | Market -2.5 home | Model +2.15 home</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Win %</div>
+                  <div class="value">Houston 60.6%</div>
+                  <div class="sub">Houston 60.6% / Illinois 39.4%</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Projected score</div>
+                  <div class="value">Houston 72.7 - 70.6 Illinois</div>
+                  <div class="sub">Model total 143.3 | Market total 139.5</div>
+                </section>
+                <section class="summary-card">
+                  <div class="label">Live board</div>
+                  <div class="value">ML -148 / +128</div>
+                  <div class="sub">Reference book: LowVig.ag</div>
+                </section>
+              </div>
+
+              <div class="signal-grid">
+                <div class="signal signal-muted"><span>Spread</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Total</span><strong>Pass</strong></div>
+                <div class="signal signal-muted"><span>Moneyline</span><strong>Pass</strong></div>
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-2.5</span><span>O/U 140.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-2.5</span><span>O/U 140.0</span></span><span class="book-pill"><strong>BetRivers</strong><span>-2.5</span><span>O/U 139.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-2.5</span><span>O/U 139.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-2.5</span><span>O/U 139.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Situational model</div>
+                  <p>Houston: Houston performs at a similar level against both good and bad teams. | Houston: Houston plays a little better in slower paced games. They have slightly stronger performances in games with less possessions but are a little worse in games with more possessions. | Illinois: Illinois plays much worse against good teams than bad teams. They tend to have their best performances against weaker opponents but really struggle against stronger teams on their schedule. | Illinois: Illinois performs at a similar level regardless of the pace of the game. | Kill Shots: Kill Shots Per Game: home 1.17 vs away 1.09 | Kill Shots Conceded Per Game: home 0.31 vs away 0.24 | Kill Shots Margin Per Game: home 0.86 vs away 0.85 | Total Kill Shots: home 42.00 vs away 37.00 | Total Kill Shots Conceded: home 11.00 vs away 8.00</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Houston flags</div>
+                  <p>Houston performs at a similar level against both good and bad teams. Houston plays a little better in slower paced games. They have slightly stronger performances in games with less possessions but are a little worse in games with more possessions.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Illinois flags</div>
+                  <p>Illinois plays much worse against good teams than bad teams. They tend to have their best performances against weaker opponents but really struggle against stronger teams on their schedule. Illinois performs at a similar level regardless of the pace of the game.</p>
+                </section>
+              </div>
+            </article>
+            </section>
+    <div id="noResults" class="no-results">No games match the current filters.</div>
+  </main>
+
+  <script>
+    (function () {
+      const list = document.getElementById("gameList");
+      const cards = Array.from(list.querySelectorAll(".game-card"));
+      const sortSelect = document.getElementById("sortSelect");
+      const statusSelect = document.getElementById("statusSelect");
+      const gradeSelect = document.getElementById("gradeSelect");
+      const searchInput = document.getElementById("searchInput");
+      const resetBtn = document.getElementById("resetBtn");
+      const resultsCount = document.getElementById("resultsCount");
+      const noResults = document.getElementById("noResults");
+
+      function sortValue(card, key) {
+        if (key === "tip") return Number(card.dataset.tip || 0);
+        if (key === "win") return Number(card.dataset.win || 0);
+        if (key === "edge_signed") return Number(card.dataset.edgeSigned || 0);
+        if (key === "edge") return Number(card.dataset.edge || 0);
+        return Number(card.dataset.grade || 0);
+      }
+
+      function applyControls() {
+        const sortKey = sortSelect.value;
+        const status = statusSelect.value;
+        const gradeFloor = Number(gradeSelect.value || 0);
+        const query = (searchInput.value || "").trim().toLowerCase();
+
+        let visibleCount = 0;
+        cards.forEach(function (card) {
+          const matchesStatus = status === "ALL" || card.dataset.status === status;
+          const matchesGrade = Number(card.dataset.grade || 0) >= gradeFloor;
+          const matchesQuery = !query || (card.dataset.search || "").includes(query);
+          const show = matchesStatus && matchesGrade && matchesQuery;
+          card.style.display = show ? "" : "none";
+          if (show) visibleCount += 1;
+        });
+
+        const visibleCards = cards.filter(function (card) {
+          return card.style.display !== "none";
+        });
+
+        visibleCards.sort(function (a, b) {
+          const aVal = sortValue(a, sortKey);
+          const bVal = sortValue(b, sortKey);
+          if (sortKey === "tip") return aVal - bVal;
+          return bVal - aVal;
+        });
+
+        visibleCards.forEach(function (card) {
+          list.appendChild(card);
+        });
+
+        resultsCount.textContent = visibleCount + " games shown";
+        noResults.style.display = visibleCount === 0 ? "block" : "none";
+      }
+
+      sortSelect.addEventListener("change", applyControls);
+      statusSelect.addEventListener("change", applyControls);
+      gradeSelect.addEventListener("change", applyControls);
+      searchInput.addEventListener("input", applyControls);
+      resetBtn.addEventListener("click", function () {
+        sortSelect.value = "grade";
+        statusSelect.value = "ALL";
+        gradeSelect.value = "0";
+        searchInput.value = "";
+        applyControls();
+      });
+
+      applyControls();
+    }());
+  </script>
+</body>
+</html>
