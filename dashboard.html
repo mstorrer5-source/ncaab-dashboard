@@ -53,7 +53,7 @@
       background:linear-gradient(90deg, transparent 0 14%, rgba(255,255,255,.04) 14% 15%, transparent 15% 34%, rgba(255,255,255,.04) 34% 35%, transparent 35% 54%, rgba(255,255,255,.04) 54% 55%, transparent 55%);
       pointer-events:none;
     }
-    .hero-grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1.3fr) minmax(320px,.85fr); gap:20px; }
+    .hero-grid { position:relative; z-index:1; display:grid; grid-template-columns:1fr; gap:8px; }
     .kicker {
       display:inline-flex;
       padding:8px 12px;
@@ -72,16 +72,16 @@
       line-height:.96;
       letter-spacing:-.05em;
     }
-    .hero-copy { max-width:920px; font-size:13px; line-height:1.55; color:rgba(255,247,239,.84); }
-    .stats { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:10px; margin-top:14px; }
+    .hero-copy { max-width:1240px; font-size:11px; line-height:1.35; color:rgba(255,247,239,.84); }
+    .stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin-top:10px; }
     .stat {
-      padding:12px;
-      border-radius:14px;
+      padding:10px 12px;
+      border-radius:12px;
       background:rgba(255,255,255,.08);
       border:1px solid rgba(255,255,255,.1);
     }
     .stat .label { color:rgba(255,247,239,.72); font-size:11px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
-    .stat .value { margin-top:8px; font-size:24px; font-weight:900; line-height:1; }
+    .stat .value { margin-top:6px; font-size:22px; font-weight:900; line-height:1; }
     .stat .note { display:none; }
     .top-box {
       padding:14px;
@@ -112,7 +112,7 @@
     .top-play .matchup { font-weight:800; font-size:15px; }
     .top-play .pick { margin-top:4px; font-weight:700; color:#fff4e8; }
     .top-meta { margin-top:4px; font-size:12px; color:rgba(255,247,239,.72); }
-    .controls { margin-top:18px; padding:18px 20px; }
+    .controls { margin-top:6px; padding:12px 16px; }
     .view-row {
       display:flex;
       justify-content:space-between;
@@ -139,7 +139,7 @@
       color:#fff;
       border-color:transparent;
     }
-    .performance-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:16px; }
+    .performance-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin-top:0; }
     .performance-card {
       padding:16px;
       border-radius:18px;
@@ -193,12 +193,12 @@
     .status-pill.bet, .legend-pill.bet { background:rgba(22,111,66,.12); color:var(--green); border:1px solid rgba(22,111,66,.18); }
     .status-pill.track, .legend-pill.track { background:rgba(242,108,34,.12); color:#b65119; border:1px solid rgba(242,108,34,.2); }
     .status-pill.pass, .legend-pill.pass { background:rgba(104,112,122,.1); color:#5e6670; border:1px solid rgba(104,112,122,.14); }
-    .board-meta { margin-top:16px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
-    .games { display:grid; gap:16px; margin-top:18px; }
+    .board-meta { margin-top:12px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; color:var(--muted); font-size:13px; }
+    .games { display:grid; gap:16px; margin-top:4px; }
     .game-card {
       position:relative;
       overflow:hidden;
-      padding:22px;
+      padding:24px;
       border-radius:26px;
       background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,249,241,.95));
       border:1px solid var(--line);
@@ -216,12 +216,12 @@
     .game-card.bet::before { background:linear-gradient(180deg, var(--green), var(--green-2)); }
     .game-card.track::before { background:linear-gradient(180deg, var(--orange), var(--gold)); }
     .game-card.pass::before { background:linear-gradient(180deg, #a8adb5, #d2d7dc); }
-    .game-top { display:grid; grid-template-columns:minmax(0,1fr) 180px; gap:18px; align-items:start; }
+    .game-top { display:grid; grid-template-columns:minmax(0,1fr) 196px; gap:20px; align-items:start; }
     .time-kicker { color:var(--orange); font-size:12px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
     .game-top h2 {
       margin:8px 0 10px;
       font-family:"Franklin Gothic Medium","Aptos Display","Trebuchet MS",sans-serif;
-      font-size:clamp(1.35rem,2vw,1.95rem);
+      font-size:clamp(1.7rem,2.45vw,2.35rem);
       line-height:1.03;
       letter-spacing:-.03em;
     }
@@ -240,7 +240,7 @@
     .grade-bar { margin-top:12px; height:10px; border-radius:999px; background:rgba(16,39,70,.08); overflow:hidden; }
     .grade-bar span { display:block; height:100%; background:linear-gradient(90deg, var(--orange), var(--green)); }
     .grade-note { margin-top:8px; color:var(--muted); font-size:12px; font-weight:700; }
-    .summary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:18px; }
+    .summary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:16px; }
     .summary-card { padding:16px; border-radius:18px; border:1px solid rgba(16,39,70,.08); background:#fff; }
     .summary-card.branch-card.bet { background:linear-gradient(180deg, rgba(22,111,66,.08), #fff); }
     .summary-card.branch-card.track { background:linear-gradient(180deg, rgba(242,108,34,.08), #fff); }
@@ -267,6 +267,38 @@
       border:1px solid rgba(16,39,70,.08);
     }
     .detail-card p { margin:8px 0 0; color:var(--muted); font-size:13px; line-height:1.62; }
+    .secondary-panels {
+      display:grid;
+      grid-template-columns:minmax(0,1.25fr) minmax(320px,.85fr);
+      gap:12px;
+      margin-top:14px;
+      align-items:start;
+    }
+    .performance-panel {
+      padding:14px;
+      border-radius:18px;
+    }
+    .performance-panel-head {
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:flex-start;
+      margin-bottom:12px;
+    }
+    .performance-panel-head h2 {
+      margin:0;
+      font-size:14px;
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#ffd5b3;
+    }
+    .performance-panel-head p {
+      margin:6px 0 0;
+      color:rgba(255,247,239,.78);
+      font-size:13px;
+      line-height:1.45;
+    }
     .no-results {
       display:none;
       margin-top:16px;
@@ -279,13 +311,13 @@
       font-weight:700;
     }
     @media (max-width:1220px) {
-      .hero-grid, .game-top, .summary-grid, .detail-grid, .performance-grid { grid-template-columns:1fr; }
+      .hero-grid, .game-top, .summary-grid, .detail-grid, .performance-grid, .secondary-panels { grid-template-columns:1fr; }
       .stats, .controls-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
     }
     @media (max-width:760px) {
       .page { padding:16px 12px 32px; }
       .hero, .controls, .game-card { padding:18px; }
-      .stats, .controls-grid, .summary-grid, .detail-grid, .performance-grid { grid-template-columns:1fr; }
+      .stats, .controls-grid, .summary-grid, .detail-grid, .performance-grid, .secondary-panels { grid-template-columns:1fr; }
       h1 { font-size:2.15rem; }
     }
     :root {
@@ -310,14 +342,14 @@
       color:var(--screen-text);
       font-family:"Inter","Aptos","Segoe UI",sans-serif;
     }
-    .page { max-width:1720px; padding-top:18px; }
+    .page { max-width:1880px; padding-top:10px; }
     .panel {
       background:linear-gradient(180deg, rgba(13,26,41,.96), rgba(10,20,32,.94));
       border:1px solid var(--screen-line);
       box-shadow:0 22px 70px rgba(0,0,0,.38);
     }
     .hero {
-      padding:14px 16px;
+      padding:10px 14px;
       background:
         linear-gradient(135deg, rgba(9,22,36,.98), rgba(16,33,52,.98)),
         linear-gradient(90deg, rgba(43,124,255,.14), transparent 35%, rgba(69,192,255,.08));
@@ -333,7 +365,7 @@
     h1 {
       margin-top:8px;
       color:#f5f9ff;
-      font-size:clamp(1.55rem,2.6vw,2.3rem);
+      font-size:clamp(1.45rem,2.25vw,2.05rem);
       letter-spacing:-.045em;
     }
     .hero-copy, .top-sub, .top-meta, .stat .note { color:var(--screen-muted); }
@@ -376,8 +408,8 @@
       position:sticky;
       top:0;
       z-index:25;
-      margin-top:14px;
-      padding:16px 18px;
+      margin-top:6px;
+      padding:10px 14px;
       background:rgba(10,20,32,.92);
       backdrop-filter:blur(18px);
     }
@@ -400,9 +432,9 @@
     .status-pill.bet, .legend-pill.bet { background:rgba(34,197,94,.14); color:#8ff0b2; border-color:rgba(34,197,94,.22); }
     .status-pill.track, .legend-pill.track { background:rgba(245,158,11,.14); color:#ffd278; border-color:rgba(245,158,11,.24); }
     .status-pill.pass, .legend-pill.pass { background:rgba(148,163,184,.12); color:#c4d1df; border-color:rgba(148,163,184,.18); }
-    .games { gap:12px; margin-top:14px; }
+    .games { gap:16px; margin-top:4px; }
     .game-card {
-      padding:18px 18px 16px;
+      padding:24px 24px 22px;
       border-radius:18px;
       background:linear-gradient(180deg, rgba(12,24,38,.98), rgba(9,19,31,.98));
       border:1px solid var(--screen-line);
@@ -420,15 +452,15 @@
     .market-strip {
       display:grid;
       grid-template-columns:repeat(5, minmax(0,1fr));
-      gap:10px;
-      margin-top:14px;
+      gap:12px;
+      margin-top:16px;
     }
     .market-metric {
-      padding:12px 14px;
+      padding:14px 16px;
       border-radius:14px;
       border:1px solid var(--screen-line);
       background:linear-gradient(180deg, rgba(18,35,54,.94), rgba(12,24,38,.94));
-      min-height:86px;
+      min-height:96px;
     }
     .market-metric .eyebrow {
       color:#7fbcff;
@@ -440,7 +472,7 @@
     .market-metric .big {
       margin-top:8px;
       color:#f6faff;
-      font-size:18px;
+      font-size:20px;
       font-weight:900;
       line-height:1.2;
       letter-spacing:-.02em;
@@ -500,7 +532,8 @@
       border:1px solid var(--screen-line);
     }
     .top-play .pick { color:#dfeaf6; }
-    .board-meta { font-size:13px; }
+    .board-meta { font-size:12px; }
+    .floating-leaders { margin-top:0; }
     .no-results {
       background:rgba(12,24,38,.9);
       border-color:var(--screen-line);
@@ -508,7 +541,7 @@
     }
     @media (max-width:1220px) {
       .market-strip { grid-template-columns:repeat(2, minmax(0,1fr)); }
-      .summary-grid, .detail-grid, .hero-grid, .game-top, .performance-grid { grid-template-columns:1fr; }
+      .summary-grid, .detail-grid, .hero-grid, .game-top, .performance-grid, .secondary-panels { grid-template-columns:1fr; }
     }
     @media (max-width:760px) {
       .market-strip { grid-template-columns:1fr; }
@@ -522,22 +555,16 @@
       <div class="hero-grid">
         <div>
           <div class="kicker">March Madness Odds Screen</div>
-          <h1>Live board view with model edge, fair value, and branch signals.</h1>
-          <div class="hero-copy">This screen is now organized like a sharper market board: every matchup stays visible, the branch tabs toggle between spread, moneyline, totals, and blended views, and each row shows market consensus, model score, fair win rate, pace, and game-specific context.</div>
+          <h1>Game board first, with bigger matchup rows and the live edge up front.</h1>
+          <div class="hero-copy">The slate is now the main event. Branch tabs still switch between spread, moneyline, totals, and blended views, but the top of the page stays tight so you can get to the game list faster and read each matchup like a live market screen.</div>
           <div class="stats">
             <article class="stat"><div class="label">Games</div><div class="value">11</div><div class="note">Full slate stays visible even when every branch says pass.</div></article>
-            <article class="stat"><div class="label">Live Bets</div><div class="value">6</div><div class="note">Games with at least one active branch play.</div></article>
-            <article class="stat"><div class="label">Blended Lens</div><div class="value">6</div><div class="note">Games where the combined view says bet.</div></article>
+            <article class="stat"><div class="label">Live Bets</div><div class="value">5</div><div class="note">Games with at least one active branch play.</div></article>
+            <article class="stat"><div class="label">Blended Bets</div><div class="value">5</div><div class="note">Games where the combined view says bet.</div></article>
             <article class="stat"><div class="label">Spread Bets</div><div class="value">2</div><div class="note">Residual spread model plays.</div></article>
-            <article class="stat"><div class="label">ML Bets</div><div class="value">6</div><div class="note">Validated moneyline branch plays.</div></article>
-            <article class="stat"><div class="label">Total Bets</div><div class="value">0</div><div class="note">Totals are experimental until backtest improves.</div></article>
+            <article class="stat"><div class="label">ML Bets</div><div class="value">5</div><div class="note">Validated moneyline branch plays.</div></article>
           </div>
         </div>
-        <aside class="top-box">
-          <h2 id="topBoxTitle">Screen Leaders</h2>
-          <div id="topBoxNote" class="top-sub">The right column updates with whichever branch tab you’re focused on.</div>
-          <div id="topList" class="top-list"></div>
-        </aside>
       </div>
     </section>
 
@@ -555,9 +582,6 @@
           <button class="view-tab" type="button" data-view="total">Totals</button>
         </div>
       </div>
-
-      <div class="performance-grid"><article class="performance-card bet"><div class="performance-title">Overall Proxy</div><div class="performance-value">+240.2u</div><div class="performance-sub">20.8% ROI/play | 1153 plays</div><div class="performance-note">2024-2025 proxy backtest</div></article><article class="performance-card bet"><div class="performance-title">Blended Branch</div><div class="performance-value">+196.1u</div><div class="performance-sub">39.1% ROI/play | 502 plays</div><div class="performance-note">Backtested blended branch</div></article><article class="performance-card bet"><div class="performance-title">Spread Branch</div><div class="performance-value">+54.9u</div><div class="performance-sub">27.6% ROI/play | 199 plays</div><div class="performance-note">Validated 2-season proxy</div></article><article class="performance-card bet"><div class="performance-title">Moneyline Branch</div><div class="performance-value">+190.3u</div><div class="performance-sub">20.5% ROI/play | 927 plays</div><div class="performance-note">Validated 2-season proxy</div></article><article class="performance-card pass"><div class="performance-title">Totals Branch</div><div class="performance-value">-5.0u</div><div class="performance-sub">-18.5% ROI/play | 27 plays</div><div class="performance-note">Tracking only</div></article></div>
-
       <div class="controls-grid">
         <label class="control">Sort
           <select id="sortSelect">
@@ -605,50 +629,50 @@
     </section>
 
     <section id="gameList" class="games">
-            <article class="game-card bet"
-              data-overall-grade="90.23"
-              data-overall-status="BET"
-              data-overall-edge="17.9200"
-              data-overall-edge-signed="17.9200"
-              data-overall-win="82.9400"
-              data-blended-grade="100.00"
-              data-blended-status="BET"
-              data-blended-edge="17.9200"
-              data-blended-edge-signed="17.9200"
-              data-blended-win="82.9400"
-              data-spread-grade="90.00"
-              data-spread-status="BET"
-              data-spread-edge="5.4100"
-              data-spread-edge-signed="5.4100"
-              data-spread-win="82.9400"
-              data-moneyline-grade="90.23"
-              data-moneyline-status="BET"
-              data-moneyline-edge="17.9200"
-              data-moneyline-edge-signed="17.9200"
-              data-moneyline-win="82.9400"
-              data-total-grade="12.98"
+            <article class="game-card track"
+              data-overall-grade="100.00"
+              data-overall-status="TRACK"
+              data-overall-edge="6.2100"
+              data-overall-edge-signed="6.2100"
+              data-overall-win="77.5900"
+              data-blended-grade="93.00"
+              data-blended-status="PASS"
+              data-blended-edge="6.2100"
+              data-blended-edge-signed="6.2100"
+              data-blended-win="77.5900"
+              data-spread-grade="100.00"
+              data-spread-status="TRACK"
+              data-spread-edge="6.2100"
+              data-spread-edge-signed="6.2100"
+              data-spread-win="77.5900"
+              data-moneyline-grade="100.00"
+              data-moneyline-status="PASS"
+              data-moneyline-edge="57.8400"
+              data-moneyline-edge-signed="57.8400"
+              data-moneyline-win="77.5900"
+              data-total-grade="26.23"
               data-total-status="PASS"
-              data-total-edge="0.1500"
-              data-total-edge-signed="-0.1500"
-              data-total-win="0.1500"
+              data-total-edge="2.1900"
+              data-total-edge-signed="2.1900"
+              data-total-win="2.1900"
               data-tip="1774221034"
-              data-search="iowa florida florida -2.5 florida ml under 149.5 viktor mikic (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos c peyton mccollum (out for season) 8.8m, impact +0.13, cbs sports [fallback] foot | pos g favorites only, line&lt;=10, edge&gt;=1.5 edge&gt;=6pct and price&lt;=+220 ">
+              data-search="iowa florida florida +0.0 florida ml over 146.5 viktor mikic (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos c peyton mccollum (out for season) 8.8m, impact +0.13, cbs sports [fallback] foot | pos g   ">
               <div class="game-top">
                 <div>
                   <div class="time-kicker">Sun Mar 22, 06:10 PM</div>
                   <h2>Iowa at Florida</h2>
                   <div class="meta-row">
-                    <span class="status-pill bet">BET</span>
-                    <span class="chip">Blend 100</span>
-                    <span class="chip">Moneyline lead</span>
+                    <span class="status-pill track">TRACK</span>
+                    <span class="chip">Blend 93</span>
+                    <span class="chip">Spread lead</span>
                     <span class="chip">8 books</span>
                     <span class="chip">Mode spread+moneyline+total</span>
                   </div>
                 </div>
                 <div class="grade-box">
                   <div class="grade-title">Best live grade</div>
-                  <div class="grade-score elite">90</div>
-                  <div class="grade-bar"><span style="width:90%;"></span></div>
+                  <div class="grade-score elite">100</div>
+                  <div class="grade-bar"><span style="width:100%;"></span></div>
                   <div class="grade-note">Elite card</div>
                 </div>
               </div>
@@ -656,18 +680,18 @@
               <div class="market-strip">
                 <section class="market-metric">
                   <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Florida -2.5 | O/U 149.5</div>
-                  <div class="mini">Florida -235 | Iowa +165</div>
+                  <div class="big">Pick&#x27;em | O/U 146.5</div>
+                  <div class="mini">Florida +380 | Iowa -550</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Model Score</div>
-                  <div class="big">Florida 78.6 - 70.7 Iowa</div>
-                  <div class="mini">Florida by 7.9</div>
+                  <div class="big">Florida 77.5 - 71.2 Iowa</div>
+                  <div class="mini">Florida by 6.2</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Win Probability</div>
-                  <div class="big">Florida 82.9%</div>
-                  <div class="mini">Home 82.9% | Away 17.1%</div>
+                  <div class="big">Florida 77.6%</div>
+                  <div class="mini">Home 77.6% | Away 22.4%</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Projection Engine</div>
@@ -676,52 +700,52 @@
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Moneyline | Grade 90</div>
-                  <div class="mini">8 books | Moneyline</div>
+                  <div class="big">Spread | Grade 100</div>
+                  <div class="mini">8 books | Projection</div>
                 </section>
               </div>
 
               <div class="summary-grid">
                 
-        <section class="summary-card branch-card bet" data-branch="blended">
+        <section class="summary-card branch-card pass" data-branch="blended">
           <div class="summary-head">
             <div class="label">Blended Game View</div>
             <div class="summary-right">
-              <span class="status-pill bet">BET</span>
+              <span class="status-pill pass">PASS</span>
+              <span class="mini-grade elite">93</span>
+            </div>
+          </div>
+          <div class="value">Florida 77.5 - 71.2 Iowa</div>
+          <div class="sub">Florida by 6.2 | 68.1 poss | Total 148.7</div>
+          <div class="branch-note">Florida 116.7 pp100 | Iowa 101.4 pp100 | Blend 45% spread / 40% ML / 15% total</div>
+        </section>
+    
+                
+        <section class="summary-card branch-card track" data-branch="spread">
+          <div class="summary-head">
+            <div class="label">Spread Model</div>
+            <div class="summary-right">
+              <span class="status-pill track">TRACK</span>
+              <span class="mini-grade elite">100</span>
+            </div>
+          </div>
+          <div class="value">Florida +0.0</div>
+          <div class="sub">Edge +6.21 pts | Model +6.21 home | Market +0.0 home</div>
+          <div class="branch-note">WATCH</div>
+        </section>
+    
+                
+        <section class="summary-card branch-card pass" data-branch="moneyline">
+          <div class="summary-head">
+            <div class="label">Moneyline Model</div>
+            <div class="summary-right">
+              <span class="status-pill pass">PASS</span>
               <span class="mini-grade elite">100</span>
             </div>
           </div>
           <div class="value">Florida ML</div>
-          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 84.9</div>
-          <div class="branch-note">threshold&gt;=90 | weights 57/33/10 | spread/ML preferred</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card bet" data-branch="spread">
-          <div class="summary-head">
-            <div class="label">Spread Model</div>
-            <div class="summary-right">
-              <span class="status-pill bet">BET</span>
-              <span class="mini-grade elite">90</span>
-            </div>
-          </div>
-          <div class="value">Florida -2.5</div>
-          <div class="sub">Edge +5.41 pts | Model +7.91 home | Market -2.5 home</div>
-          <div class="branch-note">favorites only, line&lt;=10, edge&gt;=1.5</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card bet" data-branch="moneyline">
-          <div class="summary-head">
-            <div class="label">Moneyline Model</div>
-            <div class="summary-right">
-              <span class="status-pill bet">BET</span>
-              <span class="mini-grade elite">90</span>
-            </div>
-          </div>
-          <div class="value">Florida ML</div>
-          <div class="sub">Edge +17.92 pts | Lean Florida 82.9% | Market -235/+165</div>
-          <div class="branch-note">edge&gt;=6pct and price&lt;=+220</div>
+          <div class="sub">Edge +57.84 pts | Lean Florida 77.6% | Market +380/-550</div>
+          <div class="branch-note">Validated ML branch</div>
         </section>
     
                 
@@ -730,22 +754,22 @@
             <div class="label">Totals Model</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">13</span>
+              <span class="mini-grade fade">26</span>
             </div>
           </div>
-          <div class="value">UNDER 149.5</div>
-          <div class="sub">Diff -0.15 pts | Model 149.3 | Market 149.5</div>
+          <div class="value">OVER 146.5</div>
+          <div class="sub">Diff +2.19 pts | Model 148.7 | Market 146.5</div>
           <div class="branch-note">Possessions / PPP totals branch</div>
         </section>
     
               </div>
 
-              <div class="books-row"><span class="book-pill"><strong>BetRivers</strong><span>-2.5</span><span>O/U 150.0</span></span><span class="book-pill"><strong>DraftKings</strong><span>-1.5</span><span>O/U 148.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-2.5</span><span>O/U 149.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>-2.5</span><span>O/U n/a</span></span><span class="book-pill"><strong>Caesars</strong><span>-1.5</span><span>O/U 149.5</span></span></div>
+              <div class="books-row"><span class="book-pill"><strong>BetRivers</strong><span>n/a</span><span>O/U n/a</span></span><span class="book-pill"><strong>DraftKings</strong><span>n/a</span><span>O/U n/a</span></span><span class="book-pill"><strong>FanDuel</strong><span>n/a</span><span>O/U n/a</span></span><span class="book-pill"><strong>BetMGM</strong><span>n/a</span><span>O/U n/a</span></span><span class="book-pill"><strong>Caesars</strong><span>+1.5</span><span>O/U 145.5</span></span></div>
 
               <div class="detail-grid">
                 <section class="detail-card wide">
                   <div class="label">Matchup key</div>
-                  <p>The model is 5.4 points stronger on Florida than the current market. Recent form also leans toward Florida.</p>
+                  <p>The model is 6.2 points stronger on Florida than the current market. Recent form also leans toward Florida.</p>
                 </section>
                 <section class="detail-card">
                   <div class="label">Florida outlook</div>
@@ -758,69 +782,69 @@
               </div>
             </article>
             
-            <article class="game-card pass"
-              data-overall-grade="65.50"
-              data-overall-status="PASS"
-              data-overall-edge="7.0000"
-              data-overall-edge-signed="7.0000"
-              data-overall-win="90.1100"
-              data-blended-grade="68.90"
+            <article class="game-card track"
+              data-overall-grade="77.50"
+              data-overall-status="TRACK"
+              data-overall-edge="3.0500"
+              data-overall-edge-signed="-3.0500"
+              data-overall-win="93.6400"
+              data-blended-grade="84.80"
               data-blended-status="PASS"
-              data-blended-edge="11.0400"
-              data-blended-edge-signed="11.0400"
-              data-blended-win="90.1100"
-              data-spread-grade="48.30"
-              data-spread-status="PASS"
-              data-spread-edge="1.9600"
-              data-spread-edge-signed="-1.9600"
-              data-spread-win="90.1100"
-              data-moneyline-grade="36.88"
+              data-blended-edge="13.4500"
+              data-blended-edge-signed="13.4500"
+              data-blended-win="93.6400"
+              data-spread-grade="77.50"
+              data-spread-status="TRACK"
+              data-spread-edge="3.0500"
+              data-spread-edge-signed="-3.0500"
+              data-spread-win="93.6400"
+              data-moneyline-grade="43.57"
               data-moneyline-status="PASS"
-              data-moneyline-edge="1.2000"
-              data-moneyline-edge-signed="1.2000"
-              data-moneyline-win="90.1100"
-              data-total-grade="65.50"
+              data-moneyline-edge="3.2200"
+              data-moneyline-edge-signed="3.2200"
+              data-moneyline-win="93.6400"
+              data-total-grade="61.08"
               data-total-status="PASS"
-              data-total-edge="7.0000"
-              data-total-edge-signed="7.0000"
-              data-total-win="7.0000"
+              data-total-edge="6.3200"
+              data-total-edge-signed="6.3200"
+              data-total-win="6.3200"
               data-tip="1774224000"
-              data-search="george washington new mexico george washington +13.0 george washington ml over 146.0 chris howell (game time decision) 8.8m, impact +0.06, cbs sports [fallback] wrist | pos g | kevin patton (game time decision) 8.8m, impact +0.06, cbs sports [fallback] personal | pos g | sir marius jones (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g | kallai patton (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g ty bevins (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos g | mohamed binzagr (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos g | luke hunger (game time decision) 18.3m, impact +0.35, cbs sports foot | pos f | jalen rougier-roane (out for season) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos g   ">
+              data-search="george washington new mexico george washington +16.5 george washington ml over 147.0 chris howell (game time decision) 8.8m, impact +0.06, cbs sports [fallback] wrist | pos g | kevin patton (game time decision) 8.8m, impact +0.06, cbs sports [fallback] personal | pos g | sir marius jones (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g | kallai patton (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g ty bevins (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos g | mohamed binzagr (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos g | luke hunger (game time decision) 18.3m, impact +0.35, cbs sports foot | pos f | jalen rougier-roane (out for season) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos g   ">
               <div class="game-top">
                 <div>
                   <div class="time-kicker">Sun Mar 22, 07:00 PM</div>
                   <h2>George Washington at New Mexico</h2>
                   <div class="meta-row">
-                    <span class="status-pill pass">PASS</span>
-                    <span class="chip">Blend 69</span>
-                    <span class="chip">Total lead</span>
+                    <span class="status-pill track">TRACK</span>
+                    <span class="chip">Blend 85</span>
+                    <span class="chip">Spread lead</span>
                     <span class="chip">4 books</span>
                     <span class="chip">Mode spread+moneyline+total</span>
                   </div>
                 </div>
                 <div class="grade-box">
                   <div class="grade-title">Best live grade</div>
-                  <div class="grade-score watch">66</div>
-                  <div class="grade-bar"><span style="width:66%;"></span></div>
-                  <div class="grade-note">Watchlist</div>
+                  <div class="grade-score action">78</div>
+                  <div class="grade-bar"><span style="width:78%;"></span></div>
+                  <div class="grade-note">Actionable</div>
                 </div>
               </div>
 
               <div class="market-strip">
                 <section class="market-metric">
                   <div class="eyebrow">Consensus Market</div>
-                  <div class="big">New Mexico -13.0 | O/U 146.0</div>
-                  <div class="mini">New Mexico -2100 | George Washington +1000</div>
+                  <div class="big">New Mexico -16.5 | O/U 147.0</div>
+                  <div class="mini">New Mexico -20000 | George Washington +3000</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Model Score</div>
-                  <div class="big">New Mexico 82.0 - 71.0 George Washington</div>
-                  <div class="mini">New Mexico by 11.0</div>
+                  <div class="big">New Mexico 83.4 - 69.9 George Washington</div>
+                  <div class="mini">New Mexico by 13.4</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Win Probability</div>
-                  <div class="big">New Mexico 90.1%</div>
-                  <div class="mini">Home 90.1% | Away 9.9%</div>
+                  <div class="big">New Mexico 93.6%</div>
+                  <div class="mini">Home 93.6% | Away 6.4%</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Projection Engine</div>
@@ -829,7 +853,7 @@
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Total | Grade 66</div>
+                  <div class="big">Spread | Grade 78</div>
                   <div class="mini">4 books | Projection</div>
                 </section>
               </div>
@@ -841,26 +865,26 @@
             <div class="label">Blended Game View</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade watch">69</span>
+              <span class="mini-grade action">85</span>
             </div>
           </div>
-          <div class="value">New Mexico 82.0 - 71.0 George Washington</div>
-          <div class="sub">New Mexico by 11.0 | 70.7 poss | Total 153.0</div>
+          <div class="value">New Mexico 83.4 - 69.9 George Washington</div>
+          <div class="sub">New Mexico by 13.4 | 70.7 poss | Total 153.3</div>
           <div class="branch-note">New Mexico 110.7 pp100 | George Washington 109.4 pp100 | Blend 45% spread / 40% ML / 15% total</div>
         </section>
     
                 
-        <section class="summary-card branch-card pass" data-branch="spread">
+        <section class="summary-card branch-card track" data-branch="spread">
           <div class="summary-head">
             <div class="label">Spread Model</div>
             <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">48</span>
+              <span class="status-pill track">TRACK</span>
+              <span class="mini-grade action">78</span>
             </div>
           </div>
-          <div class="value">George Washington +13.0</div>
-          <div class="sub">Edge -1.96 pts | Model +11.04 home | Market -13.0 home</div>
-          <div class="branch-note">Residual spread branch</div>
+          <div class="value">George Washington +16.5</div>
+          <div class="sub">Edge -3.05 pts | Model +13.45 home | Market -16.5 home</div>
+          <div class="branch-note">WATCH</div>
         </section>
     
                 
@@ -869,11 +893,11 @@
             <div class="label">Moneyline Model</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">37</span>
+              <span class="mini-grade fade">44</span>
             </div>
           </div>
           <div class="value">George Washington ML</div>
-          <div class="sub">Edge +1.20 pts | Lean New Mexico 90.1% | Market -2100/+1000</div>
+          <div class="sub">Edge +3.22 pts | Lean New Mexico 93.6% | Market -20000/+3000</div>
           <div class="branch-note">Validated ML branch</div>
         </section>
     
@@ -883,22 +907,22 @@
             <div class="label">Totals Model</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade watch">66</span>
+              <span class="mini-grade watch">61</span>
             </div>
           </div>
-          <div class="value">OVER 146.0</div>
-          <div class="sub">Diff +7.00 pts | Model 153.0 | Market 146.0</div>
+          <div class="value">OVER 147.0</div>
+          <div class="sub">Diff +6.32 pts | Model 153.3 | Market 147.0</div>
           <div class="branch-note">Possessions / PPP totals branch</div>
         </section>
     
               </div>
 
-              <div class="books-row"><span class="book-pill"><strong>DraftKings</strong><span>-13.5</span><span>O/U 147.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-11.5</span><span>O/U 144.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>-14.5</span><span>O/U 146.5</span></span><span class="book-pill"><strong>Caesars</strong><span>-12.5</span><span>O/U 145.5</span></span></div>
+              <div class="books-row"><span class="book-pill"><strong>DraftKings</strong><span>-16.5</span><span>O/U 148.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-16.5</span><span>O/U 145.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>-16.5</span><span>O/U 148.5</span></span><span class="book-pill"><strong>Caesars</strong><span>-17.5</span><span>O/U 144.5</span></span></div>
 
               <div class="detail-grid">
                 <section class="detail-card wide">
                   <div class="label">Matchup key</div>
-                  <p>The model and market are fairly close, with only a 2.0-point gap. This projects as a faster game, which raises the importance of transition scoring and run control.</p>
+                  <p>The model is 3.1 points stronger on George Washington than the current market. This projects as a faster game, which raises the importance of transition scoring and run control.</p>
                 </section>
                 <section class="detail-card">
                   <div class="label">New Mexico outlook</div>
@@ -911,41 +935,41 @@
               </div>
             </article>
             
-            <article class="game-card track"
-              data-overall-grade="83.81"
-              data-overall-status="TRACK"
-              data-overall-edge="10.7400"
-              data-overall-edge-signed="10.7400"
-              data-overall-win="96.1300"
-              data-blended-grade="82.40"
+            <article class="game-card pass"
+              data-overall-grade="73.30"
+              data-overall-status="PASS"
+              data-overall-edge="8.2000"
+              data-overall-edge-signed="8.2000"
+              data-overall-win="96.4900"
+              data-blended-grade="71.70"
               data-blended-status="PASS"
-              data-blended-edge="16.0600"
-              data-blended-edge-signed="16.0600"
-              data-blended-win="96.1300"
-              data-spread-grade="69.20"
-              data-spread-status="TRACK"
-              data-spread-edge="2.5600"
-              data-spread-edge-signed="2.5600"
-              data-spread-win="96.1300"
-              data-moneyline-grade="45.83"
+              data-blended-edge="16.5800"
+              data-blended-edge-signed="16.5800"
+              data-blended-win="96.4900"
+              data-spread-grade="50.70"
+              data-spread-status="PASS"
+              data-spread-edge="2.3300"
+              data-spread-edge-signed="2.3300"
+              data-spread-win="96.4900"
+              data-moneyline-grade="45.47"
               data-moneyline-status="PASS"
-              data-moneyline-edge="3.6000"
-              data-moneyline-edge-signed="3.6000"
-              data-moneyline-win="96.1300"
-              data-total-grade="83.81"
+              data-moneyline-edge="3.3600"
+              data-moneyline-edge-signed="3.3600"
+              data-moneyline-win="96.4900"
+              data-total-grade="73.30"
               data-total-status="PASS"
-              data-total-edge="10.7400"
-              data-total-edge-signed="10.7400"
-              data-total-win="10.7400"
+              data-total-edge="8.2000"
+              data-total-edge-signed="8.2000"
+              data-total-win="8.2000"
               data-tip="1774224705"
-              data-search="utah state arizona arizona -13.5 arizona ml over 136.5     ">
+              data-search="utah state arizona arizona -14.2 arizona ml over 140.75     ">
               <div class="game-top">
                 <div>
                   <div class="time-kicker">Sun Mar 22, 07:11 PM</div>
                   <h2>Utah State at Arizona</h2>
                   <div class="meta-row">
-                    <span class="status-pill track">TRACK</span>
-                    <span class="chip">Blend 82</span>
+                    <span class="status-pill pass">PASS</span>
+                    <span class="chip">Blend 72</span>
                     <span class="chip">Total lead</span>
                     <span class="chip">8 books</span>
                     <span class="chip">Mode spread+moneyline+total</span>
@@ -953,8 +977,8 @@
                 </div>
                 <div class="grade-box">
                   <div class="grade-title">Best live grade</div>
-                  <div class="grade-score action">84</div>
-                  <div class="grade-bar"><span style="width:84%;"></span></div>
+                  <div class="grade-score action">73</div>
+                  <div class="grade-bar"><span style="width:73%;"></span></div>
                   <div class="grade-note">Actionable</div>
                 </div>
               </div>
@@ -962,18 +986,18 @@
               <div class="market-strip">
                 <section class="market-metric">
                   <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Arizona -13.5 | O/U 136.5</div>
-                  <div class="mini">Arizona -10000 | Utah State +1150</div>
+                  <div class="big">Arizona -14.2 | O/U 140.8</div>
+                  <div class="mini">Arizona -3200 | Utah State +1300</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Model Score</div>
-                  <div class="big">Arizona 81.7 - 65.6 Utah State</div>
-                  <div class="mini">Arizona by 16.1</div>
+                  <div class="big">Arizona 82.8 - 66.2 Utah State</div>
+                  <div class="mini">Arizona by 16.6</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Win Probability</div>
-                  <div class="big">Arizona 96.1%</div>
-                  <div class="mini">Home 96.1% | Away 3.9%</div>
+                  <div class="big">Arizona 96.5%</div>
+                  <div class="mini">Home 96.5% | Away 3.5%</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Projection Engine</div>
@@ -982,7 +1006,7 @@
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Total | Grade 84</div>
+                  <div class="big">Total | Grade 73</div>
                   <div class="mini">8 books | Projection</div>
                 </section>
               </div>
@@ -994,26 +1018,26 @@
             <div class="label">Blended Game View</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade action">82</span>
+              <span class="mini-grade watch">72</span>
             </div>
           </div>
-          <div class="value">Arizona 81.7 - 65.6 Utah State</div>
-          <div class="sub">Arizona by 16.1 | 69.7 poss | Total 147.2</div>
+          <div class="value">Arizona 82.8 - 66.2 Utah State</div>
+          <div class="sub">Arizona by 16.6 | 69.7 poss | Total 148.9</div>
           <div class="branch-note">Arizona 119.5 pp100 | Utah State 98.2 pp100 | Blend 45% spread / 40% ML / 15% total</div>
         </section>
     
                 
-        <section class="summary-card branch-card track" data-branch="spread">
+        <section class="summary-card branch-card pass" data-branch="spread">
           <div class="summary-head">
             <div class="label">Spread Model</div>
             <div class="summary-right">
-              <span class="status-pill track">TRACK</span>
-              <span class="mini-grade watch">69</span>
+              <span class="status-pill pass">PASS</span>
+              <span class="mini-grade fade">51</span>
             </div>
           </div>
-          <div class="value">Arizona -13.5</div>
-          <div class="sub">Edge +2.56 pts | Model +16.06 home | Market -13.5 home</div>
-          <div class="branch-note">WATCH</div>
+          <div class="value">Arizona -14.2</div>
+          <div class="sub">Edge +2.33 pts | Model +16.58 home | Market -14.2 home</div>
+          <div class="branch-note">Residual spread branch</div>
         </section>
     
                 
@@ -1022,11 +1046,11 @@
             <div class="label">Moneyline Model</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">46</span>
+              <span class="mini-grade fade">45</span>
             </div>
           </div>
           <div class="value">Arizona ML</div>
-          <div class="sub">Edge +3.60 pts | Lean Arizona 96.1% | Market -10000/+1150</div>
+          <div class="sub">Edge +3.36 pts | Lean Arizona 96.5% | Market -3200/+1300</div>
           <div class="branch-note">Validated ML branch</div>
         </section>
     
@@ -1036,22 +1060,22 @@
             <div class="label">Totals Model</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade action">84</span>
+              <span class="mini-grade action">73</span>
             </div>
           </div>
-          <div class="value">OVER 136.5</div>
-          <div class="sub">Diff +10.74 pts | Model 147.2 | Market 136.5</div>
+          <div class="value">OVER 140.75</div>
+          <div class="sub">Diff +8.20 pts | Model 148.9 | Market 140.8</div>
           <div class="branch-note">Possessions / PPP totals branch</div>
         </section>
     
               </div>
 
-              <div class="books-row"><span class="book-pill"><strong>BetRivers</strong><span>-13.0</span><span>O/U 136.0</span></span><span class="book-pill"><strong>DraftKings</strong><span>-14.5</span><span>O/U 136.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-13.5</span><span>O/U 135.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>-13.5</span><span>O/U 136.5</span></span><span class="book-pill"><strong>Caesars</strong><span>-14.5</span><span>O/U 136.5</span></span></div>
+              <div class="books-row"><span class="book-pill"><strong>BetRivers</strong><span>-13.0</span><span>O/U 140.0</span></span><span class="book-pill"><strong>DraftKings</strong><span>-14.5</span><span>O/U 141.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-14.5</span><span>O/U 139.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>-13.5</span><span>O/U 142.5</span></span><span class="book-pill"><strong>Caesars</strong><span>-15.5</span><span>O/U 141.5</span></span></div>
 
               <div class="detail-grid">
                 <section class="detail-card wide">
                   <div class="label">Matchup key</div>
-                  <p>The model and market are fairly close, with only a 2.6-point gap. Recent form also leans toward Arizona.</p>
+                  <p>The model and market are fairly close, with only a 2.3-point gap. Recent form also leans toward Arizona.</p>
                 </section>
                 <section class="detail-card">
                   <div class="label">Arizona outlook</div>
@@ -1065,33 +1089,33 @@
             </article>
             
             <article class="game-card bet"
-              data-overall-grade="100.00"
+              data-overall-grade="99.66"
               data-overall-status="BET"
-              data-overall-edge="26.1100"
-              data-overall-edge-signed="26.1100"
-              data-overall-win="86.0300"
+              data-overall-edge="21.0400"
+              data-overall-edge-signed="21.0400"
+              data-overall-win="86.7600"
               data-blended-grade="100.00"
               data-blended-status="BET"
-              data-blended-edge="26.1100"
-              data-blended-edge-signed="26.1100"
-              data-blended-win="86.0300"
-              data-spread-grade="67.50"
-              data-spread-status="TRACK"
-              data-spread-edge="5.5900"
-              data-spread-edge-signed="-5.5900"
-              data-spread-win="86.0300"
-              data-moneyline-grade="100.00"
+              data-blended-edge="21.0400"
+              data-blended-edge-signed="21.0400"
+              data-blended-win="86.7600"
+              data-spread-grade="72.50"
+              data-spread-status="BET"
+              data-spread-edge="5.4000"
+              data-spread-edge-signed="-5.4000"
+              data-spread-win="86.7600"
+              data-moneyline-grade="99.66"
               data-moneyline-status="BET"
-              data-moneyline-edge="26.1100"
-              data-moneyline-edge-signed="26.1100"
-              data-moneyline-win="86.0300"
-              data-total-grade="85.24"
+              data-moneyline-edge="21.0400"
+              data-moneyline-edge-signed="21.0400"
+              data-moneyline-win="86.7600"
+              data-total-grade="94.92"
               data-total-status="PASS"
-              data-total-edge="10.9600"
-              data-total-edge-signed="-10.9600"
-              data-total-win="10.9600"
+              data-total-edge="12.4500"
+              data-total-edge-signed="-12.4500"
+              data-total-win="12.4500"
               data-tip="1774226700"
-              data-search="wichita state oklahoma state wichita state -3.5 wichita state ml under 164.0 isaiah coleman (game time decision) 19.9m, impact +0.36, cbs sports suspension | pos g | vyctorius miller (game time decision) 25.8m, impact +0.92, cbs sports suspension | pos g | anthony roy (game time decision) 28.2m, impact +1.48, cbs sports suspension | pos g | andrija vukovic (game time decision) 13.3m, impact +0.23, cbs sports undisclosed | pos f | parsa fallah (out for season) 22.1m, impact +1.91, cbs sports knee | pos f | robert jennings (out for season) 8.8m, impact +0.13, cbs sports [fallback] hip | pos f joy ighovodja (game time decision) 8.8m, impact +0.06, cbs sports [fallback] foot | pos g | pierre couisnard (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g | tyrus rathan-mayes (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g | jaret valencia (out for season) 8.8m, impact +0.13, cbs sports [fallback] achilles | pos f  edge&gt;=6pct and price&lt;=+220 ">
+              data-search="wichita state oklahoma state wichita state -4.0 wichita state ml under 166.5 isaiah coleman (game time decision) 19.9m, impact +0.36, cbs sports suspension | pos g | vyctorius miller (game time decision) 25.8m, impact +0.92, cbs sports suspension | pos g | anthony roy (game time decision) 28.2m, impact +1.48, cbs sports suspension | pos g | andrija vukovic (game time decision) 13.3m, impact +0.23, cbs sports undisclosed | pos f | parsa fallah (out for season) 22.1m, impact +1.91, cbs sports knee | pos f | robert jennings (out for season) 8.8m, impact +0.13, cbs sports [fallback] hip | pos f joy ighovodja (game time decision) 8.8m, impact +0.06, cbs sports [fallback] foot | pos g | pierre couisnard (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g | tyrus rathan-mayes (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g | jaret valencia (out for season) 8.8m, impact +0.13, cbs sports [fallback] achilles | pos f favorites only, line&lt;=10, edge&gt;=1.5 edge&gt;=6pct and price&lt;=+220 ">
               <div class="game-top">
                 <div>
                   <div class="time-kicker">Sun Mar 22, 07:45 PM</div>
@@ -1115,18 +1139,18 @@
               <div class="market-strip">
                 <section class="market-metric">
                   <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Wichita State -3.5 | O/U 164.0</div>
-                  <div class="mini">Oklahoma State +135 | Wichita State -175</div>
+                  <div class="big">Wichita State -4.0 | O/U 166.5</div>
+                  <div class="mini">Oklahoma State +175 | Wichita State -230</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Model Score</div>
-                  <div class="big">Oklahoma State 72.0 - 81.1 Wichita State</div>
-                  <div class="mini">Wichita State by 9.1</div>
+                  <div class="big">Oklahoma State 72.3 - 81.7 Wichita State</div>
+                  <div class="mini">Wichita State by 9.4</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Win Probability</div>
-                  <div class="big">Wichita State 86.0%</div>
-                  <div class="mini">Home 14.0% | Away 86.0%</div>
+                  <div class="big">Wichita State 86.8%</div>
+                  <div class="mini">Home 13.2% | Away 86.8%</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Projection Engine</div>
@@ -1151,22 +1175,22 @@
             </div>
           </div>
           <div class="value">Wichita State ML</div>
-          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 81.4</div>
+          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 84.3</div>
           <div class="branch-note">threshold&gt;=90 | weights 57/33/10 | spread/ML preferred</div>
         </section>
     
                 
-        <section class="summary-card branch-card track" data-branch="spread">
+        <section class="summary-card branch-card bet" data-branch="spread">
           <div class="summary-head">
             <div class="label">Spread Model</div>
             <div class="summary-right">
-              <span class="status-pill track">TRACK</span>
-              <span class="mini-grade watch">68</span>
+              <span class="status-pill bet">BET</span>
+              <span class="mini-grade action">72</span>
             </div>
           </div>
-          <div class="value">Wichita State -3.5</div>
-          <div class="sub">Edge -5.59 pts | Model -9.09 home | Market +3.5 home</div>
-          <div class="branch-note">WATCH</div>
+          <div class="value">Wichita State -4.0</div>
+          <div class="sub">Edge -5.40 pts | Model -9.40 home | Market +4.0 home</div>
+          <div class="branch-note">favorites only, line&lt;=10, edge&gt;=1.5</div>
         </section>
     
                 
@@ -1179,7 +1203,7 @@
             </div>
           </div>
           <div class="value">Wichita State ML</div>
-          <div class="sub">Edge +26.11 pts | Lean Wichita State 86.0% | Market +135/-175</div>
+          <div class="sub">Edge +21.04 pts | Lean Wichita State 86.8% | Market +175/-230</div>
           <div class="branch-note">edge&gt;=6pct and price&lt;=+220</div>
         </section>
     
@@ -1189,22 +1213,22 @@
             <div class="label">Totals Model</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade elite">85</span>
+              <span class="mini-grade elite">95</span>
             </div>
           </div>
-          <div class="value">UNDER 164.0</div>
-          <div class="sub">Diff -10.96 pts | Model 153.0 | Market 164.0</div>
+          <div class="value">UNDER 166.5</div>
+          <div class="sub">Diff -12.45 pts | Model 154.1 | Market 166.5</div>
           <div class="branch-note">Possessions / PPP totals branch</div>
         </section>
     
               </div>
 
-              <div class="books-row"><span class="book-pill"><strong>DraftKings</strong><span>+2.5</span><span>O/U 165.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>+5.5</span><span>O/U 162.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>+3.5</span><span>O/U 165.5</span></span><span class="book-pill"><strong>Caesars</strong><span>+3.5</span><span>O/U 160.5</span></span></div>
+              <div class="books-row"><span class="book-pill"><strong>DraftKings</strong><span>+3.5</span><span>O/U 166.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>+4.5</span><span>O/U 166.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>+4.5</span><span>O/U 165.5</span></span><span class="book-pill"><strong>Caesars</strong><span>+3.0</span><span>O/U 168.5</span></span></div>
 
               <div class="detail-grid">
                 <section class="detail-card wide">
                   <div class="label">Matchup key</div>
-                  <p>The model is 5.6 points stronger on Wichita State than the current market. This projects as a faster game, which raises the importance of transition scoring and run control. The biggest situational swing is lineup-related, with Oklahoma State carrying the heavier injury drag.</p>
+                  <p>The model is 5.4 points stronger on Wichita State than the current market. This projects as a faster game, which raises the importance of transition scoring and run control. The biggest situational swing is lineup-related, with Oklahoma State carrying the heavier injury drag.</p>
                 </section>
                 <section class="detail-card">
                   <div class="label">Oklahoma State outlook</div>
@@ -1218,68 +1242,68 @@
             </article>
             
             <article class="game-card track"
-              data-overall-grade="60.82"
+              data-overall-grade="82.08"
               data-overall-status="TRACK"
-              data-overall-edge="6.2800"
-              data-overall-edge-signed="-6.2800"
-              data-overall-win="52.0800"
-              data-blended-grade="73.00"
+              data-overall-edge="9.5500"
+              data-overall-edge-signed="-9.5500"
+              data-overall-win="62.0800"
+              data-blended-grade="87.10"
               data-blended-status="PASS"
-              data-blended-edge="0.4200"
-              data-blended-edge-signed="0.4200"
-              data-blended-win="52.0800"
-              data-spread-grade="56.90"
+              data-blended-edge="2.4600"
+              data-blended-edge-signed="2.4600"
+              data-blended-win="62.0800"
+              data-spread-grade="77.50"
               data-spread-status="TRACK"
-              data-spread-edge="2.0800"
-              data-spread-edge-signed="-2.0800"
-              data-spread-win="52.0800"
-              data-moneyline-grade="58.15"
+              data-spread-edge="3.0400"
+              data-spread-edge-signed="-3.0400"
+              data-spread-win="62.0800"
+              data-moneyline-grade="42.55"
               data-moneyline-status="PASS"
-              data-moneyline-edge="16.6000"
-              data-moneyline-edge-signed="16.6000"
-              data-moneyline-win="52.0800"
-              data-total-grade="60.82"
+              data-moneyline-edge="8.4700"
+              data-moneyline-edge-signed="8.4700"
+              data-moneyline-win="62.0800"
+              data-total-grade="82.08"
               data-total-status="PASS"
-              data-total-edge="6.2800"
-              data-total-edge-signed="-6.2800"
-              data-total-win="6.2800"
+              data-total-edge="9.5500"
+              data-total-edge-signed="-9.5500"
+              data-total-win="9.5500"
               data-tip="1774227939"
-              data-search="saint joseph&#x27;s california saint joseph&#x27;s +2.5 saint joseph&#x27;s ml under 149.0 stephon marbury ii (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos g | rytis petraitis (out for season) 8.8m, impact +0.13, cbs sports [fallback] lower leg | pos f | jovani ruff (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g will lange (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos g | steven solano (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos c | owen verna (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos g   ">
+              data-search="saint joseph&#x27;s california saint joseph&#x27;s +5.5 saint joseph&#x27;s ml under 154.0 stephon marbury ii (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos g | rytis petraitis (out for season) 8.8m, impact +0.13, cbs sports [fallback] lower leg | pos f | jovani ruff (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g will lange (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos g | steven solano (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos c | owen verna (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos g   ">
               <div class="game-top">
                 <div>
                   <div class="time-kicker">Sun Mar 22, 08:05 PM</div>
                   <h2>Saint Joseph&#x27;s at California</h2>
                   <div class="meta-row">
                     <span class="status-pill track">TRACK</span>
-                    <span class="chip">Blend 73</span>
+                    <span class="chip">Blend 87</span>
                     <span class="chip">Total lead</span>
-                    <span class="chip">6 books</span>
+                    <span class="chip">4 books</span>
                     <span class="chip">Mode spread+moneyline+total</span>
                   </div>
                 </div>
                 <div class="grade-box">
                   <div class="grade-title">Best live grade</div>
-                  <div class="grade-score watch">61</div>
-                  <div class="grade-bar"><span style="width:61%;"></span></div>
-                  <div class="grade-note">Watchlist</div>
+                  <div class="grade-score action">82</div>
+                  <div class="grade-bar"><span style="width:82%;"></span></div>
+                  <div class="grade-note">Actionable</div>
                 </div>
               </div>
 
               <div class="market-strip">
                 <section class="market-metric">
                   <div class="eyebrow">Consensus Market</div>
-                  <div class="big">California -2.5 | O/U 149.0</div>
-                  <div class="mini">California -250 | Saint Joseph&#x27;s +207</div>
+                  <div class="big">California -5.5 | O/U 154.0</div>
+                  <div class="mini">California -298 | Saint Joseph&#x27;s +220</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Model Score</div>
-                  <div class="big">California 71.6 - 71.2 Saint Joseph&#x27;s</div>
-                  <div class="mini">California by 0.4</div>
+                  <div class="big">California 73.5 - 71.0 Saint Joseph&#x27;s</div>
+                  <div class="mini">California by 2.5</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Win Probability</div>
-                  <div class="big">California 52.1%</div>
-                  <div class="mini">Home 52.1% | Away 47.9%</div>
+                  <div class="big">California 62.1%</div>
+                  <div class="mini">Home 62.1% | Away 37.9%</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Projection Engine</div>
@@ -1288,8 +1312,8 @@
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Total | Grade 61</div>
-                  <div class="mini">6 books | Projection</div>
+                  <div class="big">Total | Grade 82</div>
+                  <div class="mini">4 books | Projection</div>
                 </section>
               </div>
 
@@ -1300,11 +1324,11 @@
             <div class="label">Blended Game View</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade action">73</span>
+              <span class="mini-grade elite">87</span>
             </div>
           </div>
-          <div class="value">California 71.6 - 71.2 Saint Joseph&#x27;s</div>
-          <div class="sub">California by 0.4 | 69.2 poss | Total 142.7</div>
+          <div class="value">California 73.5 - 71.0 Saint Joseph&#x27;s</div>
+          <div class="sub">California by 2.5 | 69.2 poss | Total 144.4</div>
           <div class="branch-note">California 103.1 pp100 | Saint Joseph&#x27;s 100.3 pp100 | Blend 45% spread / 40% ML / 15% total</div>
         </section>
     
@@ -1314,11 +1338,11 @@
             <div class="label">Spread Model</div>
             <div class="summary-right">
               <span class="status-pill track">TRACK</span>
-              <span class="mini-grade fade">57</span>
+              <span class="mini-grade action">78</span>
             </div>
           </div>
-          <div class="value">Saint Joseph&#x27;s +2.5</div>
-          <div class="sub">Edge -2.08 pts | Model +0.42 home | Market -2.5 home</div>
+          <div class="value">Saint Joseph&#x27;s +5.5</div>
+          <div class="sub">Edge -3.04 pts | Model +2.46 home | Market -5.5 home</div>
           <div class="branch-note">WATCH</div>
         </section>
     
@@ -1328,11 +1352,11 @@
             <div class="label">Moneyline Model</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade watch">58</span>
+              <span class="mini-grade fade">43</span>
             </div>
           </div>
           <div class="value">Saint Joseph&#x27;s ML</div>
-          <div class="sub">Edge +16.60 pts | Lean California 52.1% | Market -250/+207</div>
+          <div class="sub">Edge +8.47 pts | Lean California 62.1% | Market -298/+220</div>
           <div class="branch-note">Validated ML branch</div>
         </section>
     
@@ -1342,22 +1366,22 @@
             <div class="label">Totals Model</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade watch">61</span>
+              <span class="mini-grade action">82</span>
             </div>
           </div>
-          <div class="value">UNDER 149.0</div>
-          <div class="sub">Diff -6.28 pts | Model 142.7 | Market 149.0</div>
+          <div class="value">UNDER 154.0</div>
+          <div class="sub">Diff -9.55 pts | Model 144.4 | Market 154.0</div>
           <div class="branch-note">Possessions / PPP totals branch</div>
         </section>
     
               </div>
 
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-5.5</span><span>O/U 153.5</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-5.5</span><span>O/U 153.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-1.5</span><span>O/U 148.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-2.5</span><span>O/U 148.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>n/a</span><span>O/U 148.5</span></span></div>
+              <div class="books-row"><span class="book-pill"><strong>DraftKings</strong><span>-5.5</span><span>O/U 153.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-5.5</span><span>O/U 154.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>n/a</span><span>O/U 155.5</span></span><span class="book-pill"><strong>Caesars</strong><span>-4.5</span><span>O/U 153.5</span></span></div>
 
               <div class="detail-grid">
                 <section class="detail-card wide">
                   <div class="label">Matchup key</div>
-                  <p>The model and market are fairly close, with only a 2.1-point gap. Recent form also leans toward Saint Joseph&#x27;s.</p>
+                  <p>The model is 3.0 points stronger on Saint Joseph&#x27;s than the current market. Recent form also leans toward Saint Joseph&#x27;s.</p>
                 </section>
                 <section class="detail-card">
                   <div class="label">California outlook</div>
@@ -1371,33 +1395,33 @@
             </article>
             
             <article class="game-card bet"
-              data-overall-grade="55.69"
+              data-overall-grade="80.22"
               data-overall-status="BET"
-              data-overall-edge="7.2800"
-              data-overall-edge-signed="7.2800"
-              data-overall-win="74.7000"
+              data-overall-edge="15.8700"
+              data-overall-edge-signed="15.8700"
+              data-overall-win="73.5100"
               data-blended-grade="100.00"
               data-blended-status="BET"
-              data-blended-edge="7.2800"
-              data-blended-edge-signed="7.2800"
-              data-blended-win="74.7000"
-              data-spread-grade="50.90"
-              data-spread-status="PASS"
-              data-spread-edge="1.4100"
-              data-spread-edge-signed="1.4100"
-              data-spread-win="74.7000"
-              data-moneyline-grade="55.69"
+              data-blended-edge="15.8700"
+              data-blended-edge-signed="15.8700"
+              data-blended-win="73.5100"
+              data-spread-grade="64.40"
+              data-spread-status="TRACK"
+              data-spread-edge="1.6000"
+              data-spread-edge-signed="1.6000"
+              data-spread-win="73.5100"
+              data-moneyline-grade="80.22"
               data-moneyline-status="BET"
-              data-moneyline-edge="7.2800"
-              data-moneyline-edge-signed="7.2800"
-              data-moneyline-win="74.7000"
-              data-total-grade="14.97"
+              data-moneyline-edge="15.8700"
+              data-moneyline-edge-signed="15.8700"
+              data-moneyline-win="73.5100"
+              data-total-grade="10.09"
               data-total-status="PASS"
-              data-total-edge="1.3800"
-              data-total-edge-signed="-1.3800"
-              data-total-win="1.3800"
+              data-total-edge="0.6300"
+              data-total-edge-signed="-0.6300"
+              data-total-win="0.6300"
               data-tip="1774228245"
-              data-search="ucla connecticut connecticut -4.0 connecticut ml under 137.5 silas demary (game time decision) 29.2m, impact +2.52, cbs sports ankle | pos g | jaylin stewart (game time decision) 14.5m, impact +0.53, cbs sports knee | pos f tyler bilodeau (game time decision) 27.8m, impact +1.71, cbs sports knee | pos f | evan manjikian (out) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos f  edge&gt;=6pct and price&lt;=+220 ">
+              data-search="ucla connecticut connecticut -3.5 connecticut ml under 136.5 silas demary (game time decision) 29.2m, impact +2.52, cbs sports ankle | pos g | jaylin stewart (game time decision) 14.5m, impact +0.53, cbs sports knee | pos f tyler bilodeau (game time decision) 27.8m, impact +1.71, cbs sports knee | pos f | evan manjikian (out) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos f  edge&gt;=6pct and price&lt;=+220 ">
               <div class="game-top">
                 <div>
                   <div class="time-kicker">Sun Mar 22, 08:10 PM</div>
@@ -1406,33 +1430,33 @@
                     <span class="status-pill bet">BET</span>
                     <span class="chip">Blend 100</span>
                     <span class="chip">Moneyline lead</span>
-                    <span class="chip">11 books</span>
+                    <span class="chip">8 books</span>
                     <span class="chip">Mode spread+moneyline+total</span>
                   </div>
                 </div>
                 <div class="grade-box">
                   <div class="grade-title">Best live grade</div>
-                  <div class="grade-score fade">56</div>
-                  <div class="grade-bar"><span style="width:56%;"></span></div>
-                  <div class="grade-note">Pass for now</div>
+                  <div class="grade-score action">80</div>
+                  <div class="grade-bar"><span style="width:80%;"></span></div>
+                  <div class="grade-note">Actionable</div>
                 </div>
               </div>
 
               <div class="market-strip">
                 <section class="market-metric">
                   <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Connecticut -4.0 | O/U 137.5</div>
-                  <div class="mini">Connecticut -235 | UCLA +195</div>
+                  <div class="big">Connecticut -3.5 | O/U 136.5</div>
+                  <div class="mini">Connecticut -162 | UCLA +120</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Model Score</div>
-                  <div class="big">Connecticut 70.8 - 65.4 UCLA</div>
-                  <div class="mini">Connecticut by 5.4</div>
+                  <div class="big">Connecticut 70.5 - 65.4 UCLA</div>
+                  <div class="mini">Connecticut by 5.1</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Win Probability</div>
-                  <div class="big">Connecticut 74.7%</div>
-                  <div class="mini">Home 74.7% | Away 25.3%</div>
+                  <div class="big">Connecticut 73.5%</div>
+                  <div class="mini">Home 73.5% | Away 26.5%</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Projection Engine</div>
@@ -1441,8 +1465,8 @@
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Moneyline | Grade 56</div>
-                  <div class="mini">11 books | Moneyline</div>
+                  <div class="big">Moneyline | Grade 80</div>
+                  <div class="mini">8 books | Moneyline</div>
                 </section>
               </div>
 
@@ -1457,22 +1481,22 @@
             </div>
           </div>
           <div class="value">Connecticut ML</div>
-          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 64.0</div>
+          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 70.9</div>
           <div class="branch-note">threshold&gt;=90 | weights 57/33/10 | spread/ML preferred</div>
         </section>
     
                 
-        <section class="summary-card branch-card pass" data-branch="spread">
+        <section class="summary-card branch-card track" data-branch="spread">
           <div class="summary-head">
             <div class="label">Spread Model</div>
             <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">51</span>
+              <span class="status-pill track">TRACK</span>
+              <span class="mini-grade watch">64</span>
             </div>
           </div>
-          <div class="value">Connecticut -4.0</div>
-          <div class="sub">Edge +1.41 pts | Model +5.41 home | Market -4.0 home</div>
-          <div class="branch-note">Residual spread branch</div>
+          <div class="value">Connecticut -3.5</div>
+          <div class="sub">Edge +1.60 pts | Model +5.10 home | Market -3.5 home</div>
+          <div class="branch-note">WATCH</div>
         </section>
     
                 
@@ -1481,11 +1505,11 @@
             <div class="label">Moneyline Model</div>
             <div class="summary-right">
               <span class="status-pill bet">BET</span>
-              <span class="mini-grade fade">56</span>
+              <span class="mini-grade action">80</span>
             </div>
           </div>
           <div class="value">Connecticut ML</div>
-          <div class="sub">Edge +7.28 pts | Lean Connecticut 74.7% | Market -235/+195</div>
+          <div class="sub">Edge +15.87 pts | Lean Connecticut 73.5% | Market -162/+120</div>
           <div class="branch-note">edge&gt;=6pct and price&lt;=+220</div>
         </section>
     
@@ -1495,22 +1519,22 @@
             <div class="label">Totals Model</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">15</span>
+              <span class="mini-grade fade">10</span>
             </div>
           </div>
-          <div class="value">UNDER 137.5</div>
-          <div class="sub">Diff -1.38 pts | Model 136.1 | Market 137.5</div>
+          <div class="value">UNDER 136.5</div>
+          <div class="sub">Diff -0.63 pts | Model 135.9 | Market 136.5</div>
           <div class="branch-note">Possessions / PPP totals branch</div>
         </section>
     
               </div>
 
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-5.5</span><span>O/U 136.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-5.5</span><span>O/U 136.0</span></span><span class="book-pill"><strong>BetRivers</strong><span>-4.0</span><span>O/U 138.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-2.5</span><span>O/U 137.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-3.5</span><span>O/U 138.5</span></span></div>
+              <div class="books-row"><span class="book-pill"><strong>BetRivers</strong><span>-2.5</span><span>O/U 136.0</span></span><span class="book-pill"><strong>DraftKings</strong><span>-3.5</span><span>O/U 136.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-2.5</span><span>O/U 136.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>-3.5</span><span>O/U 135.5</span></span><span class="book-pill"><strong>Caesars</strong><span>-3.5</span><span>O/U 136.5</span></span></div>
 
               <div class="detail-grid">
                 <section class="detail-card wide">
                   <div class="label">Matchup key</div>
-                  <p>The model and market are fairly close, with only a 1.4-point gap. This projects as a slower game, so half-court execution should matter more than volume. Recent form also leans toward UCLA.</p>
+                  <p>The model and market are fairly close, with only a 1.6-point gap. This projects as a slower game, so half-court execution should matter more than volume. Recent form also leans toward UCLA.</p>
                 </section>
                 <section class="detail-card">
                   <div class="label">Connecticut outlook</div>
@@ -1524,33 +1548,33 @@
             </article>
             
             <article class="game-card bet"
-              data-overall-grade="65.04"
+              data-overall-grade="66.10"
               data-overall-status="BET"
-              data-overall-edge="12.0000"
-              data-overall-edge-signed="12.0000"
-              data-overall-win="62.4300"
+              data-overall-edge="2.2400"
+              data-overall-edge-signed="-2.2400"
+              data-overall-win="56.1900"
               data-blended-grade="100.00"
               data-blended-status="BET"
-              data-blended-edge="12.0000"
-              data-blended-edge-signed="12.0000"
-              data-blended-win="62.4300"
-              data-spread-grade="58.20"
+              data-blended-edge="7.2700"
+              data-blended-edge-signed="7.2700"
+              data-blended-win="56.1900"
+              data-spread-grade="66.10"
               data-spread-status="TRACK"
-              data-spread-edge="1.5400"
-              data-spread-edge-signed="-1.5400"
-              data-spread-win="62.4300"
-              data-moneyline-grade="65.04"
+              data-spread-edge="2.2400"
+              data-spread-edge-signed="-2.2400"
+              data-spread-win="56.1900"
+              data-moneyline-grade="45.49"
               data-moneyline-status="BET"
-              data-moneyline-edge="12.0000"
-              data-moneyline-edge-signed="12.0000"
-              data-moneyline-win="62.4300"
+              data-moneyline-edge="7.2700"
+              data-moneyline-edge-signed="7.2700"
+              data-moneyline-win="56.1900"
               data-total-grade="53.00"
               data-total-status="PASS"
               data-total-edge="6.0000"
               data-total-edge-signed="-6.0000"
               data-total-win="6.0000"
               data-tip="1774230341"
-              data-search="texas tech alabama texas tech -1.0 texas tech ml under 164.5 keitenn bristow (out) 8.8m, impact +0.13, cbs sports [fallback] ankle | pos f | davion hannah (out) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos g | aden holloway (out) 27.7m, impact +3.50, cbs sports not injury related | pos g | collins onyejiaka (out) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos c | charles bediako (out for season) 8.8m, impact +0.13, cbs sports [fallback] not injury related | pos c latrell hoover (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos f | jt toppin (out for season) 29.4m, impact +3.50, cbs sports knee | pos f  edge&gt;=6pct and price&lt;=+220 ">
+              data-search="texas tech alabama texas tech +1.0 texas tech ml under 164.5 keitenn bristow (out) 8.8m, impact +0.13, cbs sports [fallback] ankle | pos f | davion hannah (out) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos g | aden holloway (out) 27.7m, impact +3.50, cbs sports not injury related | pos g | collins onyejiaka (out) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos c | charles bediako (out for season) 8.8m, impact +0.13, cbs sports [fallback] not injury related | pos c latrell hoover (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos f | jt toppin (out for season) 29.4m, impact +3.50, cbs sports knee | pos f  edge&gt;=6pct and price&lt;=+220 ">
               <div class="game-top">
                 <div>
                   <div class="time-kicker">Sun Mar 22, 08:45 PM</div>
@@ -1558,15 +1582,15 @@
                   <div class="meta-row">
                     <span class="status-pill bet">BET</span>
                     <span class="chip">Blend 100</span>
-                    <span class="chip">Moneyline lead</span>
+                    <span class="chip">Spread lead</span>
                     <span class="chip">11 books</span>
                     <span class="chip">Mode spread+moneyline+total</span>
                   </div>
                 </div>
                 <div class="grade-box">
                   <div class="grade-title">Best live grade</div>
-                  <div class="grade-score watch">65</div>
-                  <div class="grade-bar"><span style="width:65%;"></span></div>
+                  <div class="grade-score watch">66</div>
+                  <div class="grade-bar"><span style="width:66%;"></span></div>
                   <div class="grade-note">Watchlist</div>
                 </div>
               </div>
@@ -1574,18 +1598,18 @@
               <div class="market-strip">
                 <section class="market-metric">
                   <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Texas Tech -1.0 | O/U 164.5</div>
-                  <div class="mini">Alabama -109 | Texas Tech -113</div>
+                  <div class="big">Alabama -1.0 | O/U 164.5</div>
+                  <div class="mini">Alabama -115 | Texas Tech -105</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Model Score</div>
-                  <div class="big">Alabama 78.0 - 80.5 Texas Tech</div>
-                  <div class="mini">Texas Tech by 2.5</div>
+                  <div class="big">Alabama 78.6 - 79.9 Texas Tech</div>
+                  <div class="mini">Texas Tech by 1.2</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Win Probability</div>
-                  <div class="big">Texas Tech 62.4%</div>
-                  <div class="mini">Home 37.6% | Away 62.4%</div>
+                  <div class="big">Texas Tech 56.2%</div>
+                  <div class="mini">Home 43.8% | Away 56.2%</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Projection Engine</div>
@@ -1594,7 +1618,7 @@
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Moneyline | Grade 65</div>
+                  <div class="big">Spread | Grade 66</div>
                   <div class="mini">11 books | Moneyline</div>
                 </section>
               </div>
@@ -1610,7 +1634,7 @@
             </div>
           </div>
           <div class="value">Texas Tech ML</div>
-          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 73.4</div>
+          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 78.0</div>
           <div class="branch-note">threshold&gt;=90 | weights 57/33/10 | spread/ML preferred</div>
         </section>
     
@@ -1620,11 +1644,11 @@
             <div class="label">Spread Model</div>
             <div class="summary-right">
               <span class="status-pill track">TRACK</span>
-              <span class="mini-grade watch">58</span>
+              <span class="mini-grade watch">66</span>
             </div>
           </div>
-          <div class="value">Texas Tech -1.0</div>
-          <div class="sub">Edge -1.54 pts | Model -2.54 home | Market +1.0 home</div>
+          <div class="value">Texas Tech +1.0</div>
+          <div class="sub">Edge -2.24 pts | Model -1.24 home | Market -1.0 home</div>
           <div class="branch-note">WATCH</div>
         </section>
     
@@ -1634,11 +1658,11 @@
             <div class="label">Moneyline Model</div>
             <div class="summary-right">
               <span class="status-pill bet">BET</span>
-              <span class="mini-grade watch">65</span>
+              <span class="mini-grade fade">45</span>
             </div>
           </div>
           <div class="value">Texas Tech ML</div>
-          <div class="sub">Edge +12.00 pts | Lean Texas Tech 62.4% | Market -109/-113</div>
+          <div class="sub">Edge +7.27 pts | Lean Texas Tech 56.2% | Market -115/-105</div>
           <div class="branch-note">edge&gt;=6pct and price&lt;=+220</div>
         </section>
     
@@ -1658,12 +1682,12 @@
     
               </div>
 
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>+0.0</span><span>O/U 164.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>+0.0</span><span>O/U 164.0</span></span><span class="book-pill"><strong>BetRivers</strong><span>+1.5</span><span>O/U 163.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>+1.5</span><span>O/U 164.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>+1.5</span><span>O/U 164.5</span></span></div>
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-1.0</span><span>O/U 164.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-1.0</span><span>O/U 164.0</span></span><span class="book-pill"><strong>BetRivers</strong><span>-1.5</span><span>O/U 163.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-1.5</span><span>O/U 164.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>+1.5</span><span>O/U 164.5</span></span></div>
 
               <div class="detail-grid">
                 <section class="detail-card wide">
                   <div class="label">Matchup key</div>
-                  <p>The model and market are fairly close, with only a 1.5-point gap. This projects as a faster game, which raises the importance of transition scoring and run control. Recent form also leans toward Texas Tech.</p>
+                  <p>The model and market are fairly close, with only a 2.2-point gap. This projects as a faster game, which raises the importance of transition scoring and run control. Recent form also leans toward Texas Tech.</p>
                 </section>
                 <section class="detail-card">
                   <div class="label">Alabama outlook</div>
@@ -2289,11 +2313,27 @@
             </article>
             </section>
     <div id="noResults" class="no-results">No games match the current filters.</div>
+    <section class="secondary-panels">
+      <section class="panel performance-panel">
+        <div class="performance-panel-head">
+          <div>
+            <h2>Backtest Snapshot</h2>
+            <p>Historical branch performance stays below the slate so the board keeps priority, but the current proxy numbers are still one glance away.</p>
+          </div>
+        </div>
+        <div class="performance-grid"><article class="performance-card bet"><div class="performance-title">Overall Proxy</div><div class="performance-value">+240.2u</div><div class="performance-sub">20.8% ROI/play | 1153 plays</div><div class="performance-note">2024-2025 proxy backtest</div></article><article class="performance-card bet"><div class="performance-title">Blended Branch</div><div class="performance-value">+196.1u</div><div class="performance-sub">39.1% ROI/play | 502 plays</div><div class="performance-note">Backtested blended branch</div></article><article class="performance-card bet"><div class="performance-title">Spread Branch</div><div class="performance-value">+54.9u</div><div class="performance-sub">27.6% ROI/play | 199 plays</div><div class="performance-note">Validated 2-season proxy</div></article><article class="performance-card bet"><div class="performance-title">Moneyline Branch</div><div class="performance-value">+190.3u</div><div class="performance-sub">20.5% ROI/play | 927 plays</div><div class="performance-note">Validated 2-season proxy</div></article><article class="performance-card pass"><div class="performance-title">Totals Branch</div><div class="performance-value">-5.0u</div><div class="performance-sub">-18.5% ROI/play | 27 plays</div><div class="performance-note">Tracking only</div></article></div>
+      </section>
+      <aside class="panel top-box floating-leaders">
+        <h2 id="topBoxTitle">Screen Leaders</h2>
+        <div id="topBoxNote" class="top-sub">Leaders stay here as the secondary panel while the matchup list owns the page.</div>
+        <div id="topList" class="top-list"></div>
+      </aside>
+    </section>
   </main>
 
   <script>
     (function () {
-      const topPlayData = {"all": [{"matchup": "Wichita State at Oklahoma State", "pick": "Wichita State ML", "grade": 100, "edge": "+26.11", "time": "Sun Mar 22, 07:45 PM", "tag": "Moneyline"}, {"matchup": "Illinois at Houston", "pick": "Houston -2.5", "grade": 100, "edge": "+5.14", "time": "Thu Mar 26, 11:00 AM", "tag": "Spread"}, {"matchup": "Iowa at Florida", "pick": "Florida ML", "grade": 90.2, "edge": "+17.92", "time": "Sun Mar 22, 06:10 PM", "tag": "Moneyline"}, {"matchup": "Texas Tech at Alabama", "pick": "Texas Tech ML", "grade": 65.0, "edge": "+12.00", "time": "Sun Mar 22, 08:45 PM", "tag": "Moneyline"}, {"matchup": "Texas at Purdue", "pick": "Purdue ML", "grade": 60.9, "edge": "+8.39", "time": "Thu Mar 26, 06:00 PM", "tag": "Moneyline"}, {"matchup": "UCLA at Connecticut", "pick": "Connecticut ML", "grade": 55.7, "edge": "+7.28", "time": "Sun Mar 22, 08:10 PM", "tag": "Moneyline"}], "blended": [{"matchup": "Iowa at Florida", "pick": "Florida ML", "grade": 100, "edge": "+17.92", "time": "Sun Mar 22, 06:10 PM", "tag": "Moneyline"}, {"matchup": "Wichita State at Oklahoma State", "pick": "Wichita State ML", "grade": 100, "edge": "+26.11", "time": "Sun Mar 22, 07:45 PM", "tag": "Moneyline"}, {"matchup": "UCLA at Connecticut", "pick": "Connecticut ML", "grade": 100, "edge": "+7.28", "time": "Sun Mar 22, 08:10 PM", "tag": "Moneyline"}, {"matchup": "Texas Tech at Alabama", "pick": "Texas Tech ML", "grade": 100, "edge": "+12.00", "time": "Sun Mar 22, 08:45 PM", "tag": "Moneyline"}, {"matchup": "Illinois at Houston", "pick": "Houston -2.5", "grade": 100, "edge": "+5.14", "time": "Thu Mar 26, 11:00 AM", "tag": "Spread"}, {"matchup": "Texas at Purdue", "pick": "Purdue ML", "grade": 100, "edge": "+8.39", "time": "Thu Mar 26, 06:00 PM", "tag": "Moneyline"}], "spread": [{"matchup": "Illinois at Houston", "pick": "Houston -2.5", "grade": 100, "edge": "+5.14", "time": "Thu Mar 26, 11:00 AM", "tag": "T1"}, {"matchup": "Iowa at Florida", "pick": "Florida -2.5", "grade": 90.0, "edge": "+5.41", "time": "Sun Mar 22, 06:10 PM", "tag": "T1"}], "moneyline": [{"matchup": "Wichita State at Oklahoma State", "pick": "Wichita State ML", "grade": 100, "edge": "+26.11", "time": "Sun Mar 22, 07:45 PM", "tag": "Moneyline"}, {"matchup": "Illinois at Houston", "pick": "Houston ML", "grade": 100, "edge": "+24.53", "time": "Thu Mar 26, 11:00 AM", "tag": "Moneyline"}, {"matchup": "Iowa at Florida", "pick": "Florida ML", "grade": 90.2, "edge": "+17.92", "time": "Sun Mar 22, 06:10 PM", "tag": "Moneyline"}, {"matchup": "Texas Tech at Alabama", "pick": "Texas Tech ML", "grade": 65.0, "edge": "+12.00", "time": "Sun Mar 22, 08:45 PM", "tag": "Moneyline"}, {"matchup": "Texas at Purdue", "pick": "Purdue ML", "grade": 60.9, "edge": "+8.39", "time": "Thu Mar 26, 06:00 PM", "tag": "Moneyline"}, {"matchup": "UCLA at Connecticut", "pick": "Connecticut ML", "grade": 55.7, "edge": "+7.28", "time": "Sun Mar 22, 08:10 PM", "tag": "Moneyline"}], "total": []};
+      const topPlayData = {"all": [{"matchup": "Illinois at Houston", "pick": "Houston -2.5", "grade": 100, "edge": "+5.14", "time": "Thu Mar 26, 11:00 AM", "tag": "Spread"}, {"matchup": "Wichita State at Oklahoma State", "pick": "Wichita State ML", "grade": 99.7, "edge": "+21.04", "time": "Sun Mar 22, 07:45 PM", "tag": "Moneyline"}, {"matchup": "UCLA at Connecticut", "pick": "Connecticut ML", "grade": 80.2, "edge": "+15.87", "time": "Sun Mar 22, 08:10 PM", "tag": "Moneyline"}, {"matchup": "Texas Tech at Alabama", "pick": "Texas Tech +1.0", "grade": 66.1, "edge": "-2.24", "time": "Sun Mar 22, 08:45 PM", "tag": "Spread"}, {"matchup": "Texas at Purdue", "pick": "Purdue ML", "grade": 60.9, "edge": "+8.39", "time": "Thu Mar 26, 06:00 PM", "tag": "Moneyline"}], "blended": [{"matchup": "Wichita State at Oklahoma State", "pick": "Wichita State ML", "grade": 100, "edge": "+21.04", "time": "Sun Mar 22, 07:45 PM", "tag": "Moneyline"}, {"matchup": "UCLA at Connecticut", "pick": "Connecticut ML", "grade": 100, "edge": "+15.87", "time": "Sun Mar 22, 08:10 PM", "tag": "Moneyline"}, {"matchup": "Texas Tech at Alabama", "pick": "Texas Tech ML", "grade": 100, "edge": "+7.27", "time": "Sun Mar 22, 08:45 PM", "tag": "Moneyline"}, {"matchup": "Illinois at Houston", "pick": "Houston -2.5", "grade": 100, "edge": "+5.14", "time": "Thu Mar 26, 11:00 AM", "tag": "Spread"}, {"matchup": "Texas at Purdue", "pick": "Purdue ML", "grade": 100, "edge": "+8.39", "time": "Thu Mar 26, 06:00 PM", "tag": "Moneyline"}], "spread": [{"matchup": "Illinois at Houston", "pick": "Houston -2.5", "grade": 100, "edge": "+5.14", "time": "Thu Mar 26, 11:00 AM", "tag": "T1"}, {"matchup": "Wichita State at Oklahoma State", "pick": "Wichita State -4.0", "grade": 72.5, "edge": "-5.40", "time": "Sun Mar 22, 07:45 PM", "tag": "T2"}], "moneyline": [{"matchup": "Illinois at Houston", "pick": "Houston ML", "grade": 100, "edge": "+24.53", "time": "Thu Mar 26, 11:00 AM", "tag": "Moneyline"}, {"matchup": "Wichita State at Oklahoma State", "pick": "Wichita State ML", "grade": 99.7, "edge": "+21.04", "time": "Sun Mar 22, 07:45 PM", "tag": "Moneyline"}, {"matchup": "UCLA at Connecticut", "pick": "Connecticut ML", "grade": 80.2, "edge": "+15.87", "time": "Sun Mar 22, 08:10 PM", "tag": "Moneyline"}, {"matchup": "Texas at Purdue", "pick": "Purdue ML", "grade": 60.9, "edge": "+8.39", "time": "Thu Mar 26, 06:00 PM", "tag": "Moneyline"}, {"matchup": "Texas Tech at Alabama", "pick": "Texas Tech ML", "grade": 45.5, "edge": "+7.27", "time": "Sun Mar 22, 08:45 PM", "tag": "Moneyline"}], "total": []};
       const topBoxTitle = document.getElementById("topBoxTitle");
       const topBoxNote = document.getElementById("topBoxNote");
       const list = document.getElementById("gameList");
