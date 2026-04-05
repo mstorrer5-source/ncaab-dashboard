@@ -555,14 +555,14 @@
       <div class="hero-grid">
         <div>
           <div class="kicker">March Madness Odds Screen</div>
-          <h1>Game board first, with bigger matchup rows and the live edge up front.</h1>
-          <div class="hero-copy">The slate is now the main event. Branch tabs still switch between spread, moneyline, totals, and blended views, but the top of the page stays tight so you can get to the game list faster and read each matchup like a live market screen.</div>
+          <h1>Profit-first game board with syndicate-style pricing, staking, and live edge discipline.</h1>
+          <div class="hero-copy">This board now treats the card like a portfolio, not just a pick sheet. The game list stays front and center, but every branch also carries recommendation strength, expected value, and capped stake sizing so you can see what deserves real risk and what should stay as a lean.</div>
           <div class="stats">
-            <article class="stat"><div class="label">Games</div><div class="value">11</div><div class="note">Full slate stays visible even when every branch says pass.</div></article>
-            <article class="stat"><div class="label">Live Bets</div><div class="value">6</div><div class="note">Games with at least one active branch play.</div></article>
-            <article class="stat"><div class="label">Blended Bets</div><div class="value">6</div><div class="note">Games where the combined view says bet.</div></article>
-            <article class="stat"><div class="label">Spread Bets</div><div class="value">2</div><div class="note">Residual spread model plays.</div></article>
-            <article class="stat"><div class="label">ML Bets</div><div class="value">6</div><div class="note">Validated moneyline branch plays.</div></article>
+            <article class="stat"><div class="label">Games</div><div class="value">3</div><div class="note">Full slate stays visible even when every branch says pass.</div></article>
+            <article class="stat"><div class="label">Official Bets</div><div class="value">6</div><div class="note">Individual branch recommendations marked BET.</div></article>
+            <article class="stat"><div class="label">Risk On Card</div><div class="value">8.25u</div><div class="note">Total suggested stake across official bets.</div></article>
+            <article class="stat"><div class="label">Expected Units</div><div class="value">+2.93u</div><div class="note">Sum of modeled EV times suggested stake.</div></article>
+            <article class="stat"><div class="label">Core Bets</div><div class="value">6</div><div class="note">Highest conviction positions on the board.</div></article>
           </div>
         </div>
       </div>
@@ -622,210 +622,58 @@
         <span class="legend-pill">Totals are live but still tracking</span>
       </div>
       <div class="board-meta">
-        <div id="resultsCount">11 games shown</div>
-        <div>Sharp books in snapshot: 8 | BetMGM, BetOnline.ag, BetRivers, BetUS, Caesars, DraftKings, FanDuel, LowVig.ag</div>
+        <div id="resultsCount">3 games shown</div>
+        <div>Sharp books in snapshot: 7 | BetMGM, BetOnline.ag, BetRivers, Caesars, DraftKings, FanDuel, LowVig.ag</div>
         <div>Sources: latest picks + matchup feed + two-season proxy summary</div>
       </div>
     </section>
 
     <section id="gameList" class="games">
-            <article class="game-card pass"
-              data-overall-grade="58.00"
-              data-overall-status="PASS"
-              data-overall-edge="6.7700"
-              data-overall-edge-signed="-6.7700"
-              data-overall-win="64.7300"
-              data-blended-grade="66.70"
-              data-blended-status="PASS"
-              data-blended-edge="3.0400"
-              data-blended-edge-signed="3.0400"
-              data-blended-win="64.7300"
-              data-spread-grade="44.80"
-              data-spread-status="PASS"
-              data-spread-edge="0.5400"
-              data-spread-edge-signed="-0.5400"
-              data-spread-win="64.7300"
-              data-moneyline-grade="38.09"
-              data-moneyline-status="PASS"
-              data-moneyline-edge="5.1000"
-              data-moneyline-edge-signed="5.1000"
-              data-moneyline-win="64.7300"
-              data-total-grade="58.00"
-              data-total-status="PASS"
-              data-total-edge="6.7700"
-              data-total-edge-signed="-6.7700"
-              data-total-win="6.7700"
-              data-tip="1775170800"
-              data-search="new mexico tulsa new mexico -2.5 new mexico ml under 161.5 terrance ford (game time decision) 8.8m, impact +0.06, cbs sports [fallback] arm | pos g chris howell (game time decision) 8.8m, impact +0.06, cbs sports [fallback] wrist | pos g | kevin patton (game time decision) 8.8m, impact +0.06, cbs sports [fallback] personal | pos g | sir marius jones (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g | kallai patton (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g   ">
-              <div class="game-top">
-                <div>
-                  <div class="time-kicker">Thu Apr 02, 06:00 PM</div>
-                  <h2>New Mexico at Tulsa</h2>
-                  <div class="meta-row">
-                    <span class="status-pill pass">PASS</span>
-                    <span class="chip">Blend 67</span>
-                    <span class="chip">Total lead</span>
-                    <span class="chip">8 books</span>
-                    <span class="chip">Mode spread+moneyline+total</span>
-                  </div>
-                </div>
-                <div class="grade-box">
-                  <div class="grade-title">Best live grade</div>
-                  <div class="grade-score watch">58</div>
-                  <div class="grade-bar"><span style="width:58%;"></span></div>
-                  <div class="grade-note">Watchlist</div>
-                </div>
-              </div>
-
-              <div class="market-strip">
-                <section class="market-metric">
-                  <div class="eyebrow">Consensus Market</div>
-                  <div class="big">New Mexico -2.5 | O/U 161.5</div>
-                  <div class="mini">Tulsa +140 | New Mexico -160</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Model Score</div>
-                  <div class="big">Tulsa 75.8 - 78.9 New Mexico</div>
-                  <div class="mini">New Mexico by 3.0</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Win Probability</div>
-                  <div class="big">New Mexico 64.7%</div>
-                  <div class="mini">Home 35.3% | Away 64.7%</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Projection Engine</div>
-                  <div class="big">69.7 poss</div>
-                  <div class="mini">69.7 poss | Tulsa 108.2 | New Mexico 111.2</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Total | Grade 58</div>
-                  <div class="mini">8 books | Projection</div>
-                </section>
-              </div>
-
-              <div class="summary-grid">
-                
-        <section class="summary-card branch-card pass" data-branch="blended">
-          <div class="summary-head">
-            <div class="label">Blended Game View</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade watch">67</span>
-            </div>
-          </div>
-          <div class="value">Tulsa 75.8 - 78.9 New Mexico</div>
-          <div class="sub">New Mexico by 3.0 | 69.7 poss | Total 154.7</div>
-          <div class="branch-note">Tulsa 108.2 pp100 | New Mexico 111.2 pp100 | Blend 45% spread / 40% ML / 15% total</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="spread">
-          <div class="summary-head">
-            <div class="label">Spread Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">45</span>
-            </div>
-          </div>
-          <div class="value">New Mexico -2.5</div>
-          <div class="sub">Edge -0.54 pts | Model -3.04 home | Market +2.5 home</div>
-          <div class="branch-note">Residual spread branch</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="moneyline">
-          <div class="summary-head">
-            <div class="label">Moneyline Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">38</span>
-            </div>
-          </div>
-          <div class="value">New Mexico ML</div>
-          <div class="sub">Edge +5.10 pts | Lean New Mexico 64.7% | Market +140/-160</div>
-          <div class="branch-note">Validated ML branch</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="total">
-          <div class="summary-head">
-            <div class="label">Totals Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade watch">58</span>
-            </div>
-          </div>
-          <div class="value">UNDER 161.5</div>
-          <div class="sub">Diff -6.77 pts | Model 154.7 | Market 161.5</div>
-          <div class="branch-note">Possessions / PPP totals branch</div>
-        </section>
-    
-              </div>
-
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>+2.5</span><span>O/U 161.5</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>+2.5</span><span>O/U 161.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>+2.5</span><span>O/U 161.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>+3.5</span><span>O/U 161.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>+2.5</span><span>O/U 161.5</span></span></div>
-
-              <div class="detail-grid">
-                <section class="detail-card wide">
-                  <div class="label">Matchup key</div>
-                  <p>The model and market are fairly close, with only a 0.5-point gap. This projects as a faster game, which raises the importance of transition scoring and run control. Recent form also leans toward New Mexico.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Tulsa outlook</div>
-                  <p>Tulsa and New Mexico are closer on overall strength than the ranking gap suggests. Tulsa&#x27;s defense is under more pressure here than its offense is helped. The faster pace is less ideal for Tulsa, which has done better in slower games.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">New Mexico outlook</div>
-                  <p>New Mexico and Tulsa are closer on overall strength than the ranking gap suggests. The clearest edge is New Mexico&#x27;s offense against Tulsa&#x27;s defense. New Mexico has real lineup questions today, starting with Chris Howell (GAME TIME DECISION) and Kevin Patton (GAME TIME DECISION).</p>
-                </section>
-              </div>
-            </article>
-            
             <article class="game-card bet"
-              data-overall-grade="100.00"
+              data-overall-grade="88.72"
               data-overall-status="BET"
-              data-overall-edge="30.9200"
-              data-overall-edge-signed="30.9200"
-              data-overall-win="83.1000"
+              data-overall-edge="22.2200"
+              data-overall-edge-signed="22.2200"
+              data-overall-win="61.8200"
               data-blended-grade="100.00"
               data-blended-status="BET"
-              data-blended-edge="30.9200"
-              data-blended-edge-signed="30.9200"
-              data-blended-win="83.1000"
-              data-spread-grade="85.60"
+              data-blended-edge="22.2200"
+              data-blended-edge-signed="22.2200"
+              data-blended-win="61.8200"
+              data-spread-grade="95.00"
               data-spread-status="BET"
-              data-spread-edge="6.4600"
-              data-spread-edge-signed="6.4600"
-              data-spread-win="83.1000"
-              data-moneyline-grade="100.00"
+              data-spread-edge="5.9100"
+              data-spread-edge-signed="5.9100"
+              data-spread-win="61.8200"
+              data-moneyline-grade="88.72"
               data-moneyline-status="BET"
-              data-moneyline-edge="30.9200"
-              data-moneyline-edge-signed="30.9200"
-              data-moneyline-win="83.1000"
-              data-total-grade="9.51"
+              data-moneyline-edge="22.2200"
+              data-moneyline-edge-signed="22.2200"
+              data-moneyline-win="61.8200"
+              data-total-grade="16.29"
               data-total-status="PASS"
-              data-total-edge="0.5400"
-              data-total-edge-signed="0.5400"
-              data-total-win="0.5400"
-              data-tip="1775174400"
-              data-search="stanford west virginia west virginia -1.5 west virginia ml over 136.0 amir jenkins (out for season) 16.3m, impact +0.29, cbs sports shoulder | pos g | abraham oyeadier (out for season) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos c anthony batson (out) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos g | chisom okpara (out for season) 17.0m, impact +0.62, cbs sports lower body | pos f | kristers skrinda (out) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos f | tallis toure (out) 8.8m, impact +0.13, cbs sports [fallback] lower body | pos c favorites only, line&lt;=10, edge&gt;=1.5 edge&gt;=6pct and price&lt;=+220 ">
+              data-total-edge="0.6600"
+              data-total-edge-signed="0.6600"
+              data-total-win="0.6600"
+              data-tip="1775424600"
+              data-search="oklahoma west virginia west virginia +3.5 west virginia ml over 138.75 amir jenkins (out for season) 15.7m, impact +0.27, cbs sports shoulder | pos g | abraham oyeadier (out for season) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos c dayton forsythe (out for season) 15.1m, impact +0.64, cbs sports ankle | pos g | jeff nwankwo (out for season) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos g edge + cover win% | line&lt;=10 | cover&gt;1.5% above breakeven edge&gt;=6pct and price&lt;=+220 ">
               <div class="game-top">
                 <div>
-                  <div class="time-kicker">Thu Apr 02, 07:00 PM</div>
-                  <h2>Stanford at West Virginia</h2>
+                  <div class="time-kicker">Sun Apr 05, 04:30 PM</div>
+                  <h2>Oklahoma at West Virginia</h2>
                   <div class="meta-row">
                     <span class="status-pill bet">BET</span>
                     <span class="chip">Blend 100</span>
                     <span class="chip">Moneyline lead</span>
-                    <span class="chip">5 books</span>
-                    <span class="chip">Mode spread+moneyline+total</span>
+                    <span class="chip">6 books</span>
+                    <span class="chip">Stake 1.50u</span>
+                    <span class="chip">CORE</span>
                   </div>
                 </div>
                 <div class="grade-box">
                   <div class="grade-title">Best live grade</div>
-                  <div class="grade-score elite">100</div>
-                  <div class="grade-bar"><span style="width:100%;"></span></div>
+                  <div class="grade-score elite">89</div>
+                  <div class="grade-bar"><span style="width:89%;"></span></div>
                   <div class="grade-note">Elite card</div>
                 </div>
               </div>
@@ -833,28 +681,28 @@
               <div class="market-strip">
                 <section class="market-metric">
                   <div class="eyebrow">Consensus Market</div>
-                  <div class="big">West Virginia -1.5 | O/U 136.0</div>
-                  <div class="mini">West Virginia -120 | Stanford +100</div>
+                  <div class="big">Oklahoma -3.5 | O/U 138.8</div>
+                  <div class="mini">West Virginia +145 | Oklahoma -165</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Model Score</div>
-                  <div class="big">West Virginia 72.2 - 64.3 Stanford</div>
-                  <div class="mini">West Virginia by 8.0</div>
+                  <div class="big">West Virginia 70.9 - 68.5 Oklahoma</div>
+                  <div class="mini">West Virginia by 2.4</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Win Probability</div>
-                  <div class="big">West Virginia 83.1%</div>
-                  <div class="mini">Home 83.1% | Away 16.9%</div>
+                  <div class="big">West Virginia 61.8%</div>
+                  <div class="mini">Home 61.8% | Away 38.2%</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Projection Engine</div>
-                  <div class="big">66.4 poss</div>
-                  <div class="mini">66.4 poss | West Virginia 104.9 | Stanford 101.9</div>
+                  <div class="big">65.9 poss</div>
+                  <div class="mini">65.9 poss | West Virginia 104.7 | Oklahoma 108.9</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Moneyline | Grade 100</div>
-                  <div class="mini">5 books | Moneyline</div>
+                  <div class="big">Moneyline | Grade 89</div>
+                  <div class="mini">BET | Stake 1.50u | EV +0.515</div>
                 </section>
               </div>
 
@@ -869,8 +717,8 @@
             </div>
           </div>
           <div class="value">West Virginia ML</div>
-          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 82.9</div>
-          <div class="branch-note">threshold&gt;=90 | weights 57/33/10 | spread/ML preferred</div>
+          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 88.4</div>
+          <div class="branch-note">threshold&gt;=90 | weights 57/33/10 | spread/ML preferred | BET | EV +0.515 | Stake 1.50u | CORE</div>
         </section>
     
                 
@@ -879,12 +727,12 @@
             <div class="label">Spread Model</div>
             <div class="summary-right">
               <span class="status-pill bet">BET</span>
-              <span class="mini-grade elite">86</span>
+              <span class="mini-grade elite">95</span>
             </div>
           </div>
-          <div class="value">West Virginia -1.5</div>
-          <div class="sub">Edge +6.46 pts | Model +7.96 home | Market -1.5 home</div>
-          <div class="branch-note">favorites only, line&lt;=10, edge&gt;=1.5</div>
+          <div class="value">West Virginia +3.5</div>
+          <div class="sub">Edge +5.91 pts | Model +2.41 home | Market +3.5 home | Cover 70.4% vs BE 51.5%</div>
+          <div class="branch-note">edge + cover win% | line&lt;=10 | cover&gt;1.5% above breakeven | BET | EV +0.369 | Stake 1.25u | CORE</div>
         </section>
     
                 
@@ -893,12 +741,12 @@
             <div class="label">Moneyline Model</div>
             <div class="summary-right">
               <span class="status-pill bet">BET</span>
-              <span class="mini-grade elite">100</span>
+              <span class="mini-grade elite">89</span>
             </div>
           </div>
           <div class="value">West Virginia ML</div>
-          <div class="sub">Edge +30.92 pts | Lean West Virginia 83.1% | Market -120/+100</div>
-          <div class="branch-note">edge&gt;=6pct and price&lt;=+220</div>
+          <div class="sub">Edge +22.22 pts | Lean West Virginia 61.8% | Market +145/-165</div>
+          <div class="branch-note">edge&gt;=6pct and price&lt;=+220 | BET | EV +0.515 | Stake 1.50u | CORE</div>
         </section>
     
                 
@@ -907,72 +755,227 @@
             <div class="label">Totals Model</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">10</span>
+              <span class="mini-grade fade">16</span>
             </div>
           </div>
-          <div class="value">OVER 136.0</div>
-          <div class="sub">Diff +0.54 pts | Model 136.5 | Market 136.0</div>
-          <div class="branch-note">Possessions / PPP totals branch</div>
+          <div class="value">OVER 138.75</div>
+          <div class="sub">Diff +0.66 pts | Model 139.4 | Market 138.8</div>
+          <div class="branch-note">Possessions / PPP totals branch | PASS | EV -0.024 | Stake 0.00u | PASS</div>
         </section>
     
               </div>
 
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-1.0</span><span>O/U 136.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-1.0</span><span>O/U 136.0</span></span><span class="book-pill"><strong>FanDuel</strong><span>-1.5</span><span>O/U 135.5</span></span><span class="book-pill"><strong>Caesars</strong><span>-1.5</span><span>O/U 136.0</span></span><span class="book-pill"><strong>BetUS</strong><span>-1.5</span><span>O/U 136.0</span></span></div>
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>+3.5</span><span>O/U 139.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>+3.5</span><span>O/U 139.0</span></span><span class="book-pill"><strong>DraftKings</strong><span>+3.5</span><span>O/U 138.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>+3.5</span><span>O/U 138.5</span></span><span class="book-pill"><strong>Caesars</strong><span>+3.5</span><span>O/U 138.5</span></span></div>
 
               <div class="detail-grid">
                 <section class="detail-card wide">
                   <div class="label">Matchup key</div>
-                  <p>The model is 6.5 points stronger on West Virginia than the current market. This projects as a slower game, so half-court execution should matter more than volume. The biggest situational swing is lineup-related, with Stanford carrying the heavier injury drag.</p>
+                  <p>The model is 5.9 points stronger on West Virginia than the current market. This projects as a slower game, so half-court execution should matter more than volume. Recent form also leans toward Oklahoma.</p>
                 </section>
                 <section class="detail-card">
                   <div class="label">West Virginia outlook</div>
-                  <p>West Virginia and Stanford are closer on overall strength than the ranking gap suggests. West Virginia&#x27;s defensive profile should help it control the cleaner looks in this game. West Virginia has been the better kill-shot team and is more capable of creating separation in spurts.</p>
+                  <p>West Virginia is the weaker team on raw rating, so it likely needs the matchup to swing its way. West Virginia&#x27;s defense is under more pressure here than its offense is helped. West Virginia has been less reliable against stronger teams, which is a concern here.</p>
                 </section>
                 <section class="detail-card">
-                  <div class="label">Stanford outlook</div>
-                  <p>Stanford and West Virginia are closer on overall strength than the ranking gap suggests. Stanford faces a tougher scoring matchup than usual against West Virginia&#x27;s defense. Stanford has been more vulnerable to opponent runs than West Virginia.</p>
+                  <div class="label">Oklahoma outlook</div>
+                  <p>Oklahoma owns the stronger overall rating profile than West Virginia (17.6 BPR vs 12.4). The clearest edge is Oklahoma&#x27;s offense against West Virginia&#x27;s defense. The slower pace should suit Oklahoma, which has been better in half-court games.</p>
                 </section>
               </div>
             </article>
             
-            <article class="game-card track"
-              data-overall-grade="91.90"
-              data-overall-status="TRACK"
-              data-overall-edge="8.3000"
-              data-overall-edge-signed="-8.3000"
-              data-overall-win="51.4800"
-              data-blended-grade="87.40"
-              data-blended-status="PASS"
-              data-blended-edge="0.3000"
-              data-blended-edge-signed="0.3000"
-              data-blended-win="51.4800"
-              data-spread-grade="91.90"
-              data-spread-status="TRACK"
-              data-spread-edge="8.3000"
-              data-spread-edge-signed="-8.3000"
-              data-spread-win="51.4800"
-              data-moneyline-grade="78.38"
-              data-moneyline-status="PASS"
-              data-moneyline-edge="26.2000"
-              data-moneyline-edge-signed="26.2000"
-              data-moneyline-win="51.4800"
-              data-total-grade="21.04"
+            <article class="game-card bet"
+              data-overall-grade="97.50"
+              data-overall-status="BET"
+              data-overall-edge="6.0300"
+              data-overall-edge-signed="-6.0300"
+              data-overall-win="52.6400"
+              data-blended-grade="100.00"
+              data-blended-status="LEAN"
+              data-blended-edge="20.0600"
+              data-blended-edge-signed="20.0600"
+              data-blended-win="52.6400"
+              data-spread-grade="97.50"
+              data-spread-status="BET"
+              data-spread-edge="6.0300"
+              data-spread-edge-signed="-6.0300"
+              data-spread-win="52.6400"
+              data-moneyline-grade="78.59"
+              data-moneyline-status="LEAN"
+              data-moneyline-edge="20.0600"
+              data-moneyline-edge-signed="20.0600"
+              data-moneyline-win="52.6400"
+              data-total-grade="47.09"
               data-total-status="PASS"
-              data-total-edge="1.3900"
-              data-total-edge-signed="-1.3900"
-              data-total-win="1.3900"
-              data-tip="1775179800"
-              data-search="illinois state auburn illinois state +8.0 illinois state ml under 149.0 keshawn murphy (out for season) 22.0m, impact +2.17, cbs sports pro draft prep | pos f | narcisse ngoy (out) 8.8m, impact +0.13, cbs sports [fallback] not injury related | pos c | emeka opurum (out for season) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos c    ">
+              data-total-edge="5.0900"
+              data-total-edge-signed="-5.0900"
+              data-total-win="5.0900"
+              data-tip="1775433600"
+              data-search="tulsa auburn tulsa +5.5 tulsa ml under 160.0 elyjah freeman (game time decision) 28.7m, impact +1.44, cbs sports knee | pos g | keshawn murphy (out for season) 21.4m, impact +2.06, cbs sports pro draft prep | pos f | narcisse ngoy (out) 8.8m, impact +0.13, cbs sports [fallback] not injury related | pos c | emeka opurum (out for season) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos c terrance ford (game time decision) 8.8m, impact +0.06, cbs sports [fallback] arm | pos g edge + cover win% | line&lt;=10 | cover&gt;1.5% above breakeven edge&gt;=6pct and price&lt;=+220 ">
               <div class="game-top">
                 <div>
-                  <div class="time-kicker">Thu Apr 02, 08:30 PM</div>
-                  <h2>Illinois State at Auburn</h2>
+                  <div class="time-kicker">Sun Apr 05, 07:00 PM</div>
+                  <h2>Tulsa at Auburn</h2>
                   <div class="meta-row">
-                    <span class="status-pill track">TRACK</span>
-                    <span class="chip">Blend 87</span>
+                    <span class="status-pill bet">BET</span>
+                    <span class="chip">Blend 100</span>
                     <span class="chip">Spread lead</span>
                     <span class="chip">7 books</span>
-                    <span class="chip">Mode spread+moneyline+total</span>
+                    <span class="chip">Stake 1.25u</span>
+                    <span class="chip">CORE</span>
+                  </div>
+                </div>
+                <div class="grade-box">
+                  <div class="grade-title">Best live grade</div>
+                  <div class="grade-score elite">98</div>
+                  <div class="grade-bar"><span style="width:98%;"></span></div>
+                  <div class="grade-note">Elite card</div>
+                </div>
+              </div>
+
+              <div class="market-strip">
+                <section class="market-metric">
+                  <div class="eyebrow">Consensus Market</div>
+                  <div class="big">Auburn -5.5 | O/U 160.0</div>
+                  <div class="mini">Auburn -235 | Tulsa +195</div>
+                </section>
+                <section class="market-metric">
+                  <div class="eyebrow">Model Score</div>
+                  <div class="big">Auburn 77.2 - 77.7 Tulsa</div>
+                  <div class="mini">Tulsa by 0.5</div>
+                </section>
+                <section class="market-metric">
+                  <div class="eyebrow">Win Probability</div>
+                  <div class="big">Tulsa 52.6%</div>
+                  <div class="mini">Home 47.4% | Away 52.6%</div>
+                </section>
+                <section class="market-metric">
+                  <div class="eyebrow">Projection Engine</div>
+                  <div class="big">68.6 poss</div>
+                  <div class="mini">68.6 poss | Auburn 116.3 | Tulsa 112.1</div>
+                </section>
+                <section class="market-metric">
+                  <div class="eyebrow">Lead Signal</div>
+                  <div class="big">Spread | Grade 98</div>
+                  <div class="mini">BET | Stake 1.25u | EV +0.383</div>
+                </section>
+              </div>
+
+              <div class="summary-grid">
+                
+        <section class="summary-card branch-card track" data-branch="blended">
+          <div class="summary-head">
+            <div class="label">Blended Game View</div>
+            <div class="summary-right">
+              <span class="status-pill track">LEAN</span>
+              <span class="mini-grade elite">100</span>
+            </div>
+          </div>
+          <div class="value">Tulsa ML</div>
+          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 94.9</div>
+          <div class="branch-note">threshold&gt;=90 | weights 57/33/10 | spread/ML preferred | LEAN | EV +0.553 | Stake 0.75u | STANDARD</div>
+        </section>
+    
+                
+        <section class="summary-card branch-card bet" data-branch="spread">
+          <div class="summary-head">
+            <div class="label">Spread Model</div>
+            <div class="summary-right">
+              <span class="status-pill bet">BET</span>
+              <span class="mini-grade elite">98</span>
+            </div>
+          </div>
+          <div class="value">Tulsa +5.5</div>
+          <div class="sub">Edge -6.03 pts | Model -0.53 home | Market -5.5 home | Cover 70.8% vs BE 51.2%</div>
+          <div class="branch-note">edge + cover win% | line&lt;=10 | cover&gt;1.5% above breakeven | BET | EV +0.383 | Stake 1.25u | CORE</div>
+        </section>
+    
+                
+        <section class="summary-card branch-card track" data-branch="moneyline">
+          <div class="summary-head">
+            <div class="label">Moneyline Model</div>
+            <div class="summary-right">
+              <span class="status-pill track">LEAN</span>
+              <span class="mini-grade action">79</span>
+            </div>
+          </div>
+          <div class="value">Tulsa ML</div>
+          <div class="sub">Edge +20.06 pts | Lean Tulsa 52.6% | Market -235/+195</div>
+          <div class="branch-note">edge&gt;=6pct and price&lt;=+220 | LEAN | EV +0.553 | Stake 0.75u | STANDARD</div>
+        </section>
+    
+                
+        <section class="summary-card branch-card pass" data-branch="total">
+          <div class="summary-head">
+            <div class="label">Totals Model</div>
+            <div class="summary-right">
+              <span class="status-pill pass">PASS</span>
+              <span class="mini-grade fade">47</span>
+            </div>
+          </div>
+          <div class="value">UNDER 160.0</div>
+          <div class="sub">Diff -5.09 pts | Model 154.9 | Market 160.0</div>
+          <div class="branch-note">Possessions / PPP totals branch | PASS | EV +0.268 | Stake 0.00u | PASS</div>
+        </section>
+    
+              </div>
+
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-5.5</span><span>O/U 160.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-5.5</span><span>O/U 160.0</span></span><span class="book-pill"><strong>DraftKings</strong><span>-5.5</span><span>O/U 160.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-5.5</span><span>O/U 160.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>-5.5</span><span>O/U 159.5</span></span></div>
+
+              <div class="detail-grid">
+                <section class="detail-card wide">
+                  <div class="label">Matchup key</div>
+                  <p>The model is 6.0 points stronger on Tulsa than the current market. The biggest situational swing is lineup-related, with Auburn carrying the heavier injury drag.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Auburn outlook</div>
+                  <p>Auburn and Tulsa are closer on overall strength than the ranking gap suggests. The clearest edge is Auburn&#x27;s offense against Tulsa&#x27;s defense. Auburn has been more vulnerable to opponent runs than Tulsa.</p>
+                </section>
+                <section class="detail-card">
+                  <div class="label">Tulsa outlook</div>
+                  <p>Tulsa and Auburn are closer on overall strength than the ranking gap suggests. Tulsa&#x27;s defense is under more pressure here than its offense is helped. Tulsa has been the better kill-shot team and is more capable of creating separation in spurts.</p>
+                </section>
+              </div>
+            </article>
+            
+            <article class="game-card bet"
+              data-overall-grade="92.50"
+              data-overall-status="BET"
+              data-overall-edge="3.2800"
+              data-overall-edge-signed="-3.2800"
+              data-overall-win="67.7900"
+              data-blended-grade="100.00"
+              data-blended-status="BET"
+              data-blended-edge="3.2800"
+              data-blended-edge-signed="3.2800"
+              data-blended-win="67.7900"
+              data-spread-grade="92.50"
+              data-spread-status="BET"
+              data-spread-edge="3.2800"
+              data-spread-edge-signed="-3.2800"
+              data-spread-win="67.7900"
+              data-moneyline-grade="35.98"
+              data-moneyline-status="PASS"
+              data-moneyline-edge="4.3400"
+              data-moneyline-edge-signed="4.3400"
+              data-moneyline-win="67.7900"
+              data-total-grade="14.86"
+              data-total-status="PASS"
+              data-total-edge="0.4400"
+              data-total-edge-signed="0.4400"
+              data-total-win="0.4400"
+              data-tip="1775523600"
+              data-search="connecticut michigan connecticut +7.0 connecticut ml over 144.0 winters grady (out) 8.8m, impact +0.13, cbs sports [fallback] lower leg | pos g | ricky liburd (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos f | l.j. cason (out for season) 14.3m, impact +1.29, cbs sports knee | pos g  edge + cover win% | line&lt;=10 | cover&gt;1.5% above breakeven  ">
+              <div class="game-top">
+                <div>
+                  <div class="time-kicker">Mon Apr 06, 08:00 PM</div>
+                  <h2>Connecticut at Michigan</h2>
+                  <div class="meta-row">
+                    <span class="status-pill bet">BET</span>
+                    <span class="chip">Blend 100</span>
+                    <span class="chip">Spread lead</span>
+                    <span class="chip">11 books</span>
+                    <span class="chip">Stake 1.25u</span>
+                    <span class="chip">CORE</span>
                   </div>
                 </div>
                 <div class="grade-box">
@@ -986,487 +989,28 @@
               <div class="market-strip">
                 <section class="market-metric">
                   <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Auburn -8.0 | O/U 149.0</div>
-                  <div class="mini">Auburn -350 | Illinois State +280</div>
+                  <div class="big">Michigan -7.0 | O/U 144.0</div>
+                  <div class="mini">Michigan -300 | Connecticut +245</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Model Score</div>
-                  <div class="big">Auburn 73.7 - 74.0 Illinois State</div>
-                  <div class="mini">Illinois State by 0.3</div>
+                  <div class="big">Michigan 74.1 - 70.4 Connecticut</div>
+                  <div class="mini">Michigan by 3.7</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Win Probability</div>
-                  <div class="big">Illinois State 51.5%</div>
-                  <div class="mini">Home 48.5% | Away 51.5%</div>
+                  <div class="big">Michigan 67.8%</div>
+                  <div class="mini">Home 67.8% | Away 32.2%</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Projection Engine</div>
-                  <div class="big">68.2 poss</div>
-                  <div class="mini">68.2 poss | Auburn 113.0 | Illinois State 105.6</div>
+                  <div class="big">68.6 poss</div>
+                  <div class="mini">68.6 poss | Michigan 107.3 | Connecticut 104.3</div>
                 </section>
                 <section class="market-metric">
                   <div class="eyebrow">Lead Signal</div>
                   <div class="big">Spread | Grade 92</div>
-                  <div class="mini">7 books | Projection</div>
-                </section>
-              </div>
-
-              <div class="summary-grid">
-                
-        <section class="summary-card branch-card pass" data-branch="blended">
-          <div class="summary-head">
-            <div class="label">Blended Game View</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade elite">87</span>
-            </div>
-          </div>
-          <div class="value">Auburn 73.7 - 74.0 Illinois State</div>
-          <div class="sub">Illinois State by 0.3 | 68.2 poss | Total 147.6</div>
-          <div class="branch-note">Auburn 113.0 pp100 | Illinois State 105.6 pp100 | Blend 45% spread / 40% ML / 15% total</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card track" data-branch="spread">
-          <div class="summary-head">
-            <div class="label">Spread Model</div>
-            <div class="summary-right">
-              <span class="status-pill track">TRACK</span>
-              <span class="mini-grade elite">92</span>
-            </div>
-          </div>
-          <div class="value">Illinois State +8.0</div>
-          <div class="sub">Edge -8.30 pts | Model -0.30 home | Market -8.0 home</div>
-          <div class="branch-note">WATCH</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="moneyline">
-          <div class="summary-head">
-            <div class="label">Moneyline Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade action">78</span>
-            </div>
-          </div>
-          <div class="value">Illinois State ML</div>
-          <div class="sub">Edge +26.20 pts | Lean Illinois State 51.5% | Market -350/+280</div>
-          <div class="branch-note">Validated ML branch</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="total">
-          <div class="summary-head">
-            <div class="label">Totals Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">21</span>
-            </div>
-          </div>
-          <div class="value">UNDER 149.0</div>
-          <div class="sub">Diff -1.39 pts | Model 147.6 | Market 149.0</div>
-          <div class="branch-note">Possessions / PPP totals branch</div>
-        </section>
-    
-              </div>
-
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-8.0</span><span>O/U 149.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-8.0</span><span>O/U 149.0</span></span><span class="book-pill"><strong>DraftKings</strong><span>-7.5</span><span>O/U 148.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-7.5</span><span>O/U 149.5</span></span><span class="book-pill"><strong>BetMGM</strong><span>-7.5</span><span>O/U 149.5</span></span></div>
-
-              <div class="detail-grid">
-                <section class="detail-card wide">
-                  <div class="label">Matchup key</div>
-                  <p>The model is 8.3 points stronger on Illinois State than the current market. The biggest situational swing is lineup-related, with Auburn carrying the heavier injury drag.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Auburn outlook</div>
-                  <p>Auburn owns the stronger overall rating profile than Illinois State (16.0 BPR vs 8.2). The clearest edge is Auburn&#x27;s offense against Illinois State&#x27;s defense. Auburn is meaningfully shorthanded with KeShawn Murphy (OUT FOR SEASON) and Narcisse Ngoy (OUT) affecting about 40 weighted minutes.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Illinois State outlook</div>
-                  <p>Illinois State is the weaker team on raw rating, so it likely needs the matchup to swing its way. Illinois State&#x27;s defense is under more pressure here than its offense is helped.</p>
-                </section>
-              </div>
-            </article>
-            
-            <article class="game-card track"
-              data-overall-grade="76.10"
-              data-overall-status="TRACK"
-              data-overall-edge="2.3800"
-              data-overall-edge-signed="-2.3800"
-              data-overall-win="65.1200"
-              data-blended-grade="80.80"
-              data-blended-status="PASS"
-              data-blended-edge="3.1200"
-              data-blended-edge-signed="3.1200"
-              data-blended-win="65.1200"
-              data-spread-grade="76.10"
-              data-spread-status="TRACK"
-              data-spread-edge="2.3800"
-              data-spread-edge-signed="-2.3800"
-              data-spread-win="65.1200"
-              data-moneyline-grade="29.96"
-              data-moneyline-status="PASS"
-              data-moneyline-edge="1.5500"
-              data-moneyline-edge-signed="1.5500"
-              data-moneyline-win="65.1200"
-              data-total-grade="34.69"
-              data-total-status="PASS"
-              data-total-edge="3.4900"
-              data-total-edge-signed="-3.4900"
-              data-total-win="3.4900"
-              data-tip="1775183400"
-              data-search="rutgers creighton rutgers +5.5 rutgers ml under 151.0 aleksa dimitrijevic (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos c | jackson mcandrew (out for season) 8.8m, impact +0.13, cbs sports [fallback] foot | pos f | liam mcchesney (out) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos f | austin swartz (out) 24.0m, impact +1.27, cbs sports ankle | pos g | josh townley-thomas (out) 8.8m, impact +0.13, cbs sports [fallback] foot | pos f baye fall (game time decision) 8.8m, impact +0.06, cbs sports [fallback] hand | pos c | chris nwuli (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos f | gevonte ware (game time decision) 8.8m, impact +0.06, cbs sports [fallback] undisclosed | pos c | dorian jones (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g   ">
-              <div class="game-top">
-                <div>
-                  <div class="time-kicker">Thu Apr 02, 09:30 PM</div>
-                  <h2>Rutgers at Creighton</h2>
-                  <div class="meta-row">
-                    <span class="status-pill track">TRACK</span>
-                    <span class="chip">Blend 81</span>
-                    <span class="chip">Spread lead</span>
-                    <span class="chip">4 books</span>
-                    <span class="chip">Mode spread+moneyline+total</span>
-                  </div>
-                </div>
-                <div class="grade-box">
-                  <div class="grade-title">Best live grade</div>
-                  <div class="grade-score action">76</div>
-                  <div class="grade-bar"><span style="width:76%;"></span></div>
-                  <div class="grade-note">Actionable</div>
-                </div>
-              </div>
-
-              <div class="market-strip">
-                <section class="market-metric">
-                  <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Creighton -5.5 | O/U 151.0</div>
-                  <div class="mini">Creighton -225 | Rutgers +189</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Model Score</div>
-                  <div class="big">Creighton 75.3 - 72.2 Rutgers</div>
-                  <div class="mini">Creighton by 3.1</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Win Probability</div>
-                  <div class="big">Creighton 65.1%</div>
-                  <div class="mini">Home 65.1% | Away 34.9%</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Projection Engine</div>
-                  <div class="big">69.0 poss</div>
-                  <div class="mini">69.0 poss | Creighton 110.5 | Rutgers 103.3</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Spread | Grade 76</div>
-                  <div class="mini">4 books | Projection</div>
-                </section>
-              </div>
-
-              <div class="summary-grid">
-                
-        <section class="summary-card branch-card pass" data-branch="blended">
-          <div class="summary-head">
-            <div class="label">Blended Game View</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade action">81</span>
-            </div>
-          </div>
-          <div class="value">Creighton 75.3 - 72.2 Rutgers</div>
-          <div class="sub">Creighton by 3.1 | 69.0 poss | Total 147.5</div>
-          <div class="branch-note">Creighton 110.5 pp100 | Rutgers 103.3 pp100 | Blend 45% spread / 40% ML / 15% total</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card track" data-branch="spread">
-          <div class="summary-head">
-            <div class="label">Spread Model</div>
-            <div class="summary-right">
-              <span class="status-pill track">TRACK</span>
-              <span class="mini-grade action">76</span>
-            </div>
-          </div>
-          <div class="value">Rutgers +5.5</div>
-          <div class="sub">Edge -2.38 pts | Model +3.12 home | Market -5.5 home</div>
-          <div class="branch-note">WATCH</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="moneyline">
-          <div class="summary-head">
-            <div class="label">Moneyline Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">30</span>
-            </div>
-          </div>
-          <div class="value">Rutgers ML</div>
-          <div class="sub">Edge +1.55 pts | Lean Creighton 65.1% | Market -225/+189</div>
-          <div class="branch-note">Validated ML branch</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="total">
-          <div class="summary-head">
-            <div class="label">Totals Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">35</span>
-            </div>
-          </div>
-          <div class="value">UNDER 151.0</div>
-          <div class="sub">Diff -3.49 pts | Model 147.5 | Market 151.0</div>
-          <div class="branch-note">Possessions / PPP totals branch</div>
-        </section>
-    
-              </div>
-
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-5.5</span><span>O/U 151.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-5.5</span><span>O/U 151.0</span></span><span class="book-pill"><strong>Caesars</strong><span>-5.5</span><span>O/U 151.0</span></span><span class="book-pill"><strong>BetUS</strong><span>-5.5</span><span>O/U 151.0</span></span></div>
-
-              <div class="detail-grid">
-                <section class="detail-card wide">
-                  <div class="label">Matchup key</div>
-                  <p>The model and market are fairly close, with only a 2.4-point gap. The biggest situational swing is lineup-related, with Creighton carrying the heavier injury drag.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Creighton outlook</div>
-                  <p>Creighton owns the stronger overall rating profile than Rutgers (10.9 BPR vs 3.9). The clearest edge is Creighton&#x27;s offense against Rutgers&#x27; defense. Creighton is meaningfully shorthanded with Aleksa Dimitrijevic (OUT FOR SEASON) and Jackson McAndrew (OUT FOR SEASON) affecting about 59 weighted minutes.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Rutgers outlook</div>
-                  <p>Rutgers is the weaker team on raw rating, so it likely needs the matchup to swing its way. Rutgers&#x27; defense is under more pressure here than its offense is helped. Rutgers has real lineup questions today, starting with Baye Fall (GAME TIME DECISION) and Chris Nwuli (GAME TIME DECISION).</p>
-                </section>
-              </div>
-            </article>
-            
-            <article class="game-card pass"
-              data-overall-grade="42.10"
-              data-overall-status="PASS"
-              data-overall-edge="0.6900"
-              data-overall-edge-signed="0.6900"
-              data-overall-win="51.5300"
-              data-blended-grade="26.30"
-              data-blended-status="PASS"
-              data-blended-edge="0.3100"
-              data-blended-edge-signed="0.3100"
-              data-blended-win="51.5300"
-              data-spread-grade="42.10"
-              data-spread-status="PASS"
-              data-spread-edge="0.6900"
-              data-spread-edge-signed="0.6900"
-              data-spread-win="51.5300"
-              data-moneyline-grade="18.84"
-              data-moneyline-status="PASS"
-              data-moneyline-edge="0.0000"
-              data-moneyline-edge-signed="0.0000"
-              data-moneyline-win="51.5300"
-              data-total-grade="24.74"
-              data-total-status="PASS"
-              data-total-edge="1.9600"
-              data-total-edge-signed="-1.9600"
-              data-total-win="1.9600"
-              data-tip="1775323800"
-              data-search="oklahoma baylor baylor +1.0  under 157.5 jj white (out) 8.8m, impact +0.13, cbs sports [fallback] foot | pos g | juslin bodo bodo (out for season) 8.8m, impact +0.13, cbs sports [fallback] arm | pos c | andre iguodala ii (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos g | maikcol perez (out for season) 8.8m, impact +0.13, cbs sports [fallback] knee | pos f | mayo soyoye (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos c dayton forsythe (out for season) 15.1m, impact +0.64, cbs sports ankle | pos g | jeff nwankwo (out for season) 8.8m, impact +0.13, cbs sports [fallback] undisclosed | pos g   ">
-              <div class="game-top">
-                <div>
-                  <div class="time-kicker">Sat Apr 04, 12:30 PM</div>
-                  <h2>Oklahoma at Baylor</h2>
-                  <div class="meta-row">
-                    <span class="status-pill pass">PASS</span>
-                    <span class="chip">Blend 26</span>
-                    <span class="chip">Spread lead</span>
-                    <span class="chip">3 books</span>
-                    <span class="chip">Mode spread+moneyline+total</span>
-                  </div>
-                </div>
-                <div class="grade-box">
-                  <div class="grade-title">Best live grade</div>
-                  <div class="grade-score fade">42</div>
-                  <div class="grade-bar"><span style="width:42%;"></span></div>
-                  <div class="grade-note">Pass for now</div>
-                </div>
-              </div>
-
-              <div class="market-strip">
-                <section class="market-metric">
-                  <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Oklahoma -1.0 | O/U 157.5</div>
-                  <div class="mini">Baylor n/a | Oklahoma n/a</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Model Score</div>
-                  <div class="big">Baylor 77.6 - 77.9 Oklahoma</div>
-                  <div class="mini">Oklahoma by 0.3</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Win Probability</div>
-                  <div class="big">Oklahoma 51.5%</div>
-                  <div class="mini">Home 48.5% | Away 51.5%</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Projection Engine</div>
-                  <div class="big">67.3 poss</div>
-                  <div class="mini">67.3 poss | Baylor 115.0 | Oklahoma 117.3</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Spread | Grade 42</div>
-                  <div class="mini">3 books | Projection</div>
-                </section>
-              </div>
-
-              <div class="summary-grid">
-                
-        <section class="summary-card branch-card pass" data-branch="blended">
-          <div class="summary-head">
-            <div class="label">Blended Game View</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">26</span>
-            </div>
-          </div>
-          <div class="value">Baylor 77.6 - 77.9 Oklahoma</div>
-          <div class="sub">Oklahoma by 0.3 | 67.3 poss | Total 155.5</div>
-          <div class="branch-note">Baylor 115.0 pp100 | Oklahoma 117.3 pp100 | Blend 45% spread / 40% ML / 15% total</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="spread">
-          <div class="summary-head">
-            <div class="label">Spread Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">42</span>
-            </div>
-          </div>
-          <div class="value">Baylor +1.0</div>
-          <div class="sub">Edge +0.69 pts | Model -0.31 home | Market +1.0 home</div>
-          <div class="branch-note">Residual spread branch</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="moneyline">
-          <div class="summary-head">
-            <div class="label">Moneyline Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">19</span>
-            </div>
-          </div>
-          <div class="value">No active moneyline play</div>
-          <div class="sub">Edge +0.00 pts | Lean Oklahoma 51.5% | Market n/a/n/a</div>
-          <div class="branch-note">Validated ML branch</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="total">
-          <div class="summary-head">
-            <div class="label">Totals Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">25</span>
-            </div>
-          </div>
-          <div class="value">UNDER 157.5</div>
-          <div class="sub">Diff -1.96 pts | Model 155.5 | Market 157.5</div>
-          <div class="branch-note">Possessions / PPP totals branch</div>
-        </section>
-    
-              </div>
-
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>+1.0</span><span>O/U 157.5</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>+1.0</span><span>O/U 157.5</span></span><span class="book-pill"><strong>Caesars</strong><span>+1.0</span><span>O/U 157.5</span></span></div>
-
-              <div class="detail-grid">
-                <section class="detail-card wide">
-                  <div class="label">Matchup key</div>
-                  <p>The model and market are fairly close, with only a 0.7-point gap.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Baylor outlook</div>
-                  <p>Baylor and Oklahoma are closer on overall strength than the ranking gap suggests. Baylor&#x27;s defense is under more pressure here than its offense is helped. Baylor has been less reliable against stronger teams, which is a concern here.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Oklahoma outlook</div>
-                  <p>Oklahoma and Baylor are closer on overall strength than the ranking gap suggests. The clearest edge is Oklahoma&#x27;s offense against Baylor&#x27;s defense. Oklahoma has real lineup questions today, starting with Dayton Forsythe (OUT FOR SEASON) and Jeff Nwankwo (OUT FOR SEASON).</p>
-                </section>
-              </div>
-            </article>
-            
-            <article class="game-card bet"
-              data-overall-grade="90.00"
-              data-overall-status="BET"
-              data-overall-edge="4.0200"
-              data-overall-edge-signed="4.0200"
-              data-overall-win="59.9700"
-              data-blended-grade="100.00"
-              data-blended-status="BET"
-              data-blended-edge="15.2300"
-              data-blended-edge-signed="15.2300"
-              data-blended-win="59.9700"
-              data-spread-grade="90.00"
-              data-spread-status="TRACK"
-              data-spread-edge="4.0200"
-              data-spread-edge-signed="4.0200"
-              data-spread-win="59.9700"
-              data-moneyline-grade="71.27"
-              data-moneyline-status="BET"
-              data-moneyline-edge="15.2300"
-              data-moneyline-edge-signed="15.2300"
-              data-moneyline-win="59.9700"
-              data-total-grade="25.98"
-              data-total-status="PASS"
-              data-total-edge="2.1500"
-              data-total-edge-signed="2.1500"
-              data-total-win="2.1500"
-              data-tip="1775340540"
-              data-search="illinois connecticut connecticut +2.0 connecticut ml over 139.5  ty rodgers (out) 8.8m, impact +0.13, cbs sports [fallback] knee | pos f | toni bilic (out for season) 8.8m, impact +0.13, cbs sports [fallback] not injury related | pos f | jason jakstys (out for season) 8.8m, impact +0.13, cbs sports [fallback] shoulder | pos c  edge&gt;=6pct and price&lt;=+220 ">
-              <div class="game-top">
-                <div>
-                  <div class="time-kicker">Sat Apr 04, 05:09 PM</div>
-                  <h2>Illinois at Connecticut</h2>
-                  <div class="meta-row">
-                    <span class="status-pill bet">BET</span>
-                    <span class="chip">Blend 100</span>
-                    <span class="chip">Spread lead</span>
-                    <span class="chip">9 books</span>
-                    <span class="chip">Mode spread+moneyline+total</span>
-                  </div>
-                </div>
-                <div class="grade-box">
-                  <div class="grade-title">Best live grade</div>
-                  <div class="grade-score elite">90</div>
-                  <div class="grade-bar"><span style="width:90%;"></span></div>
-                  <div class="grade-note">Elite card</div>
-                </div>
-              </div>
-
-              <div class="market-strip">
-                <section class="market-metric">
-                  <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Illinois -2.0 | O/U 139.5</div>
-                  <div class="mini">Connecticut +115 | Illinois -135</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Model Score</div>
-                  <div class="big">Connecticut 71.8 - 69.8 Illinois</div>
-                  <div class="mini">Connecticut by 2.0</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Win Probability</div>
-                  <div class="big">Connecticut 60.0%</div>
-                  <div class="mini">Home 60.0% | Away 40.0%</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Projection Engine</div>
-                  <div class="big">65.5 poss</div>
-                  <div class="mini">65.5 poss | Connecticut 110.0 | Illinois 109.6</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Spread | Grade 90</div>
-                  <div class="mini">9 books | Moneyline</div>
+                  <div class="mini">BET | Stake 1.25u | EV +0.163</div>
                 </section>
               </div>
 
@@ -1480,315 +1024,9 @@
               <span class="mini-grade elite">100</span>
             </div>
           </div>
-          <div class="value">Connecticut ML</div>
-          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 87.2</div>
-          <div class="branch-note">threshold&gt;=90 | weights 57/33/10 | spread/ML preferred</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card track" data-branch="spread">
-          <div class="summary-head">
-            <div class="label">Spread Model</div>
-            <div class="summary-right">
-              <span class="status-pill track">TRACK</span>
-              <span class="mini-grade elite">90</span>
-            </div>
-          </div>
-          <div class="value">Connecticut +2.0</div>
-          <div class="sub">Edge +4.02 pts | Model +2.02 home | Market +2.0 home</div>
-          <div class="branch-note">WATCH</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card bet" data-branch="moneyline">
-          <div class="summary-head">
-            <div class="label">Moneyline Model</div>
-            <div class="summary-right">
-              <span class="status-pill bet">BET</span>
-              <span class="mini-grade watch">71</span>
-            </div>
-          </div>
-          <div class="value">Connecticut ML</div>
-          <div class="sub">Edge +15.23 pts | Lean Connecticut 60.0% | Market +115/-135</div>
-          <div class="branch-note">edge&gt;=6pct and price&lt;=+220</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="total">
-          <div class="summary-head">
-            <div class="label">Totals Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">26</span>
-            </div>
-          </div>
-          <div class="value">OVER 139.5</div>
-          <div class="sub">Diff +2.15 pts | Model 141.7 | Market 139.5</div>
-          <div class="branch-note">Possessions / PPP totals branch</div>
-        </section>
-    
-              </div>
-
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>+2.0</span><span>O/U 139.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>+2.0</span><span>O/U 139.0</span></span><span class="book-pill"><strong>BetRivers</strong><span>+1.5</span><span>O/U 140.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>+1.5</span><span>O/U 139.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>+2.5</span><span>O/U 139.5</span></span></div>
-
-              <div class="detail-grid">
-                <section class="detail-card wide">
-                  <div class="label">Matchup key</div>
-                  <p>The model is 4.0 points stronger on Connecticut than the current market. This projects as a slower game, so half-court execution should matter more than volume.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Connecticut outlook</div>
-                  <p>Connecticut and Illinois are closer on overall strength than the ranking gap suggests. Connecticut&#x27;s defense is under more pressure here than its offense is helped. Connecticut has been more vulnerable to opponent runs than Illinois.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Illinois outlook</div>
-                  <p>Illinois and Connecticut are closer on overall strength than the ranking gap suggests. The clearest edge is Illinois&#x27; offense against Connecticut&#x27;s defense. Illinois has been the better kill-shot team and is more capable of creating separation in spurts.</p>
-                </section>
-              </div>
-            </article>
-            
-            <article class="game-card bet"
-              data-overall-grade="100.00"
-              data-overall-status="BET"
-              data-overall-edge="4.5400"
-              data-overall-edge-signed="4.5400"
-              data-overall-win="64.7400"
-              data-blended-grade="100.00"
-              data-blended-status="BET"
-              data-blended-edge="17.3500"
-              data-blended-edge-signed="17.3500"
-              data-blended-win="64.7400"
-              data-spread-grade="100.00"
-              data-spread-status="TRACK"
-              data-spread-edge="4.5400"
-              data-spread-edge-signed="4.5400"
-              data-spread-win="64.7400"
-              data-moneyline-grade="78.88"
-              data-moneyline-status="BET"
-              data-moneyline-edge="17.3500"
-              data-moneyline-edge-signed="17.3500"
-              data-moneyline-win="64.7400"
-              data-total-grade="54.32"
-              data-total-status="PASS"
-              data-total-edge="5.2800"
-              data-total-edge-signed="-5.2800"
-              data-total-win="5.2800"
-              data-tip="1775350140"
-              data-search="michigan arizona arizona +1.5 arizona ml under 157.5  winters grady (out) 8.8m, impact +0.13, cbs sports [fallback] lower leg | pos g | ricky liburd (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos f | l.j. cason (out for season) 14.3m, impact +1.29, cbs sports knee | pos g  edge&gt;=6pct and price&lt;=+220 ">
-              <div class="game-top">
-                <div>
-                  <div class="time-kicker">Sat Apr 04, 07:49 PM</div>
-                  <h2>Michigan at Arizona</h2>
-                  <div class="meta-row">
-                    <span class="status-pill bet">BET</span>
-                    <span class="chip">Blend 100</span>
-                    <span class="chip">Spread lead</span>
-                    <span class="chip">10 books</span>
-                    <span class="chip">Mode spread+moneyline+total</span>
-                  </div>
-                </div>
-                <div class="grade-box">
-                  <div class="grade-title">Best live grade</div>
-                  <div class="grade-score elite">100</div>
-                  <div class="grade-bar"><span style="width:100%;"></span></div>
-                  <div class="grade-note">Elite card</div>
-                </div>
-              </div>
-
-              <div class="market-strip">
-                <section class="market-metric">
-                  <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Michigan -1.5 | O/U 157.5</div>
-                  <div class="mini">Arizona +102 | Michigan -122</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Model Score</div>
-                  <div class="big">Arizona 77.6 - 74.6 Michigan</div>
-                  <div class="mini">Arizona by 3.0</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Win Probability</div>
-                  <div class="big">Arizona 64.7%</div>
-                  <div class="mini">Home 64.7% | Away 35.3%</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Projection Engine</div>
-                  <div class="big">71.9 poss</div>
-                  <div class="mini">71.9 poss | Arizona 105.4 | Michigan 104.1</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Spread | Grade 100</div>
-                  <div class="mini">10 books | Moneyline</div>
-                </section>
-              </div>
-
-              <div class="summary-grid">
-                
-        <section class="summary-card branch-card bet" data-branch="blended">
-          <div class="summary-head">
-            <div class="label">Blended Game View</div>
-            <div class="summary-right">
-              <span class="status-pill bet">BET</span>
-              <span class="mini-grade elite">100</span>
-            </div>
-          </div>
-          <div class="value">Arizona ML</div>
-          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 96.5</div>
-          <div class="branch-note">threshold&gt;=90 | weights 57/33/10 | spread/ML preferred</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card track" data-branch="spread">
-          <div class="summary-head">
-            <div class="label">Spread Model</div>
-            <div class="summary-right">
-              <span class="status-pill track">TRACK</span>
-              <span class="mini-grade elite">100</span>
-            </div>
-          </div>
-          <div class="value">Arizona +1.5</div>
-          <div class="sub">Edge +4.54 pts | Model +3.04 home | Market +1.5 home</div>
-          <div class="branch-note">WATCH</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card bet" data-branch="moneyline">
-          <div class="summary-head">
-            <div class="label">Moneyline Model</div>
-            <div class="summary-right">
-              <span class="status-pill bet">BET</span>
-              <span class="mini-grade action">79</span>
-            </div>
-          </div>
-          <div class="value">Arizona ML</div>
-          <div class="sub">Edge +17.35 pts | Lean Arizona 64.7% | Market +102/-122</div>
-          <div class="branch-note">edge&gt;=6pct and price&lt;=+220</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="total">
-          <div class="summary-head">
-            <div class="label">Totals Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">54</span>
-            </div>
-          </div>
-          <div class="value">UNDER 157.5</div>
-          <div class="sub">Diff -5.28 pts | Model 152.2 | Market 157.5</div>
-          <div class="branch-note">Possessions / PPP totals branch</div>
-        </section>
-    
-              </div>
-
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>+1.5</span><span>O/U 158.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>+1.5</span><span>O/U 158.0</span></span><span class="book-pill"><strong>BetRivers</strong><span>+1.5</span><span>O/U 157.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>+1.5</span><span>O/U 157.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>+1.5</span><span>O/U 157.5</span></span></div>
-
-              <div class="detail-grid">
-                <section class="detail-card wide">
-                  <div class="label">Matchup key</div>
-                  <p>The model is 4.5 points stronger on Arizona than the current market. This projects as a faster game, which raises the importance of transition scoring and run control. The biggest situational swing is lineup-related, with Michigan carrying the heavier injury drag.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Arizona outlook</div>
-                  <p>Arizona and Michigan are closer on overall strength than the ranking gap suggests. Neither side has a huge efficiency mismatch once offense and defense are paired. Arizona has tended to raise its level against strong opposition, which matters in this matchup.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Michigan outlook</div>
-                  <p>Michigan and Arizona are closer on overall strength than the ranking gap suggests. Michigan&#x27;s scoring outlook is fairly neutral on paper in this matchup. Michigan has tended to raise its level against strong opposition, which matters in this matchup.</p>
-                </section>
-              </div>
-            </article>
-            
-            <article class="game-card bet"
-              data-overall-grade="93.95"
-              data-overall-status="BET"
-              data-overall-edge="19.9800"
-              data-overall-edge-signed="19.9800"
-              data-overall-win="80.9100"
-              data-blended-grade="100.00"
-              data-blended-status="BET"
-              data-blended-edge="19.9800"
-              data-blended-edge-signed="19.9800"
-              data-blended-win="80.9100"
-              data-spread-grade="77.50"
-              data-spread-status="BET"
-              data-spread-edge="3.2200"
-              data-spread-edge-signed="3.2200"
-              data-spread-win="80.9100"
-              data-moneyline-grade="93.95"
-              data-moneyline-status="BET"
-              data-moneyline-edge="19.9800"
-              data-moneyline-edge-signed="19.9800"
-              data-moneyline-win="80.9100"
-              data-total-grade="25.39"
-              data-total-status="PASS"
-              data-total-edge="2.0600"
-              data-total-edge-signed="-2.0600"
-              data-total-win="2.0600"
-              data-tip="1775523600"
-              data-search="illinois arizona arizona -4.0 arizona ml under 152.0  ty rodgers (out) 8.8m, impact +0.13, cbs sports [fallback] knee | pos f | toni bilic (out for season) 8.8m, impact +0.13, cbs sports [fallback] not injury related | pos f | jason jakstys (out for season) 8.8m, impact +0.13, cbs sports [fallback] shoulder | pos c favorites only, line&lt;=10, edge&gt;=1.5 edge&gt;=6pct and price&lt;=+220 ">
-              <div class="game-top">
-                <div>
-                  <div class="time-kicker">Mon Apr 06, 08:00 PM</div>
-                  <h2>Illinois at Arizona</h2>
-                  <div class="meta-row">
-                    <span class="status-pill bet">BET</span>
-                    <span class="chip">Blend 100</span>
-                    <span class="chip">Moneyline lead</span>
-                    <span class="chip">4 books</span>
-                    <span class="chip">Mode spread+moneyline+total</span>
-                  </div>
-                </div>
-                <div class="grade-box">
-                  <div class="grade-title">Best live grade</div>
-                  <div class="grade-score elite">94</div>
-                  <div class="grade-bar"><span style="width:94%;"></span></div>
-                  <div class="grade-note">Elite card</div>
-                </div>
-              </div>
-
-              <div class="market-strip">
-                <section class="market-metric">
-                  <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Arizona -4.0 | O/U 152.0</div>
-                  <div class="mini">Arizona -175 | Illinois +145</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Model Score</div>
-                  <div class="big">Arizona 78.6 - 71.4 Illinois</div>
-                  <div class="mini">Arizona by 7.2</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Win Probability</div>
-                  <div class="big">Arizona 80.9%</div>
-                  <div class="mini">Home 80.9% | Away 19.1%</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Projection Engine</div>
-                  <div class="big">68.9 poss</div>
-                  <div class="mini">68.9 poss | Arizona 110.4 | Illinois 106.8</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Moneyline | Grade 94</div>
-                  <div class="mini">4 books | Moneyline</div>
-                </section>
-              </div>
-
-              <div class="summary-grid">
-                
-        <section class="summary-card branch-card bet" data-branch="blended">
-          <div class="summary-head">
-            <div class="label">Blended Game View</div>
-            <div class="summary-right">
-              <span class="status-pill bet">BET</span>
-              <span class="mini-grade elite">100</span>
-            </div>
-          </div>
-          <div class="value">Arizona ML</div>
-          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 80.0</div>
-          <div class="branch-note">threshold&gt;=90 | weights 57/33/10 | spread/ML preferred</div>
+          <div class="value">Connecticut +7.0</div>
+          <div class="sub">Chosen Spread branch | Selection 92.5 | Game score 86.7</div>
+          <div class="branch-note">threshold&gt;=90 | weights 57/33/10 | spread/ML preferred | BET | EV +0.163 | Stake 1.50u | CORE</div>
         </section>
     
                 
@@ -1797,471 +1035,12 @@
             <div class="label">Spread Model</div>
             <div class="summary-right">
               <span class="status-pill bet">BET</span>
-              <span class="mini-grade action">78</span>
+              <span class="mini-grade elite">92</span>
             </div>
           </div>
-          <div class="value">Arizona -4.0</div>
-          <div class="sub">Edge +3.22 pts | Model +7.22 home | Market -4.0 home</div>
-          <div class="branch-note">favorites only, line&lt;=10, edge&gt;=1.5</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card bet" data-branch="moneyline">
-          <div class="summary-head">
-            <div class="label">Moneyline Model</div>
-            <div class="summary-right">
-              <span class="status-pill bet">BET</span>
-              <span class="mini-grade elite">94</span>
-            </div>
-          </div>
-          <div class="value">Arizona ML</div>
-          <div class="sub">Edge +19.98 pts | Lean Arizona 80.9% | Market -175/+145</div>
-          <div class="branch-note">edge&gt;=6pct and price&lt;=+220</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="total">
-          <div class="summary-head">
-            <div class="label">Totals Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">25</span>
-            </div>
-          </div>
-          <div class="value">UNDER 152.0</div>
-          <div class="sub">Diff -2.06 pts | Model 149.9 | Market 152.0</div>
-          <div class="branch-note">Possessions / PPP totals branch</div>
-        </section>
-    
-              </div>
-
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-4.0</span><span>O/U 152.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-4.0</span><span>O/U 152.0</span></span><span class="book-pill"><strong>DraftKings</strong><span>-3.5</span><span>O/U 151.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-4.5</span><span>O/U 152.5</span></span></div>
-
-              <div class="detail-grid">
-                <section class="detail-card wide">
-                  <div class="label">Matchup key</div>
-                  <p>The model is 3.2 points stronger on Arizona than the current market. Recent form also leans toward Illinois.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Arizona outlook</div>
-                  <p>Arizona and Illinois are closer on overall strength than the ranking gap suggests. The clearest edge is Arizona&#x27;s offense against Illinois&#x27; defense. Arizona has tended to raise its level against strong opposition, which matters in this matchup.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Illinois outlook</div>
-                  <p>Illinois and Arizona are closer on overall strength than the ranking gap suggests. Illinois&#x27; defense is under more pressure here than its offense is helped. Illinois has been a bit shakier versus strong teams than its baseline suggests.</p>
-                </section>
-              </div>
-            </article>
-            
-            <article class="game-card bet"
-              data-overall-grade="76.80"
-              data-overall-status="BET"
-              data-overall-edge="13.1500"
-              data-overall-edge-signed="13.1500"
-              data-overall-win="78.9000"
-              data-blended-grade="100.00"
-              data-blended-status="BET"
-              data-blended-edge="13.1500"
-              data-blended-edge-signed="13.1500"
-              data-blended-win="78.9000"
-              data-spread-grade="52.50"
-              data-spread-status="PASS"
-              data-spread-edge="1.0900"
-              data-spread-edge-signed="1.0900"
-              data-spread-win="78.9000"
-              data-moneyline-grade="76.80"
-              data-moneyline-status="BET"
-              data-moneyline-edge="13.1500"
-              data-moneyline-edge-signed="13.1500"
-              data-moneyline-win="78.9000"
-              data-total-grade="12.32"
-              data-total-status="PASS"
-              data-total-edge="0.0500"
-              data-total-edge-signed="-0.0500"
-              data-total-win="0.0500"
-              data-tip="1775523600"
-              data-search="connecticut arizona arizona -5.5 arizona ml under 143.5    edge&gt;=6pct and price&lt;=+220 ">
-              <div class="game-top">
-                <div>
-                  <div class="time-kicker">Mon Apr 06, 08:00 PM</div>
-                  <h2>Connecticut at Arizona</h2>
-                  <div class="meta-row">
-                    <span class="status-pill bet">BET</span>
-                    <span class="chip">Blend 100</span>
-                    <span class="chip">Moneyline lead</span>
-                    <span class="chip">4 books</span>
-                    <span class="chip">Mode spread+moneyline+total</span>
-                  </div>
-                </div>
-                <div class="grade-box">
-                  <div class="grade-title">Best live grade</div>
-                  <div class="grade-score action">77</div>
-                  <div class="grade-bar"><span style="width:77%;"></span></div>
-                  <div class="grade-note">Actionable</div>
-                </div>
-              </div>
-
-              <div class="market-strip">
-                <section class="market-metric">
-                  <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Arizona -5.5 | O/U 143.5</div>
-                  <div class="mini">Arizona -218 | Connecticut +180</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Model Score</div>
-                  <div class="big">Arizona 75.0 - 68.4 Connecticut</div>
-                  <div class="mini">Arizona by 6.6</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Win Probability</div>
-                  <div class="big">Arizona 78.9%</div>
-                  <div class="mini">Home 78.9% | Away 21.1%</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Projection Engine</div>
-                  <div class="big">68.0 poss</div>
-                  <div class="mini">68.0 poss | Arizona 107.3 | Connecticut 103.5</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Moneyline | Grade 77</div>
-                  <div class="mini">4 books | Moneyline</div>
-                </section>
-              </div>
-
-              <div class="summary-grid">
-                
-        <section class="summary-card branch-card bet" data-branch="blended">
-          <div class="summary-head">
-            <div class="label">Blended Game View</div>
-            <div class="summary-right">
-              <span class="status-pill bet">BET</span>
-              <span class="mini-grade elite">100</span>
-            </div>
-          </div>
-          <div class="value">Arizona ML</div>
-          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 63.4</div>
-          <div class="branch-note">threshold&gt;=90 | weights 57/33/10 | spread/ML preferred</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="spread">
-          <div class="summary-head">
-            <div class="label">Spread Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">52</span>
-            </div>
-          </div>
-          <div class="value">Arizona -5.5</div>
-          <div class="sub">Edge +1.09 pts | Model +6.59 home | Market -5.5 home</div>
-          <div class="branch-note">Residual spread branch</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card bet" data-branch="moneyline">
-          <div class="summary-head">
-            <div class="label">Moneyline Model</div>
-            <div class="summary-right">
-              <span class="status-pill bet">BET</span>
-              <span class="mini-grade action">77</span>
-            </div>
-          </div>
-          <div class="value">Arizona ML</div>
-          <div class="sub">Edge +13.15 pts | Lean Arizona 78.9% | Market -218/+180</div>
-          <div class="branch-note">edge&gt;=6pct and price&lt;=+220</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="total">
-          <div class="summary-head">
-            <div class="label">Totals Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">12</span>
-            </div>
-          </div>
-          <div class="value">UNDER 143.5</div>
-          <div class="sub">Diff -0.05 pts | Model 143.4 | Market 143.5</div>
-          <div class="branch-note">Possessions / PPP totals branch</div>
-        </section>
-    
-              </div>
-
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-5.5</span><span>O/U 143.5</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-5.5</span><span>O/U 143.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-5.5</span><span>O/U 143.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-5.5</span><span>O/U 143.5</span></span></div>
-
-              <div class="detail-grid">
-                <section class="detail-card wide">
-                  <div class="label">Matchup key</div>
-                  <p>The model and market are fairly close, with only a 1.1-point gap. Recent form also leans toward Connecticut.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Arizona outlook</div>
-                  <p>Arizona and Connecticut are closer on overall strength than the ranking gap suggests. Arizona&#x27;s scoring outlook is fairly neutral on paper in this matchup. Arizona has been the better kill-shot team and is more capable of creating separation in spurts.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Connecticut outlook</div>
-                  <p>Connecticut and Arizona are closer on overall strength than the ranking gap suggests. Neither side has a huge efficiency mismatch once offense and defense are paired. Connecticut has been more vulnerable to opponent runs than Arizona.</p>
-                </section>
-              </div>
-            </article>
-            
-            <article class="game-card bet"
-              data-overall-grade="50.98"
-              data-overall-status="BET"
-              data-overall-edge="6.7500"
-              data-overall-edge-signed="6.7500"
-              data-overall-win="68.3900"
-              data-blended-grade="100.00"
-              data-blended-status="BET"
-              data-blended-edge="6.7500"
-              data-blended-edge-signed="6.7500"
-              data-blended-win="68.3900"
-              data-spread-grade="34.30"
-              data-spread-status="PASS"
-              data-spread-edge="0.6400"
-              data-spread-edge-signed="-0.6400"
-              data-spread-win="68.3900"
-              data-moneyline-grade="50.98"
-              data-moneyline-status="BET"
-              data-moneyline-edge="6.7500"
-              data-moneyline-edge-signed="6.7500"
-              data-moneyline-win="68.3900"
-              data-total-grade="36.77"
-              data-total-status="PASS"
-              data-total-edge="3.8100"
-              data-total-edge-signed="-3.8100"
-              data-total-win="3.8100"
-              data-tip="1775523600"
-              data-search="illinois michigan illinois +4.5 michigan ml under 155.5 winters grady (out) 8.8m, impact +0.13, cbs sports [fallback] lower leg | pos g | ricky liburd (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos f | l.j. cason (out for season) 14.3m, impact +1.29, cbs sports knee | pos g ty rodgers (out) 8.8m, impact +0.13, cbs sports [fallback] knee | pos f | toni bilic (out for season) 8.8m, impact +0.13, cbs sports [fallback] not injury related | pos f | jason jakstys (out for season) 8.8m, impact +0.13, cbs sports [fallback] shoulder | pos c  edge&gt;=6pct and price&lt;=+220 ">
-              <div class="game-top">
-                <div>
-                  <div class="time-kicker">Mon Apr 06, 08:00 PM</div>
-                  <h2>Illinois at Michigan</h2>
-                  <div class="meta-row">
-                    <span class="status-pill bet">BET</span>
-                    <span class="chip">Blend 100</span>
-                    <span class="chip">Moneyline lead</span>
-                    <span class="chip">4 books</span>
-                    <span class="chip">Mode spread+moneyline+total</span>
-                  </div>
-                </div>
-                <div class="grade-box">
-                  <div class="grade-title">Best live grade</div>
-                  <div class="grade-score fade">51</div>
-                  <div class="grade-bar"><span style="width:51%;"></span></div>
-                  <div class="grade-note">Pass for now</div>
-                </div>
-              </div>
-
-              <div class="market-strip">
-                <section class="market-metric">
-                  <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Michigan -4.5 | O/U 155.5</div>
-                  <div class="mini">Michigan -180 | Illinois +150</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Model Score</div>
-                  <div class="big">Michigan 77.8 - 73.9 Illinois</div>
-                  <div class="mini">Michigan by 3.9</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Win Probability</div>
-                  <div class="big">Michigan 68.4%</div>
-                  <div class="mini">Home 68.4% | Away 31.6%</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Projection Engine</div>
-                  <div class="big">69.5 poss</div>
-                  <div class="mini">69.5 poss | Michigan 110.7 | Illinois 107.6</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Moneyline | Grade 51</div>
-                  <div class="mini">4 books | Moneyline</div>
-                </section>
-              </div>
-
-              <div class="summary-grid">
-                
-        <section class="summary-card branch-card bet" data-branch="blended">
-          <div class="summary-head">
-            <div class="label">Blended Game View</div>
-            <div class="summary-right">
-              <span class="status-pill bet">BET</span>
-              <span class="mini-grade elite">100</span>
-            </div>
-          </div>
-          <div class="value">Michigan ML</div>
-          <div class="sub">Chosen Moneyline branch | Selection 100.0 | Game score 57.3</div>
-          <div class="branch-note">threshold&gt;=90 | weights 57/33/10 | spread/ML preferred</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="spread">
-          <div class="summary-head">
-            <div class="label">Spread Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">34</span>
-            </div>
-          </div>
-          <div class="value">Illinois +4.5</div>
-          <div class="sub">Edge -0.64 pts | Model +3.86 home | Market -4.5 home</div>
-          <div class="branch-note">Residual spread branch</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card bet" data-branch="moneyline">
-          <div class="summary-head">
-            <div class="label">Moneyline Model</div>
-            <div class="summary-right">
-              <span class="status-pill bet">BET</span>
-              <span class="mini-grade fade">51</span>
-            </div>
-          </div>
-          <div class="value">Michigan ML</div>
-          <div class="sub">Edge +6.75 pts | Lean Michigan 68.4% | Market -180/+150</div>
-          <div class="branch-note">edge&gt;=6pct and price&lt;=+220</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card pass" data-branch="total">
-          <div class="summary-head">
-            <div class="label">Totals Model</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">37</span>
-            </div>
-          </div>
-          <div class="value">UNDER 155.5</div>
-          <div class="sub">Diff -3.81 pts | Model 151.7 | Market 155.5</div>
-          <div class="branch-note">Possessions / PPP totals branch</div>
-        </section>
-    
-              </div>
-
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-4.5</span><span>O/U 155.5</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-4.5</span><span>O/U 155.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-3.5</span><span>O/U 155.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-4.5</span><span>O/U 156.5</span></span></div>
-
-              <div class="detail-grid">
-                <section class="detail-card wide">
-                  <div class="label">Matchup key</div>
-                  <p>The model and market are fairly close, with only a 0.6-point gap. The biggest situational swing is lineup-related, with Michigan carrying the heavier injury drag. Recent form also leans toward Illinois.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Michigan outlook</div>
-                  <p>Michigan and Illinois are closer on overall strength than the ranking gap suggests. The clearest edge is Michigan&#x27;s offense against Illinois&#x27; defense. Michigan has tended to raise its level against strong opposition, which matters in this matchup.</p>
-                </section>
-                <section class="detail-card">
-                  <div class="label">Illinois outlook</div>
-                  <p>Illinois and Michigan are closer on overall strength than the ranking gap suggests. Illinois&#x27; defense is under more pressure here than its offense is helped. Illinois has been a bit shakier versus strong teams than its baseline suggests.</p>
-                </section>
-              </div>
-            </article>
-            
-            <article class="game-card track"
-              data-overall-grade="77.50"
-              data-overall-status="TRACK"
-              data-overall-edge="3.1000"
-              data-overall-edge-signed="-3.1000"
-              data-overall-win="64.0800"
-              data-blended-grade="79.90"
-              data-blended-status="PASS"
-              data-blended-edge="2.9000"
-              data-blended-edge-signed="2.9000"
-              data-blended-win="64.0800"
-              data-spread-grade="77.50"
-              data-spread-status="TRACK"
-              data-spread-edge="3.1000"
-              data-spread-edge-signed="-3.1000"
-              data-spread-win="64.0800"
-              data-moneyline-grade="32.37"
-              data-moneyline-status="PASS"
-              data-moneyline-edge="2.8200"
-              data-moneyline-edge-signed="2.8200"
-              data-moneyline-win="64.0800"
-              data-total-grade="24.74"
-              data-total-status="PASS"
-              data-total-edge="1.9600"
-              data-total-edge-signed="-1.9600"
-              data-total-win="1.9600"
-              data-tip="1775523600"
-              data-search="connecticut michigan connecticut +6.0 connecticut ml under 147.0 winters grady (out) 8.8m, impact +0.13, cbs sports [fallback] lower leg | pos g | ricky liburd (out for season) 8.8m, impact +0.13, cbs sports [fallback] redshirt | pos f | l.j. cason (out for season) 14.3m, impact +1.29, cbs sports knee | pos g    ">
-              <div class="game-top">
-                <div>
-                  <div class="time-kicker">Mon Apr 06, 08:00 PM</div>
-                  <h2>Connecticut at Michigan</h2>
-                  <div class="meta-row">
-                    <span class="status-pill track">TRACK</span>
-                    <span class="chip">Blend 80</span>
-                    <span class="chip">Spread lead</span>
-                    <span class="chip">4 books</span>
-                    <span class="chip">Mode spread+moneyline+total</span>
-                  </div>
-                </div>
-                <div class="grade-box">
-                  <div class="grade-title">Best live grade</div>
-                  <div class="grade-score action">78</div>
-                  <div class="grade-bar"><span style="width:78%;"></span></div>
-                  <div class="grade-note">Actionable</div>
-                </div>
-              </div>
-
-              <div class="market-strip">
-                <section class="market-metric">
-                  <div class="eyebrow">Consensus Market</div>
-                  <div class="big">Michigan -6.0 | O/U 147.0</div>
-                  <div class="mini">Michigan -230 | Connecticut +190</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Model Score</div>
-                  <div class="big">Michigan 74.0 - 71.1 Connecticut</div>
-                  <div class="mini">Michigan by 2.9</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Win Probability</div>
-                  <div class="big">Michigan 64.1%</div>
-                  <div class="mini">Home 64.1% | Away 35.9%</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Projection Engine</div>
-                  <div class="big">68.6 poss</div>
-                  <div class="mini">68.6 poss | Michigan 107.6 | Connecticut 104.3</div>
-                </section>
-                <section class="market-metric">
-                  <div class="eyebrow">Lead Signal</div>
-                  <div class="big">Spread | Grade 78</div>
-                  <div class="mini">4 books | Projection</div>
-                </section>
-              </div>
-
-              <div class="summary-grid">
-                
-        <section class="summary-card branch-card pass" data-branch="blended">
-          <div class="summary-head">
-            <div class="label">Blended Game View</div>
-            <div class="summary-right">
-              <span class="status-pill pass">PASS</span>
-              <span class="mini-grade action">80</span>
-            </div>
-          </div>
-          <div class="value">Michigan 74.0 - 71.1 Connecticut</div>
-          <div class="sub">Michigan by 2.9 | 68.6 poss | Total 145.0</div>
-          <div class="branch-note">Michigan 107.6 pp100 | Connecticut 104.3 pp100 | Blend 45% spread / 40% ML / 15% total</div>
-        </section>
-    
-                
-        <section class="summary-card branch-card track" data-branch="spread">
-          <div class="summary-head">
-            <div class="label">Spread Model</div>
-            <div class="summary-right">
-              <span class="status-pill track">TRACK</span>
-              <span class="mini-grade action">78</span>
-            </div>
-          </div>
-          <div class="value">Connecticut +6.0</div>
-          <div class="sub">Edge -3.10 pts | Model +2.90 home | Market -6.0 home</div>
-          <div class="branch-note">WATCH</div>
+          <div class="value">Connecticut +7.0</div>
+          <div class="sub">Edge -3.28 pts | Model +3.72 home | Market -7.0 home | Cover 61.7% vs BE 53.0%</div>
+          <div class="branch-note">edge + cover win% | line&lt;=10 | cover&gt;1.5% above breakeven | BET | EV +0.163 | Stake 1.25u | CORE</div>
         </section>
     
                 
@@ -2270,12 +1049,12 @@
             <div class="label">Moneyline Model</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">32</span>
+              <span class="mini-grade fade">36</span>
             </div>
           </div>
           <div class="value">Connecticut ML</div>
-          <div class="sub">Edge +2.82 pts | Lean Michigan 64.1% | Market -230/+190</div>
-          <div class="branch-note">Validated ML branch</div>
+          <div class="sub">Edge +4.34 pts | Lean Michigan 67.8% | Market -300/+245</div>
+          <div class="branch-note">Validated ML branch | PASS | EV +0.111 | Stake 0.00u | PASS</div>
         </section>
     
                 
@@ -2284,22 +1063,22 @@
             <div class="label">Totals Model</div>
             <div class="summary-right">
               <span class="status-pill pass">PASS</span>
-              <span class="mini-grade fade">25</span>
+              <span class="mini-grade fade">15</span>
             </div>
           </div>
-          <div class="value">UNDER 147.0</div>
-          <div class="sub">Diff -1.96 pts | Model 145.0 | Market 147.0</div>
-          <div class="branch-note">Possessions / PPP totals branch</div>
+          <div class="value">OVER 144.0</div>
+          <div class="sub">Diff +0.44 pts | Model 144.4 | Market 144.0</div>
+          <div class="branch-note">Possessions / PPP totals branch | PASS | EV -0.009 | Stake 0.00u | PASS</div>
         </section>
     
               </div>
 
-              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-6.0</span><span>O/U 147.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-6.0</span><span>O/U 147.0</span></span><span class="book-pill"><strong>DraftKings</strong><span>-5.5</span><span>O/U 146.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-6.5</span><span>O/U 147.5</span></span></div>
+              <div class="books-row"><span class="book-pill"><strong>LowVig.ag</strong><span>-7.0</span><span>O/U 144.0</span></span><span class="book-pill"><strong>BetOnline.ag</strong><span>-7.0</span><span>O/U 144.0</span></span><span class="book-pill"><strong>BetRivers</strong><span>-6.5</span><span>O/U 144.5</span></span><span class="book-pill"><strong>DraftKings</strong><span>-6.5</span><span>O/U 144.5</span></span><span class="book-pill"><strong>FanDuel</strong><span>-7.5</span><span>O/U 144.5</span></span></div>
 
               <div class="detail-grid">
                 <section class="detail-card wide">
                   <div class="label">Matchup key</div>
-                  <p>The model is 3.1 points stronger on Connecticut than the current market. The biggest situational swing is lineup-related, with Michigan carrying the heavier injury drag. Recent form also leans toward Connecticut.</p>
+                  <p>The model is 3.3 points stronger on Connecticut than the current market. The biggest situational swing is lineup-related, with Michigan carrying the heavier injury drag. Recent form also leans toward Connecticut.</p>
                 </section>
                 <section class="detail-card">
                   <div class="label">Michigan outlook</div>
@@ -2321,7 +1100,7 @@
             <p>Historical branch performance stays below the slate so the board keeps priority, but the current proxy numbers are still one glance away.</p>
           </div>
         </div>
-        <div class="performance-grid"><article class="performance-card bet"><div class="performance-title">Overall Proxy</div><div class="performance-value">+240.2u</div><div class="performance-sub">20.8% ROI/play | 1153 plays</div><div class="performance-note">2024-2025 proxy backtest</div></article><article class="performance-card bet"><div class="performance-title">Blended Branch</div><div class="performance-value">+196.1u</div><div class="performance-sub">39.1% ROI/play | 502 plays</div><div class="performance-note">Backtested blended branch</div></article><article class="performance-card bet"><div class="performance-title">Spread Branch</div><div class="performance-value">+54.9u</div><div class="performance-sub">27.6% ROI/play | 199 plays</div><div class="performance-note">Validated 2-season proxy</div></article><article class="performance-card bet"><div class="performance-title">Moneyline Branch</div><div class="performance-value">+190.3u</div><div class="performance-sub">20.5% ROI/play | 927 plays</div><div class="performance-note">Validated 2-season proxy</div></article><article class="performance-card pass"><div class="performance-title">Totals Branch</div><div class="performance-value">-5.0u</div><div class="performance-sub">-18.5% ROI/play | 27 plays</div><div class="performance-note">Tracking only</div></article></div>
+        <div class="performance-grid"><article class="performance-card bet"><div class="performance-title">Overall Proxy</div><div class="performance-value">+279.4u</div><div class="performance-sub">19.2% ROI/play | 1454 plays</div><div class="performance-note">2024-2025 proxy backtest</div></article><article class="performance-card bet"><div class="performance-title">Blended Branch</div><div class="performance-value">+196.1u</div><div class="performance-sub">39.1% ROI/play | 502 plays</div><div class="performance-note">Backtested blended branch</div></article><article class="performance-card bet"><div class="performance-title">Spread Branch</div><div class="performance-value">+94.1u</div><div class="performance-sub">18.8% ROI/play | 500 plays</div><div class="performance-note">Validated 2-season proxy</div></article><article class="performance-card bet"><div class="performance-title">Moneyline Branch</div><div class="performance-value">+190.3u</div><div class="performance-sub">20.5% ROI/play | 927 plays</div><div class="performance-note">Validated 2-season proxy</div></article><article class="performance-card pass"><div class="performance-title">Totals Branch</div><div class="performance-value">-5.0u</div><div class="performance-sub">-18.5% ROI/play | 27 plays</div><div class="performance-note">Tracking only</div></article></div>
       </section>
       <aside class="panel top-box floating-leaders">
         <h2 id="topBoxTitle">Screen Leaders</h2>
@@ -2333,7 +1112,7 @@
 
   <script>
     (function () {
-      const topPlayData = {"all": [{"matchup": "Stanford at West Virginia", "pick": "West Virginia ML", "grade": 100, "edge": "+30.92", "time": "Thu Apr 02, 07:00 PM", "tag": "Moneyline"}, {"matchup": "Michigan at Arizona", "pick": "Arizona +1.5", "grade": 100, "edge": "+4.54", "time": "Sat Apr 04, 07:49 PM", "tag": "Spread"}, {"matchup": "Illinois at Arizona", "pick": "Arizona ML", "grade": 94.0, "edge": "+19.98", "time": "Mon Apr 06, 08:00 PM", "tag": "Moneyline"}, {"matchup": "Illinois at Connecticut", "pick": "Connecticut +2.0", "grade": 90.0, "edge": "+4.02", "time": "Sat Apr 04, 05:09 PM", "tag": "Spread"}, {"matchup": "Connecticut at Arizona", "pick": "Arizona ML", "grade": 76.8, "edge": "+13.15", "time": "Mon Apr 06, 08:00 PM", "tag": "Moneyline"}, {"matchup": "Illinois at Michigan", "pick": "Michigan ML", "grade": 51.0, "edge": "+6.75", "time": "Mon Apr 06, 08:00 PM", "tag": "Moneyline"}], "blended": [{"matchup": "Stanford at West Virginia", "pick": "West Virginia ML", "grade": 100, "edge": "+30.92", "time": "Thu Apr 02, 07:00 PM", "tag": "Moneyline"}, {"matchup": "Illinois at Connecticut", "pick": "Connecticut ML", "grade": 100, "edge": "+15.23", "time": "Sat Apr 04, 05:09 PM", "tag": "Moneyline"}, {"matchup": "Michigan at Arizona", "pick": "Arizona ML", "grade": 100, "edge": "+17.35", "time": "Sat Apr 04, 07:49 PM", "tag": "Moneyline"}, {"matchup": "Illinois at Arizona", "pick": "Arizona ML", "grade": 100, "edge": "+19.98", "time": "Mon Apr 06, 08:00 PM", "tag": "Moneyline"}, {"matchup": "Connecticut at Arizona", "pick": "Arizona ML", "grade": 100, "edge": "+13.15", "time": "Mon Apr 06, 08:00 PM", "tag": "Moneyline"}, {"matchup": "Illinois at Michigan", "pick": "Michigan ML", "grade": 100, "edge": "+6.75", "time": "Mon Apr 06, 08:00 PM", "tag": "Moneyline"}], "spread": [{"matchup": "Stanford at West Virginia", "pick": "West Virginia -1.5", "grade": 85.6, "edge": "+6.46", "time": "Thu Apr 02, 07:00 PM", "tag": "T1"}, {"matchup": "Illinois at Arizona", "pick": "Arizona -4.0", "grade": 77.5, "edge": "+3.22", "time": "Mon Apr 06, 08:00 PM", "tag": "T2"}], "moneyline": [{"matchup": "Stanford at West Virginia", "pick": "West Virginia ML", "grade": 100, "edge": "+30.92", "time": "Thu Apr 02, 07:00 PM", "tag": "Moneyline"}, {"matchup": "Illinois at Arizona", "pick": "Arizona ML", "grade": 94.0, "edge": "+19.98", "time": "Mon Apr 06, 08:00 PM", "tag": "Moneyline"}, {"matchup": "Michigan at Arizona", "pick": "Arizona ML", "grade": 78.9, "edge": "+17.35", "time": "Sat Apr 04, 07:49 PM", "tag": "Moneyline"}, {"matchup": "Connecticut at Arizona", "pick": "Arizona ML", "grade": 76.8, "edge": "+13.15", "time": "Mon Apr 06, 08:00 PM", "tag": "Moneyline"}, {"matchup": "Illinois at Connecticut", "pick": "Connecticut ML", "grade": 71.3, "edge": "+15.23", "time": "Sat Apr 04, 05:09 PM", "tag": "Moneyline"}, {"matchup": "Illinois at Michigan", "pick": "Michigan ML", "grade": 51.0, "edge": "+6.75", "time": "Mon Apr 06, 08:00 PM", "tag": "Moneyline"}], "total": []};
+      const topPlayData = {"all": [{"matchup": "Oklahoma at West Virginia", "pick": "West Virginia ML", "grade": 88.7, "edge": "+22.22", "time": "Sun Apr 05, 04:30 PM", "tag": "Moneyline", "stake": "1.50u", "ev": "+0.515", "status": "BET"}, {"matchup": "Tulsa at Auburn", "pick": "Tulsa +5.5", "grade": 97.5, "edge": "-6.03", "time": "Sun Apr 05, 07:00 PM", "tag": "Spread", "stake": "1.25u", "ev": "+0.383", "status": "BET"}, {"matchup": "Connecticut at Michigan", "pick": "Connecticut +7.0", "grade": 92.5, "edge": "-3.28", "time": "Mon Apr 06, 08:00 PM", "tag": "Spread", "stake": "1.25u", "ev": "+0.163", "status": "BET"}], "blended": [{"matchup": "Oklahoma at West Virginia", "pick": "West Virginia ML", "grade": 100, "edge": "+22.22", "time": "Sun Apr 05, 04:30 PM", "tag": "Moneyline", "stake": "1.50u", "ev": "+0.515", "status": "BET"}, {"matchup": "Connecticut at Michigan", "pick": "Connecticut +7.0", "grade": 100, "edge": "+3.28", "time": "Mon Apr 06, 08:00 PM", "tag": "Spread", "stake": "1.50u", "ev": "+0.163", "status": "BET"}, {"matchup": "Tulsa at Auburn", "pick": "Tulsa ML", "grade": 100, "edge": "+20.06", "time": "Sun Apr 05, 07:00 PM", "tag": "Moneyline", "stake": "0.75u", "ev": "+0.553", "status": "LEAN"}], "spread": [{"matchup": "Tulsa at Auburn", "pick": "Tulsa +5.5", "grade": 97.5, "edge": "-6.03", "time": "Sun Apr 05, 07:00 PM", "tag": "T1", "stake": "1.25u", "ev": "+0.383", "status": "BET"}, {"matchup": "Oklahoma at West Virginia", "pick": "West Virginia +3.5", "grade": 95.0, "edge": "+5.91", "time": "Sun Apr 05, 04:30 PM", "tag": "T1", "stake": "1.25u", "ev": "+0.369", "status": "BET"}, {"matchup": "Connecticut at Michigan", "pick": "Connecticut +7.0", "grade": 92.5, "edge": "-3.28", "time": "Mon Apr 06, 08:00 PM", "tag": "T1", "stake": "1.25u", "ev": "+0.163", "status": "BET"}], "moneyline": [{"matchup": "Oklahoma at West Virginia", "pick": "West Virginia ML", "grade": 88.7, "edge": "+22.22", "time": "Sun Apr 05, 04:30 PM", "tag": "Moneyline", "stake": "1.50u", "ev": "+0.515", "status": "BET"}, {"matchup": "Tulsa at Auburn", "pick": "Tulsa ML", "grade": 78.6, "edge": "+20.06", "time": "Sun Apr 05, 07:00 PM", "tag": "Moneyline", "stake": "0.75u", "ev": "+0.553", "status": "LEAN"}], "total": []};
       const topBoxTitle = document.getElementById("topBoxTitle");
       const topBoxNote = document.getElementById("topBoxNote");
       const list = document.getElementById("gameList");
@@ -2348,11 +1127,11 @@
       const viewNote = document.getElementById("viewNote");
       const viewTabs = Array.from(document.querySelectorAll(".view-tab"));
       const viewMessages = {
-        all: "All view ranks each game by its strongest live branch signal.",
-        blended: "Blended view combines spread, moneyline, and totals into one predicted game script with score, pace, and PPP stats.",
-        spread: "Spread view uses the residual spread branch and sorts by spread-specific grade and edge.",
-        moneyline: "Moneyline view keeps the validated ML branch front and center.",
-        total: "Totals view shows the new possessions and PPP model, but this branch is still experimental on the backtest."
+        all: "All view ranks games by the strongest official recommendation, then by stake size and grade.",
+        blended: "Blended view combines spread, moneyline, and totals into one predicted game script with score, pace, PPP, and a portfolio recommendation.",
+        spread: "Spread view uses the residual spread branch with cover probability, EV, and stake sizing.",
+        moneyline: "Moneyline view keeps the validated ML branch front and center with price-sensitive risk sizing.",
+        total: "Totals view shows the new possessions and PPP model, but this branch remains experimental and mostly lean-only."
       };
       const sortLabels = {
         all: {
@@ -2425,7 +1204,7 @@
               <div>
                 <div class="matchup">${item.matchup}</div>
                 <div class="pick">${item.pick}</div>
-                <div class="top-meta">${item.tag} | Grade ${item.grade} | Edge ${item.edge} | ${item.time}</div>
+                <div class="top-meta">${item.status || item.tag} | Grade ${item.grade} | Edge ${item.edge} | Stake ${item.stake || "-"} | EV ${item.ev || "-"} | ${item.time}</div>
               </div>
             </article>
           `;
